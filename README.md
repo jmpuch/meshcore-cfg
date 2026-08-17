@@ -52,8 +52,8 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur --dry-run
 meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur
 
 # Appliquer un template — auto-détecte vars/régions/les deux, un ou plusieurs fichiers
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/paris-repeater.json --dry-run
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/paris-repeater.json
+meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json --dry-run
+meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json
 
 # Gestion des régions (arbre de scoping du flood, pas la fréquence radio)
 meshcore-repeater-cfg --port /dev/ttyUSB0 region list
@@ -70,14 +70,16 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail
 complet des options.
 
-## Template `templates/paris-repeater.json`
+## Template `templates/template-paris.json`
 
-Un exemple de template complet fourni avec ce repo — tous les champs
-supportés par l'outil y sont listés, actifs ou documentés-désactivés
-(préfixe `#` devant la clé : la valeur reste visible mais n'est pas
-appliquée). Basé sur les recommandations officielles de la communauté
-MeshCore France, avec les coordonnées de Paris et une hiérarchie de
-régions `eu → europe → fr → paris` en exemple.
+Un exemple de template fourni avec ce repo — les champs de configuration
+courants y sont listés, actifs ou documentés-désactivés (préfixe `#` devant
+la clé : la valeur reste visible mais n'est pas appliquée). Basé sur les
+recommandations officielles de la communauté MeshCore France, avec les
+coordonnées de Paris et une hiérarchie de régions `eu → europe → fr →
+paris` en exemple. Volontairement sans mot de passe admin ni entrée ACL —
+voir la section « Format des templates » ci-dessous si vous voulez les
+ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
 l'appliquer — regardez d'abord ce qui changerait avec `--dry-run`.

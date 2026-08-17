@@ -27,15 +27,7 @@
     "#int.thresh": 0,
     "#rxdelay": 0,
     "#txdelay": 0.5,
-    "#direct.txdelay": 0.3,
-
-    "#password": "admin — device-wide admin password, sent as the raw command `password <value>` (not `set password <value>`). Unlike other fields it can never be read back (no `get password` handler), so it's always (re-)applied when enabled, never diffed against a current value.",
-
-    "#prv.key": "REDACTED - identity key; a base template shouldn't clone one device's identity onto many, remove the # only when deliberately cloning a single specific device",
-    "#public.key": "REDACTED - informational only, no set handler exists for this field in the firmware"
-  },
-  "acl": {
-    "#1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd": "admin"
+    "#direct.txdelay": 0.3
   },
   "regions": {
     "eu": { "parent": null, "flood_allowed": true },

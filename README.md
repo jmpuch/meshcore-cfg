@@ -1,6 +1,6 @@
 # meshcore-repeater-cfg
 
-CLI (Rust) pour configurer des répéteurs [MeshCore](https://meshcore.co.uk/)
+CLI (Rust) pour configurer des répéteurs [MeshCore](https://meshcore.io/)
 — avec en plus l'application de templates de configuration complets, la
 gestion de l'arbre de régions, la gestion de l'ACL (droits admin/guest), et
 la possibilité de configurer un répéteur **distant** via un compagnon radio
@@ -123,15 +123,31 @@ complet des options.
 
 Un exemple de template fourni avec ce repo — les champs de configuration
 courants y sont listés, actifs ou documentés-désactivés (préfixe `#` devant
-la clé : la valeur reste visible mais n'est pas appliquée). Basé sur les
-recommandations officielles de la communauté MeshCore France, avec les
-coordonnées de Paris et une hiérarchie de régions `eu → europe → fr →
-paris` en exemple. Volontairement sans mot de passe admin ni entrée ACL —
-voir la section « Format des templates » ci-dessous si vous voulez les
-ajouter vous-même.
+la clé : la valeur reste visible mais n'est pas appliquée). Correspond
+champ par champ aux recommandations officielles de la communauté MeshCore
+France (vérifié 2026-08-17), y compris `dutycycle` (respect du duty-cycle
+LoRa européen) et la hiérarchie de régions `eu → europe → fr` avec
+`home`/`default` sur `fr` — la caractéristique "Paris" du template vient
+uniquement des coordonnées GPS (lat/lon). Volontairement sans mot de passe
+admin ni entrée ACL — voir la section « Format des templates » ci-dessous
+si vous voulez les ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
-l'appliquer — regardez d'abord ce qui changerait avec `--dry-run`.
+l'appliquer — regardez d'abord ce qui changerait avec `--dry-run`. Une
+fois appliqué (si le template touche aux régions), la recommandation
+officielle demande aussi de synchroniser l'horloge et de redémarrer :
+
+```bash
+meshcore-repeater-cfg --port /dev/ttyUSB0 raw "clock sync"
+meshcore-repeater-cfg --port /dev/ttyUSB0 raw "reboot"
+```
+
+Les changements de région ne survivent pas à un redémarrage sans un
+`region save` explicite (contrairement aux autres champs, persistés
+automatiquement à chaque écriture) — `apply-template`/`clone` l'envoient
+désormais automatiquement dès qu'un changement de région a réellement été
+appliqué, confirmé par `region save: OK (persisted across reboot)` dans la
+sortie.
 
 ## Format des templates
 

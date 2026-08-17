@@ -7,6 +7,7 @@
     "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
     "#tx": 20,
     "af": 9,
+    "dutycycle": 10,
 
     "repeat": true,
     "#allow.read.only": false,
@@ -32,9 +33,8 @@
   "regions": {
     "eu": { "parent": null, "flood_allowed": true },
     "europe": { "parent": "eu", "flood_allowed": true },
-    "fr": { "parent": "europe", "flood_allowed": true },
-    "paris": { "parent": "fr", "flood_allowed": false }
+    "fr": { "parent": "europe", "flood_allowed": true }
   },
-  "home": "paris",
-  "default": null
+  "home": "fr",
+  "default": "fr"
 }

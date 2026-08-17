@@ -1,11 +1,9 @@
 # meshcore-repeater-cfg
 
 CLI (Rust) pour configurer des répéteurs [MeshCore](https://meshcore.co.uk/)
-— port du configurateur web officiel
-[`config.meshcore.io`](https://github.com/meshcore-dev/config.meshcore.io),
-avec en plus l'application de templates de configuration complets, la
+— avec en plus l'application de templates de configuration complets, la
 gestion de l'arbre de régions, la gestion de l'ACL (droits admin/guest), et
-la possibilité de configurer un répéteur **distant** via un companion radio
+la possibilité de configurer un répéteur **distant** via un compagnon radio
 sur le mesh LoRa, sans y être physiquement connecté.
 
 > **Sources** : pas encore publiées — cette v1.0.0 distribue uniquement les

@@ -31,6 +31,14 @@ chmod +x meshcore-repeater-cfg
 .\meshcore-repeater-cfg.exe --version
 ```
 
+**Antivirus (Windows)** : un exécutable non signé et tout juste publié peut
+se faire signaler par certains antivirus (rencontré avec Avast) — c'est un
+faux positif habituel pour ce genre d'outil (rien à voir avec le code), lié
+à l'absence de signature et à la nouveauté du fichier plutôt qu'à un
+comportement suspect réel. Si ça arrive, ajouter une exception suffit ; le
+signaler comme faux positif à l'éditeur de votre antivirus aide à corriger
+ça pour tout le monde.
+
 ## Trouver son port
 
 Le device se branche en USB. Sous Linux le port ressemble à
@@ -67,11 +75,18 @@ Sortie vide (`0 field(s) changed`) = conforme au template. Toute ligne
 `Would change ...` montre exactement ce qui diffère, à valider avant
 d'appliquer pour de vrai (même commande, sans `--dry-run`).
 
-Le fichier template est cherché tel quel d'abord, puis dans un
-sous-répertoire `templates/` s'il n'y est pas — `apply-template
-template-paris.json` fonctionne donc que vous soyez dans le dossier
-contenant directement le fichier, ou dans son dossier parent avec
-`templates/template-paris.json`.
+Le fichier template est cherché tel quel d'abord, puis avec le préfixe
+`templates/` ajouté ou retiré selon le cas — `apply-template
+template-paris.json` fonctionne donc que le fichier soit directement à
+côté du binaire ou dans un sous-dossier `templates/`, quelle que soit la
+façon dont vous avez tapé le chemin.
+
+Chaque `reading <champ>...` affiche la valeur lue juste derrière, sur la
+même ligne — pratique pour suivre ce qui se passe en direct, et pour
+garder une trace : `2>&1 | Tee-Object -FilePath log.txt -Append` sous
+PowerShell (ou `2>&1 | tee -a log.txt` sous Linux/macOS) capture tout ce
+qui s'affiche dans un fichier, en accumulant l'historique entre plusieurs
+exécutions.
 
 Autres commandes utiles :
 

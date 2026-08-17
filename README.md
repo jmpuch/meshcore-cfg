@@ -30,10 +30,43 @@ chmod +x meshcore-repeater-cfg
 .\meshcore-repeater-cfg.exe --version
 ```
 
-## Usage rapide
+## Trouver son port
 
 Le device se branche en USB. Sous Linux le port ressemble à
 `/dev/ttyUSB0`, sous Windows à `COM3`.
+
+**Windows** — Gestionnaire de périphériques → « Ports (COM & LPT) » : le
+device apparaît typiquement comme `Silicon Labs CP210x USB to UART Bridge
+(COMx)` (ou `CH340` selon la board) — le numéro de port est entre
+parenthèses. En ligne de commande (PowerShell) :
+
+```powershell
+Get-PnpDevice -Class Ports -PresentOnly | Format-Table Name, InstanceId -AutoSize
+```
+
+Si aucun port n'apparaît alors que le câble est branché, c'est
+probablement le driver CP210x à installer manuellement (pas toujours
+présent par défaut sur Windows).
+
+**Linux** — `ls /dev/ttyUSB*` (ou `dmesg | tail` juste après avoir
+branché le câble pour voir le port assigné).
+
+## Usage rapide
+
+Une fois le port identifié, le premier réflexe utile : vérifier l'état
+d'un répéteur par rapport au template fourni, **sans rien modifier** —
+`--dry-run` calcule et affiche l'écart mais n'envoie jamais rien au
+device :
+
+```bash
+meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json --dry-run
+```
+
+Sortie vide (`0 field(s) changed`) = conforme au template. Toute ligne
+`Would change ...` montre exactement ce qui diffère, à valider avant
+d'appliquer pour de vrai (même commande, sans `--dry-run`).
+
+Autres commandes utiles :
 
 ```bash
 # Lire un champ
@@ -48,10 +81,6 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 dump mon-repeteur
 # La restaurer (ou la reproduire sur un autre device)
 meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur --dry-run
 meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur
-
-# Appliquer un template — auto-détecte vars/régions/les deux, un ou plusieurs fichiers
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json --dry-run
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json
 
 # Gestion des régions (arbre de scoping du flood, pas la fréquence radio)
 meshcore-repeater-cfg --port /dev/ttyUSB0 region list

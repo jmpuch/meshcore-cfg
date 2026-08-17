@@ -68,7 +68,7 @@ d'un répéteur par rapport au template fourni, **sans rien modifier** —
 device :
 
 ```bash
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-paris.json --dry-run
+meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --dry-run
 ```
 
 Sortie vide (`0 field(s) changed`) = conforme au template. Toute ligne
@@ -77,7 +77,7 @@ d'appliquer pour de vrai (même commande, sans `--dry-run`).
 
 Le fichier template est cherché tel quel d'abord, puis avec le préfixe
 `templates/` ajouté ou retiré selon le cas — `apply-template
-template-paris.json` fonctionne donc que le fichier soit directement à
+template-fr.json` fonctionne donc que le fichier soit directement à
 côté du binaire ou dans un sous-dossier `templates/`, quelle que soit la
 façon dont vous avez tapé le chemin.
 
@@ -119,7 +119,7 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail
 complet des options.
 
-## Template `templates/template-paris.json`
+## Template `templates/template-fr.json`
 
 Un exemple de template fourni avec ce repo — les champs de configuration
 courants y sont listés, actifs ou documentés-désactivés (préfixe `#` devant
@@ -127,13 +127,16 @@ la clé : la valeur reste visible mais n'est pas appliquée). Correspond
 champ par champ aux recommandations officielles de la communauté MeshCore
 France (vérifié 2026-08-17), y compris `dutycycle` (respect du duty-cycle
 LoRa européen) et la hiérarchie de régions `eu → europe → fr` avec
-`home`/`default` sur `fr` — la caractéristique "Paris" du template vient
-uniquement des coordonnées GPS (lat/lon). Volontairement sans mot de passe
-admin ni entrée ACL — voir la section « Format des templates » ci-dessous
-si vous voulez les ajouter vous-même.
+`home`/`default` sur `fr`. Générique à toute la France, pas à une ville en
+particulier : `lat`/`lon` sont volontairement `#`-désactivés (valeurs
+d'exemple) — à retirer le `#` et remplacer par vos propres coordonnées
+avant d'appliquer. Volontairement sans mot de passe admin ni entrée ACL —
+voir la section « Format des templates » ci-dessous si vous voulez les
+ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
-l'appliquer — regardez d'abord ce qui changerait avec `--dry-run`. Une
+l'appliquer (au minimum `lat`/`lon`) — regardez d'abord ce qui changerait
+avec `--dry-run`. Une
 fois appliqué (si le template touche aux régions), la recommandation
 officielle demande aussi de synchroniser l'horloge et de redémarrer :
 

@@ -1,0 +1,48 @@
+{
+  "vars": {
+    "#name": "Heltec Repeater",
+    "lat": 48.85661,
+    "lon": 2.35222,
+
+    "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
+    "#tx": 20,
+    "af": 9,
+
+    "repeat": true,
+    "#allow.read.only": false,
+    "guest.password": "",
+
+    "advert.interval": 240,
+    "flood.advert.interval": 24,
+    "#flood.max": 64,
+    "flood.max.advert": 8,
+    "flood.max.unscoped": 5,
+
+    "agc.reset.interval": 4,
+    "multi.acks": "1",
+    "path.hash.mode": 1,
+    "loop.detect": "minimal",
+
+    "#owner.info": "",
+    "#int.thresh": 0,
+    "#rxdelay": 0,
+    "#txdelay": 0.5,
+    "#direct.txdelay": 0.3,
+
+    "#password": "admin — device-wide admin password, sent as the raw command `password <value>` (not `set password <value>`). Unlike other fields it can never be read back (no `get password` handler), so it's always (re-)applied when enabled, never diffed against a current value.",
+
+    "#prv.key": "REDACTED - identity key; a base template shouldn't clone one device's identity onto many, remove the # only when deliberately cloning a single specific device",
+    "#public.key": "REDACTED - informational only, no set handler exists for this field in the firmware"
+  },
+  "acl": {
+    "#1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd": "admin"
+  },
+  "regions": {
+    "eu": { "parent": null, "flood_allowed": true },
+    "europe": { "parent": "eu", "flood_allowed": true },
+    "fr": { "parent": "europe", "flood_allowed": true },
+    "paris": { "parent": "fr", "flood_allowed": false }
+  },
+  "home": "paris",
+  "default": null
+}

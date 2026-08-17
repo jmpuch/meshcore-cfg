@@ -15,7 +15,7 @@ sur le mesh LoRa, sans y être physiquement connecté.
 ## Installation
 
 Télécharger le binaire correspondant à votre système depuis la page
-[Releases](../../releases) :
+[Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases) :
 
 - **Linux** (x86_64) : `meshcore-repeater-cfg`
 - **Windows** (x86_64) : `meshcore-repeater-cfg.exe` — autonome, aucune

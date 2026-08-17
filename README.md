@@ -6,9 +6,10 @@ gestion de l'arbre de régions, la gestion de l'ACL (droits admin/guest), et
 la possibilité de configurer un répéteur **distant** via un compagnon radio
 sur le mesh LoRa, sans y être physiquement connecté.
 
-> **Sources** : pas encore publiées — cette v1.0.0 distribue uniquement les
-> binaires précompilés. Si l'outil intéresse plus largement, les sources
-> suivront.
+> **Sources** : pas encore publiées — ce repo distribue uniquement les
+> binaires précompilés (voir [Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases)
+> pour le détail de chaque version). Si l'outil intéresse plus largement,
+> les sources suivront.
 
 ## Installation
 
@@ -65,6 +66,12 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-pari
 Sortie vide (`0 field(s) changed`) = conforme au template. Toute ligne
 `Would change ...` montre exactement ce qui diffère, à valider avant
 d'appliquer pour de vrai (même commande, sans `--dry-run`).
+
+Le fichier template est cherché tel quel d'abord, puis dans un
+sous-répertoire `templates/` s'il n'y est pas — `apply-template
+template-paris.json` fonctionne donc que vous soyez dans le dossier
+contenant directement le fichier, ou dans son dossier parent avec
+`templates/template-paris.json`.
 
 Autres commandes utiles :
 

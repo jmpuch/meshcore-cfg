@@ -150,24 +150,14 @@ ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
 l'appliquer (au minimum `lat`/`lon`) — regardez d'abord ce qui changerait
-avec `--dry-run`. Une
-fois appliqué (si le template touche aux régions), la recommandation
-officielle demande aussi de synchroniser l'horloge et de redémarrer.
-
-**Attention** : la commande `clock sync` du firmware ne fonctionne **pas**
-en connexion série directe (elle refuse toujours avec `"ERR: clock cannot
-go backwards"`, quel que soit l'état de l'horloge — confirmé sur matériel
-réel). La commande à utiliser à la place, qui réinitialise l'horloge puis
-redémarre en une seule fois :
-
-```bash
-meshcore-repeater-cfg --port /dev/ttyUSB0 raw "clkreboot"
-```
-
-Le firmware ne renvoyant jamais de réponse avant de redémarrer, l'outil
-affiche systématiquement `Error: timed out waiting for response` — c'est
-normal, pas un échec : le redémarrage a bien lieu (le device répond de
-nouveau normalement quelques secondes après).
+avec `--dry-run`. Une fois appliqué (si le template touche aux régions),
+la recommandation officielle demande aussi de synchroniser l'horloge et de
+redémarrer — hors du périmètre de cet outil : `clock sync` ne fonctionne
+**pas** en connexion série directe (elle refuse toujours avec
+`"ERR: clock cannot go backwards"`, quel que soit l'état de l'horloge —
+confirmé sur matériel réel). Réglez l'horloge du device par le mécanisme
+propre à votre installation (companion/app MeshCore), puis redémarrez-le
+manuellement une fois le template appliqué.
 
 Les changements de région ne survivent pas à un redémarrage sans un
 `region save` explicite (contrairement aux autres champs, persistés

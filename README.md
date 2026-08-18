@@ -1,5 +1,7 @@
 # meshcore-repeater-cfg
 
+*[🇬🇧 English version](README-en.md)*
+
 CLI (Rust) pour configurer des répéteurs [MeshCore](https://meshcore.io/)
 — avec en plus l'application de templates de configuration complets, la
 gestion de l'arbre de régions, la gestion de l'ACL (droits admin/guest), et

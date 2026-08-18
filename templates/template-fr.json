@@ -1,31 +1,29 @@
 {
   "vars": {
-    "#name": "Heltec Repeater",
-    "#lat": 48.85661,
-    "#lon": 2.35222,
-
+    "#_comment1": "Préconisations selon https://meshcore.fr/ ",
     "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
-    "#tx": 20,
-    "af": 9,
-    "dutycycle": 10,
-
-    "repeat": true,
-    "#allow.read.only": false,
-    "guest.password": "",
 
     "advert.interval": 240,
     "flood.advert.interval": 24,
-    "#flood.max": 64,
-    "flood.max.advert": 8,
-    "flood.max.unscoped": 5,
-
     "agc.reset.interval": 4,
     "multi.acks": "1",
+    "dutycycle": 10,
     "path.hash.mode": 1,
     "loop.detect": "minimal",
+    "flood.max.advert": 8,
+    "flood.max.unscoped": 5,
+    "repeat": true,
+    "guest.password": "",
 
+    "#_comment2": "autres paramètres/balises gérés",
+    "#name": "Heltec Repeater",
+    "#lat": 48.85661,
+    "#lon": 2.35222,     
+    "#allow.read.only": false,
+    "#flood.max": 64,
     "#owner.info": "",
     "#int.thresh": 0,
+    "#tx": 20,
     "#rxdelay": 0,
     "#txdelay": 0.5,
     "#direct.txdelay": 0.3

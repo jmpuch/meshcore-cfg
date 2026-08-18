@@ -127,6 +127,10 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 region list
 meshcore-repeater-cfg --port /dev/ttyUSB0 acl list
 meshcore-repeater-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> admin
 
+# Voisins radio directs (ce que le device a réellement entendu en LoRa, pas un carnet de contacts)
+meshcore-repeater-cfg --port /dev/ttyUSB0 neighbors
+# 4C371AF9   39m ago    SNR 12.5 dB
+
 # Configurer un device distant via un companion radio sur le mesh LoRa
 meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
   --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> get name

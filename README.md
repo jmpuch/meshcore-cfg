@@ -16,19 +16,33 @@ sur le mesh LoRa, sans y être physiquement connecté.
 Télécharger le binaire correspondant à votre système depuis la page
 [Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases) :
 
-- **Linux** (x86_64) : `meshcore-repeater-cfg`
-- **Windows** (x86_64) : `meshcore-repeater-cfg.exe` — autonome, aucune
-  DLL supplémentaire à installer
+- **Linux** (x86_64) : `meshcore-repeater-cfg-linux-x86_64`
+- **Windows** (x86_64) : `meshcore-repeater-cfg-windows-x86_64.exe` —
+  autonome, aucune DLL supplémentaire à installer
+- **macOS** (Intel + Apple Silicon, binaire universel) :
+  `meshcore-repeater-cfg-macos-universal`
 
 ```bash
-# Linux : rendre le binaire exécutable
-chmod +x meshcore-repeater-cfg
-./meshcore-repeater-cfg --version
+# Linux/macOS : rendre le binaire exécutable
+chmod +x meshcore-repeater-cfg-linux-x86_64   # ou -macos-universal
+./meshcore-repeater-cfg-linux-x86_64 --version
 ```
 
 ```powershell
 # Windows
-.\meshcore-repeater-cfg.exe --version
+.\meshcore-repeater-cfg-windows-x86_64.exe --version
+```
+
+**Gatekeeper (macOS)** : le binaire n'étant pas signé/notarié par un
+compte développeur Apple, macOS refuse de le lancer au premier essai
+(« ne peut pas être ouvert car il provient d'un développeur non identifié »).
+Deux façons de passer outre : **Réglages Système → Confidentialité et
+sécurité**, faire défiler jusqu'au message concernant le fichier bloqué et
+cliquer *Autoriser quand même* ; ou en ligne de commande, une fois pour
+toutes :
+
+```bash
+xattr -d com.apple.quarantine ./meshcore-repeater-cfg-macos-universal
 ```
 
 **Antivirus (Windows)** : un exécutable non signé et tout juste publié peut
@@ -138,12 +152,22 @@ Dupliquez-le et adaptez les valeurs actives à votre site avant de
 l'appliquer (au minimum `lat`/`lon`) — regardez d'abord ce qui changerait
 avec `--dry-run`. Une
 fois appliqué (si le template touche aux régions), la recommandation
-officielle demande aussi de synchroniser l'horloge et de redémarrer :
+officielle demande aussi de synchroniser l'horloge et de redémarrer.
+
+**Attention** : la commande `clock sync` du firmware ne fonctionne **pas**
+en connexion série directe (elle refuse toujours avec `"ERR: clock cannot
+go backwards"`, quel que soit l'état de l'horloge — confirmé sur matériel
+réel). La commande à utiliser à la place, qui réinitialise l'horloge puis
+redémarre en une seule fois :
 
 ```bash
-meshcore-repeater-cfg --port /dev/ttyUSB0 raw "clock sync"
-meshcore-repeater-cfg --port /dev/ttyUSB0 raw "reboot"
+meshcore-repeater-cfg --port /dev/ttyUSB0 raw "clkreboot"
 ```
+
+Le firmware ne renvoyant jamais de réponse avant de redémarrer, l'outil
+affiche systématiquement `Error: timed out waiting for response` — c'est
+normal, pas un échec : le redémarrage a bien lieu (le device répond de
+nouveau normalement quelques secondes après).
 
 Les changements de région ne survivent pas à un redémarrage sans un
 `region save` explicite (contrairement aux autres champs, persistés

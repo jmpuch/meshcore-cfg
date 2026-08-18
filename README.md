@@ -133,6 +133,10 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail
 complet des options.
 
+**Attention** : un fichier `*-dump.json` contient la **clé privée**
+d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,
+ne jamais la partager ni la publier (dépôt Git, forum, etc.).
+
 ## Template `templates/template-fr.json`
 
 Un exemple de template fourni avec ce repo — les champs de configuration

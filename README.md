@@ -133,6 +133,26 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail
 complet des options.
 
+### En cas de problème (`--debug`)
+
+Le flag `--debug` (utile surtout avec `--transport companion`, dont le
+protocole n'a pas d'identifiant de corrélation requête/réponse — voir
+`--help`) trace chaque trame envoyée/reçue sur stderr. Combiné à une
+redirection vers un fichier, ça donne une trace complète et partageable en
+cas de souci :
+
+```bash
+meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
+  --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> \
+  --debug get name > trace.log 2>&1
+```
+
+Vérifié : `trace.log` contient alors la bannière de version, chaque trame
+`DEBUG send_frame:`/`DEBUG read_frame:` (opcode + octets bruts) du
+handshake, du login et de l'échange de commande, puis le résultat final —
+tout ce qu'il faut pour diagnostiquer un blocage ou le partager pour de
+l'aide, sans rien avoir à recopier depuis le terminal.
+
 **Attention** : un fichier `*-dump.json` contient la **clé privée**
 d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,
 ne jamais la partager ni la publier (dépôt Git, forum, etc.).

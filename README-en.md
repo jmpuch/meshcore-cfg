@@ -192,6 +192,18 @@ Region changes don't survive a reboot without an explicit `region save`
 change was actually applied, confirmed by `region save: OK (persisted
 across reboot)` in the output.
 
+### `templates/template-fr-idf.json` variant
+
+An adaptation for the Île-de-France community, based on
+[wiki.mesh-idf.fr](https://wiki.mesh-idf.fr/fr/meshcore/regions_et_canaux)
+( !! to verify !! — community source, not the official meshcore.fr
+recommendation). Different region hierarchy: `eu` and `fr` both at the
+root (no intermediate `europe` level), with `fr-idf` as a child of `fr`
+and `default` set to `fr`. `flood.max.advert`/`flood.max.unscoped` set to
+`16` instead of `8`/`5`. If you're switching from the national template
+to this one on a device that's already configured, see `--prune` below to
+clean up regions left over from the old template.
+
 ## Template format
 
 A template is a JSON file with, alone or combined:
@@ -212,6 +224,25 @@ A template is a JSON file with, alone or combined:
 - `apply-template` accepts several files at once and auto-detects the
   content of each one — no need to specify whether a file is a vars
   template, a region template, or both.
+- **`apply-template` is never destructive by default**: it only touches
+  what the file mentions, never what it doesn't. When switching to a
+  different region template (say, from the national template to a
+  regional variant with a different hierarchy), regions from the old
+  template that are no longer mentioned stay behind, orphaned. The
+  `--prune` flag removes those leftovers (and nothing else):
+
+  ```bash
+  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune --dry-run
+  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune
+  ```
+
+  Verified on real hardware (switching from a template with an
+  intermediate `europe` region to one without that level): without
+  `--prune`, `region list` kept showing `europe`, orphaned; with
+  `--prune`, it's cleanly removed. `--prune` stays opt-in (off by
+  default, the only destructive operation in the tool) — a good reflex
+  on every region template switch, unless you specifically want to keep
+  regions you added by hand.
 
 ## License
 

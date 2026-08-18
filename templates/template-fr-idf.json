@@ -1,0 +1,37 @@
+{
+  "vars": {
+    "#_comment1": "Préconisations Île-de-France selon https://wiki.mesh-idf.fr/fr/meshcore/regions_et_canaux ( !! à vérifier !! )",
+    "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
+
+    "advert.interval": 240,
+    "flood.advert.interval": 24,
+    "agc.reset.interval": 4,
+    "multi.acks": "1",
+    "dutycycle": 10,
+    "path.hash.mode": 1,
+    "loop.detect": "minimal",
+    "flood.max.advert": 16,
+    "flood.max.unscoped": 16,
+    "repeat": true,
+    "guest.password": "",
+
+    "#_comment2": "autres paramètres/balises gérés",
+    "#name": "Heltec Repeater",
+    "#lat": 48.85661,
+    "#lon": 2.35222,
+    "#allow.read.only": false,
+    "#flood.max": 64,
+    "#owner.info": "",
+    "#int.thresh": 0,
+    "#tx": 20,
+    "#rxdelay": 0,
+    "#txdelay": 0.5,
+    "#direct.txdelay": 0.3
+  },
+  "regions": {
+    "eu": { "parent": null, "flood_allowed": true },
+    "fr": { "parent": null, "flood_allowed": true },
+    "fr-idf": { "parent": "fr", "flood_allowed": true }
+  },
+  "default": "fr"
+}

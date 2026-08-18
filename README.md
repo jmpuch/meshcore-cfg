@@ -197,6 +197,18 @@ désormais automatiquement dès qu'un changement de région a réellement été
 appliqué, confirmé par `region save: OK (persisted across reboot)` dans la
 sortie.
 
+### Variante `templates/template-fr-idf.json`
+
+Adaptation pour la communauté Île-de-France, d'après
+[wiki.mesh-idf.fr](https://wiki.mesh-idf.fr/fr/meshcore/regions_et_canaux)
+( !! à vérifier !! — source communautaire, pas la recommandation officielle
+meshcore.fr). Hiérarchie de régions différente : `eu` et `fr` tous deux à
+la racine (pas de niveau `europe` intermédiaire), avec `fr-idf` comme
+enfant de `fr` et `default` sur `fr`. `flood.max.advert`/
+`flood.max.unscoped` à `16` au lieu de `8`/`5`. Si vous passez du template
+national à celui-ci sur un device déjà configuré, voir `--prune`
+ci-dessous pour nettoyer les régions de l'ancien template.
+
 ## Format des templates
 
 Un template est un fichier JSON avec, au choix ou en combinaison :
@@ -217,6 +229,26 @@ Un template est un fichier JSON avec, au choix ou en combinaison :
 - `apply-template` accepte plusieurs fichiers d'un coup et détecte
   automatiquement le contenu de chacun — pas besoin de préciser s'il s'agit
   d'un template de variables, de régions, ou des deux.
+- **`apply-template` n'est jamais destructeur par défaut** : il ne touche
+  que ce que le fichier mentionne, jamais ce qu'il ne mentionne pas. En
+  changeant de template de régions (par exemple en passant du template
+  national à une variante régionale avec une hiérarchie différente), les
+  régions de l'ancien template qui ne sont plus mentionnées restent en
+  place, orphelines. Le flag `--prune` supprime ces résidus (et rien
+  d'autre) :
+
+  ```bash
+  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune --dry-run
+  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune
+  ```
+
+  Vérifié sur matériel réel (passage d'un template avec une région
+  intermédiaire `europe` à un autre sans ce niveau) : sans `--prune`,
+  `region list` continuait à montrer `europe`, orpheline ; avec `--prune`,
+  elle disparaît proprement. `--prune` reste optionnel (off par défaut,
+  seule opération destructive de l'outil) — recommandé par réflexe à
+  chaque changement de template de régions, sauf si vous savez vouloir
+  garder des régions ajoutées manuellement en plus.
 
 ## Licence
 

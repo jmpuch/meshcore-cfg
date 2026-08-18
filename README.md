@@ -150,8 +150,13 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 Vérifié : `trace.log` contient alors la bannière de version, chaque trame
 `DEBUG send_frame:`/`DEBUG read_frame:` (opcode + octets bruts) du
 handshake, du login et de l'échange de commande, puis le résultat final —
-tout ce qu'il faut pour diagnostiquer un blocage ou le partager pour de
-l'aide, sans rien avoir à recopier depuis le terminal.
+tout ce qu'il faut pour diagnostiquer un blocage.
+
+**Attention avant de partager ce fichier** : la trame de login
+(`CMD_SEND_LOGIN`) contient votre `--password` en clair dans les octets
+bruts (vérifié : `changeme` apparaît tel quel, en ASCII, dans la trame
+envoyée) — à retirer/masquer avant de publier ou d'envoyer une trace
+`--debug` à qui que ce soit.
 
 **Attention** : un fichier `*-dump.json` contient la **clé privée**
 d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,

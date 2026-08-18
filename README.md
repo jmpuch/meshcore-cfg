@@ -131,6 +131,11 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> ad
 meshcore-repeater-cfg --port /dev/ttyUSB0 neighbors
 # 4C371AF9   39m ago    SNR 12.5 dB
 
+# Annuaire du companion LOCAL — clé publique complète de chaque contact
+# (neighbors ne renvoie que 4 octets, insuffisant pour --target)
+meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion contacts
+# repeater 4c371af941e6ed679ac35c4adda0540b0c5c0c9e21df50a9cc91d4cec3f0fadd FR48 RPT
+
 # Configurer un device distant via un companion radio sur le mesh LoRa
 meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
   --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> get name

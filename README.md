@@ -133,6 +133,10 @@ meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail
 complet des options.
 
+**Attention** : un fichier `*-dump.json` contient la **clé privée**
+d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,
+ne jamais la partager ni la publier (dépôt Git, forum, etc.).
+
 ### En cas de problème (`--debug`)
 
 Le flag `--debug` (utile surtout avec `--transport companion`, dont le
@@ -157,10 +161,6 @@ tout ce qu'il faut pour diagnostiquer un blocage.
 bruts (vérifié : `changeme` apparaît tel quel, en ASCII, dans la trame
 envoyée) — à retirer/masquer avant de publier ou d'envoyer une trace
 `--debug` à qui que ce soit.
-
-**Attention** : un fichier `*-dump.json` contient la **clé privée**
-d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,
-ne jamais la partager ni la publier (dépôt Git, forum, etc.).
 
 ## Template `templates/template-fr.json`
 

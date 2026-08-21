@@ -1,12 +1,12 @@
-# meshcore-repeater-cfg
+# meshcore-cfg
 
-*[🇬🇧 English version](README-en.md)*
-
-CLI (Rust) pour configurer des répéteurs [MeshCore](https://meshcore.io/)
-— avec en plus l'application de templates de configuration complets, la
-gestion de l'arbre de régions, la gestion de l'ACL (droits admin/guest), et
-la possibilité de configurer un répéteur **distant** via un compagnon radio
-sur le mesh LoRa, sans y être physiquement connecté.
+Outil (Rust) pour configurer des devices [MeshCore](https://meshcore.io/) —
+répéteur, room-server, sensor **et companion** — avec une interface
+graphique pour un usage simple, et un CLI complet pour l'usage avancé/
+scriptable. Application de templates de configuration complets, gestion
+de l'arbre de régions, de l'ACL (droits admin/guest), configuration d'un
+companion à distance via un autre companion sur le mesh LoRa, et flash de
+firmware ESP32 en natif.
 
 > **Sources** : pas encore publiées — ce repo distribue uniquement les
 > binaires précompilés (voir [Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases)
@@ -18,22 +18,21 @@ sur le mesh LoRa, sans y être physiquement connecté.
 Télécharger le binaire correspondant à votre système depuis la page
 [Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases) :
 
-- **Linux** (x86_64) : `meshcore-repeater-cfg-linux-x86_64`
-- **Windows** (x86_64) : `meshcore-repeater-cfg-windows-x86_64.exe` —
-  autonome, aucune DLL supplémentaire à installer
+- **Linux** (x86_64) : `meshcore-cfg-linux-x86_64`
+- **Windows** (x86_64) : `meshcore-cfg-windows-x86_64.exe` — autonome,
+  aucune DLL supplémentaire à installer
 - **macOS** (Intel + Apple Silicon, binaire universel) :
-  `meshcore-repeater-cfg-macos-universal`
+  `meshcore-cfg-macos-universal`
 
 ```bash
 # Linux/macOS : rendre le binaire exécutable
-chmod +x meshcore-repeater-cfg-linux-x86_64   # ou -macos-universal
-./meshcore-repeater-cfg-linux-x86_64 --version
+chmod +x meshcore-cfg-linux-x86_64   # ou -macos-universal
 ```
 
-```powershell
-# Windows
-.\meshcore-repeater-cfg-windows-x86_64.exe --version
-```
+**Double-cliquer sur le binaire (ou le lancer sans aucun argument) ouvre
+l'interface graphique.** C'est le point d'entrée normal pour la plupart
+des usages — le CLI (ligne de commande, avec des arguments) reste
+disponible en parallèle pour l'usage avancé, voir plus bas.
 
 **Gatekeeper (macOS)** : le binaire n'étant pas signé/notarié par un
 compte développeur Apple, macOS refuse de le lancer au premier essai
@@ -44,39 +43,197 @@ cliquer *Autoriser quand même* ; ou en ligne de commande, une fois pour
 toutes :
 
 ```bash
-xattr -d com.apple.quarantine ./meshcore-repeater-cfg-macos-universal
+xattr -d com.apple.quarantine ./meshcore-cfg-macos-universal
 ```
 
 **Antivirus (Windows)** : un exécutable non signé et tout juste publié peut
-se faire signaler par certains antivirus (rencontré avec Avast) — c'est un
-faux positif habituel pour ce genre d'outil (rien à voir avec le code), lié
-à l'absence de signature et à la nouveauté du fichier plutôt qu'à un
-comportement suspect réel. Si ça arrive, ajouter une exception suffit ; le
-signaler comme faux positif à l'éditeur de votre antivirus aide à corriger
-ça pour tout le monde.
+se faire signaler par certains antivirus — c'est un faux positif habituel
+pour ce genre d'outil (rien à voir avec le code), lié à l'absence de
+signature et à la nouveauté du fichier plutôt qu'à un comportement
+suspect réel. Si ça arrive, ajouter une exception suffit ; le signaler
+comme faux positif à l'éditeur de votre antivirus aide à corriger ça pour
+tout le monde.
 
-## Trouver son port
+## Premiers pas (interface graphique)
 
-Le device se branche en USB. Sous Linux le port ressemble à
-`/dev/ttyUSB0`, sous Windows à `COM3`.
+### 1. Brancher le device et choisir le port
 
-**Windows** — Gestionnaire de périphériques → « Ports (COM & LPT) » : le
-device apparaît typiquement comme `Silicon Labs CP210x USB to UART Bridge
-(COMx)` (ou `CH340` selon la board) — le numéro de port est entre
-parenthèses. En ligne de commande (PowerShell) :
+Le device se branche en USB (ou, pour un companion, peut aussi se
+retrouver en Bluetooth). Lancez `meshcore-cfg` sans argument : l'écran
+qui s'ouvre propose un choix **USB**/**Bluetooth**, un sélecteur de port
+(ou de nom Bluetooth), et un bouton **Connect**.
 
-```powershell
-Get-PnpDevice -Class Ports -PresentOnly | Format-Table Name, InstanceId -AutoSize
+Pas besoin d'indiquer le type de device (répéteur, room-server, sensor ou
+companion) — le programme le détecte tout seul à la connexion.
+
+**Trouver son port** si le sélecteur ne le propose pas déjà :
+
+- **Windows** — Gestionnaire de périphériques → « Ports (COM & LPT) » : le
+  device apparaît typiquement comme `Silicon Labs CP210x USB to UART Bridge
+  (COMx)` (ou `CH340` selon la board). Si rien n'apparaît alors que le
+  câble est branché, c'est probablement le driver CP210x à installer
+  manuellement (pas toujours présent par défaut sur Windows).
+- **Linux/macOS** — le bouton ↻ à côté du sélecteur de port rafraîchit la
+  liste ; le device apparaît comme `/dev/ttyUSB0` (Linux) ou
+  `/dev/tty.usbmodemXXXX`/`/dev/tty.usbserial-XXXX` (macOS).
+
+### 2. Se connecter
+
+Une fois le port choisi, cliquez **Connect**. Le statut passe à
+*Connecting…* puis, une fois le type de device détecté, à *Connected*
+(en vert), avec le type de device entre parenthèses (Sensor, Repeater,
+Room Server, ou Companion).
+
+![Écran de lancement, avant connexion](docs/screenshots/01-lancement.png)
+
+*(Cette capture montre aussi le rappel automatique du dernier template
+utilisé — voir l'étape 4 — avant même toute connexion : c'est normal, la
+comparaison se met à jour dès qu'un device est lu.)*
+
+### 3. L'onglet Configuration se remplit tout seul
+
+Dès la connexion établie, tous les attributs du device sont lus
+automatiquement (pas besoin de cliquer sur « Rafraîchir » en premier) —
+chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
+plutôt que d'attendre la fin de la lecture complète.
+
+![Onglet Configuration, device connecté](docs/screenshots/02-connecte-companion.png)
+
+Chaque champ a sa propre ligne : la valeur actuellement lue sur le
+device, un champ pour taper une nouvelle valeur, et un bouton **Set**
+pour l'écrire. Les champs en orange sont des champs sensibles ou
+documentés-mais-désactivés dans le template chargé (voir plus bas) — ils
+restent visibles mais ne s'appliquent pas tant que le `#` n'est pas
+retiré du fichier.
+
+### 4. Comparer à un template
+
+Le bouton **Choisir un template...** charge un fichier JSON de
+configuration (voir « Format des templates » plus bas) et affiche, pour
+chaque champ, la valeur actuellement lue **et** la valeur voulue par le
+template, côte à côte :
+
+- **Vert** : la valeur lue correspond déjà au template — rien à faire.
+- **Rouge** : ça diffère — le bouton **Appliquer** de cette ligne écrit
+  uniquement ce champ-là.
+- **Orange** : champ sensible (clé privée, secret de canal...) ou
+  volontairement désactivé dans le template (préfixé `#`) — jamais
+  appliqué automatiquement, même par « Appliquer tout le template ».
+
+Le bouton **Appliquer tout le template**, en haut, écrit d'un coup tous
+les champs qui diffèrent (hors ceux désactivés/sensibles). Le dernier
+template utilisé est mémorisé automatiquement et rechargé au prochain
+lancement du programme.
+
+## Les onglets de l'interface
+
+- **Configuration** — décrit ci-dessus : tous les attributs, comparaison
+  à un template, et (si le device en a) les sections **ACL** et
+  **Régions** en dessous du tableau principal, sur le même principe
+  (valeur lue vs. valeur template, coloration identique).
+- **Dump** — capture complète de l'état du device en JSON, à sauvegarder
+  dans un fichier.
+- **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a
+  entendus) — utile pour retrouver la clé publique complète d'un device
+  distant à piloter via LoRa (voir plus bas).
+
+  ![Onglet Contacts](docs/screenshots/03-contacts.png)
+
+- **Template / Clone** — charge un fichier et propose un aperçu
+  (dry-run) puis une application réelle, indépendamment de l'onglet
+  Configuration (utile pour tester un template sans toucher à l'état
+  affiché ailleurs).
+- **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3
+  uniquement pour l'instant — Heltec V2/V3/V4 et similaires).
+
+## Companion : configurer localement, ou piloter une cible distante via LoRa
+
+Un companion (le device branché en local) peut être configuré
+directement — nom, coordonnées, radio, TX power, variables custom — c'est
+le mode **Local (ce companion)**, actif par défaut.
+
+Si ce companion est physiquement à portée d'un **autre** device MeshCore
+sur le mesh LoRa (un répéteur, room-server ou sensor), il peut aussi
+servir de relais pour le configurer à distance — mode **Distante (via
+LoRa)** :
+
+![Sélecteur de cible, mode Distante déplié](docs/screenshots/04-cible-distante.png)
+
+1. Choisir un contact dans la liste déroulante (déjà connus du companion
+   — rafraîchie automatiquement à la connexion, ou via le bouton ↻), ou
+   taper une clé publique manuellement.
+2. Entrer le mot de passe admin du device cible.
+3. **Se connecter à la cible** — cette étape est **lente** (un vrai
+   aller-retour radio LoRa, potentiellement plusieurs dizaines de
+   secondes) : un texte explicite l'indique pendant l'attente plutôt
+   qu'un simple spinner silencieux.
+
+Une fois la cible active, **tous** les onglets (Configuration, Dump,
+Template/Clone) agissent sur elle plutôt que sur le companion local — un
+bandeau orange « CIBLE ACTIVE: ... » reste affiché en permanence dans la
+barre du haut, quel que soit l'onglet ouvert, pour ne jamais perdre de
+vue quel device reçoit réellement les prochaines modifications.
+
+**Important** : la cible doit déjà être un contact **connu** du
+companion (il doit l'avoir entendue émettre un advert au moins une fois)
+— sinon la connexion échoue avec un message explicite plutôt qu'un code
+d'erreur brut.
+
+## macOS — particularités
+
+- **Gatekeeper** et **`xattr`** : voir la section Installation plus haut.
+- **Bluetooth** : la toute première fois qu'un binaire non signé touche
+  au Bluetooth sur macOS, le système bloque l'accès (crash immédiat,
+  avant même qu'un message d'erreur clair n'ait le temps de s'afficher)
+  tant que l'autorisation n'a pas été accordée — **pas au binaire
+  lui-même**, mais à l'application qui l'a lancé (Terminal.app, iTerm,
+  ou votre gestionnaire de fichiers si vous double-cliquez dessus).
+  Si le mode Bluetooth reste inutilisable :
+  **Réglages Système → Confidentialité et sécurité → Bluetooth**, et
+  autorisez l'application depuis laquelle vous lancez `meshcore-cfg`
+  (Terminal, iTerm2, Finder...). Un redémarrage de cette application
+  après l'autorisation est parfois nécessaire.
+- **Binaire universel** : un seul fichier fonctionne nativement sur Mac
+  Intel et Apple Silicon, rien à choisir à l'installation.
+
+## Usage avancé (ligne de commande)
+
+Tout ce que fait l'interface graphique est aussi disponible en CLI, avec
+en plus les scénarios scriptables (`region`, `acl`, `neighbors`, `raw`,
+et le relais companion-vers-cible en ligne de commande) :
+
+```bash
+meshcore-cfg --port /dev/ttyUSB0 --version
 ```
 
-Si aucun port n'apparaît alors que le câble est branché, c'est
-probablement le driver CP210x à installer manuellement (pas toujours
-présent par défaut sur Windows).
+### Deux familles de devices
 
-**Linux** — `ls /dev/ttyUSB*` (ou `dmesg | tail` juste après avoir
-branché le câble pour voir le port assigné).
+- **Répéteur / room-server / sensor** — le CLI texte natif du firmware
+  (`get`/`set <var>`), en USB direct ou relayé via un companion sur le
+  mesh LoRa pour un device distant injoignable physiquement.
+- **Companion** — le device branché en local sur `--port`, configuré
+  directement (nom, coordonnées, radio, TX power, variables custom)
+  plutôt que seulement utilisé comme relais vers une cible distante.
+  Flag `--comp`, protocole binaire différent (jamais de CLI texte),
+  toujours local (jamais de `--target`/`--password`).
 
-## Usage rapide
+Vérification optionnelle du type ciblé avant toute commande —
+`--rep`/`--room`/`--sens`/`--comp` — utile pour éviter d'appliquer par
+erreur un template au mauvais device :
+
+```bash
+meshcore-cfg --port /dev/ttyUSB0 --sens get name   # refuse si ce n'est pas un sensor
+meshcore-cfg --port /dev/ttyUSB0 --comp dump       # configure le companion lui-même
+```
+
+Un fichier de template/dump peut aussi se taguer lui-même
+(`"device_type": "sensor"`, ou `"repeater"`/`"room_server"`/`"companion"`)
+— `dump` le fait automatiquement. Sans flag explicite, un tag présent
+déclenche quand même une vérification live (filet de sécurité) ; avec un
+flag, le tag doit correspondre ou l'application est refusée avant tout
+envoi.
+
+### Usage rapide
 
 Une fois le port identifié, le premier réflexe utile : vérifier l'état
 d'un répéteur par rapport au template fourni, **sans rien modifier** —
@@ -84,7 +241,7 @@ d'un répéteur par rapport au template fourni, **sans rien modifier** —
 device :
 
 ```bash
-meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --dry-run
+meshcore-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --dry-run
 ```
 
 Sortie vide (`0 field(s) changed`) = conforme au template. Toute ligne
@@ -93,9 +250,9 @@ d'appliquer pour de vrai (même commande, sans `--dry-run`).
 
 Le fichier template est cherché tel quel d'abord, puis avec le préfixe
 `templates/` ajouté ou retiré selon le cas — `apply-template
-template-fr.json` fonctionne donc que le fichier soit directement à
-côté du binaire ou dans un sous-dossier `templates/`, quelle que soit la
-façon dont vous avez tapé le chemin.
+template-fr.json` fonctionne donc que le fichier soit directement à côté
+du binaire ou dans un sous-dossier `templates/`, quelle que soit la façon
+dont vous avez tapé le chemin.
 
 Chaque `reading <champ>...` affiche la valeur lue juste derrière, sur la
 même ligne — pratique pour suivre ce qui se passe en direct, et pour
@@ -108,36 +265,36 @@ Autres commandes utiles :
 
 ```bash
 # Lire un champ
-meshcore-repeater-cfg --port /dev/ttyUSB0 get name
+meshcore-cfg --port /dev/ttyUSB0 get name
 
 # Écrire un champ
-meshcore-repeater-cfg --port /dev/ttyUSB0 set tx 20
+meshcore-cfg --port /dev/ttyUSB0 set tx 20
 
 # Sauvegarder toute la config d'un device (vars + ACL + régions, un seul fichier)
-meshcore-repeater-cfg --port /dev/ttyUSB0 dump mon-repeteur
+meshcore-cfg --port /dev/ttyUSB0 dump mon-repeteur
 
 # La restaurer (ou la reproduire sur un autre device)
-meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur --dry-run
-meshcore-repeater-cfg --port /dev/ttyUSB0 clone mon-repeteur
+meshcore-cfg --port /dev/ttyUSB0 clone mon-repeteur --dry-run
+meshcore-cfg --port /dev/ttyUSB0 clone mon-repeteur
 
 # Gestion des régions (arbre de scoping du flood, pas la fréquence radio)
-meshcore-repeater-cfg --port /dev/ttyUSB0 region list
+meshcore-cfg --port /dev/ttyUSB0 region list
 
 # Gestion de l'ACL (qui peut administrer/lire ce répéteur — série directe uniquement)
-meshcore-repeater-cfg --port /dev/ttyUSB0 acl list
-meshcore-repeater-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> admin
+meshcore-cfg --port /dev/ttyUSB0 acl list
+meshcore-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> admin
 
 # Voisins radio directs (ce que le device a réellement entendu en LoRa, pas un carnet de contacts)
-meshcore-repeater-cfg --port /dev/ttyUSB0 neighbors
+meshcore-cfg --port /dev/ttyUSB0 neighbors
 # 4C371AF9   39m ago    SNR 12.5 dB
 
 # Annuaire du companion LOCAL — clé publique complète de chaque contact
 # (neighbors ne renvoie que 4 octets, insuffisant pour --target)
-meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion contacts
+meshcore-cfg --port /dev/ttyUSB0 --comp contacts
 # repeater 4c371af941e6ed679ac35c4adda0540b0c5c0c9e21df50a9cc91d4cec3f0fadd FR48 RPT
 
 # Configurer un device distant via un companion radio sur le mesh LoRa
-meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
+meshcore-cfg --port /dev/ttyUSB0 --transport companion \
   --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> get name
 ```
 
@@ -148,38 +305,75 @@ complet des options.
 d'identité de votre device (`prv.key`) en clair — à conserver en lieu sûr,
 ne jamais la partager ni la publier (dépôt Git, forum, etc.).
 
-### En cas de problème (`--debug`)
+#### En cas de problème (`--debug`)
 
-Le flag `--debug` (utile surtout avec `--transport companion`, dont le
-protocole n'a pas d'identifiant de corrélation requête/réponse — voir
-`--help`) trace chaque trame envoyée/reçue sur stderr. Combiné à une
+Le flag `--debug` (utile surtout avec `--transport companion`/`--comp`,
+dont le protocole n'a pas d'identifiant de corrélation requête/réponse —
+voir `--help`) trace chaque trame envoyée/reçue sur stderr. Combiné à une
 redirection vers un fichier, ça donne une trace complète et partageable en
 cas de souci :
 
 ```bash
-meshcore-repeater-cfg --port /dev/ttyUSB0 --transport companion \
+meshcore-cfg --port /dev/ttyUSB0 --transport companion \
   --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> \
   --debug get name > trace.log 2>&1
 ```
 
-Vérifié : `trace.log` contient alors la bannière de version, chaque trame
-`DEBUG send_frame:`/`DEBUG read_frame:` (opcode + octets bruts) du
-handshake, du login et de l'échange de commande, puis le résultat final —
-tout ce qu'il faut pour diagnostiquer un blocage.
-
 **Attention avant de partager ce fichier** : la trame de login
 (`CMD_SEND_LOGIN`) contient votre `--password` en clair dans les octets
-bruts (vérifié : `changeme` apparaît tel quel, en ASCII, dans la trame
-envoyée) — à retirer/masquer avant de publier ou d'envoyer une trace
+bruts — à retirer/masquer avant de publier ou d'envoyer une trace
 `--debug` à qui que ce soit.
+
+### Configurer un companion (`--comp`)
+
+```bash
+meshcore-cfg --port /dev/ttyUSB0 --comp get name
+meshcore-cfg --port /dev/ttyUSB0 --comp set name "MonCompanion"
+meshcore-cfg --port /dev/ttyUSB0 --comp set lat 44.85413
+meshcore-cfg --port /dev/ttyUSB0 --comp set radio '{"freq":869.618,"bw":125,"sf":8,"cr":5}'
+meshcore-cfg --port /dev/ttyUSB0 --comp set tx 20
+meshcore-cfg --port /dev/ttyUSB0 --comp dump companion-backup
+meshcore-cfg --port /dev/ttyUSB0 --comp clone companion-backup --dry-run
+```
+
+Champs connus : `name`, `lat`, `lon`, `radio` ({freq,bw,sf,cr}, mêmes
+unités d'affichage que côté répéteur — MHz/kHz), `tx`, `multi.acks`,
+`custom.<clé>`. Jamais de `--target`/`--password` avec `--comp` (toujours
+local, jamais de relais). `region`/`acl`/`neighbors`/`raw` ne s'appliquent
+pas à un companion (protocole binaire, pas de CLI texte) — refusés avec un
+message explicite.
+
+### Flasher un firmware (ESP32 uniquement pour l'instant)
+
+```bash
+# Nécessite un binaire déjà mergé (bootloader + table de partitions + app),
+# le même artefact que PlatformIO produit via :
+#   pio run -e <env> -t mergebin   # -> .pio/build/<env>/firmware-merged.bin
+meshcore-cfg --port /dev/ttyUSB0 flash firmware-merged.bin
+
+# --erase : efface la puce ENTIÈREMENT avant d'écrire, pas seulement les
+# octets couverts par l'image. Un flash normal laisse intact tout ce qui
+# est en dehors de bootloader+partitions+app — donc préserve l'identité
+# existante du device (clé publique/privée). --erase force le firmware à
+# regénérer une nouvelle identité au premier démarrage : pour un device
+# vraiment neuf, ou pour faire tourner volontairement une identité —
+# jamais en routine sur un device dont l'identité/les réglages comptent.
+meshcore-cfg --port /dev/ttyUSB0 flash --erase firmware-merged.bin
+```
+
+Fonctionne sur les boards ESP32/ESP32-S3 (Heltec V2/V3/V4 et similaires)
+— détection de puce automatique, aucune option à préciser. Pas encore
+supporté : les boards nRF52 (Heltec T114, RAK4631/WisBlock, etc.), qui
+utilisent un mécanisme de flash complètement différent (DFU série
+Nordic) — à venir dans une prochaine version.
 
 ## Template `templates/template-fr.json`
 
 Un exemple de template fourni avec ce repo — les champs de configuration
-courants y sont listés, actifs ou documentés-désactivés (préfixe `#` devant
-la clé : la valeur reste visible mais n'est pas appliquée). Correspond
-champ par champ aux recommandations officielles de la communauté MeshCore
-France (vérifié 2026-08-17), y compris `dutycycle` (respect du duty-cycle
+courants y sont listés, actifs ou documentés-désactivés (préfixe `#`
+devant la clé : la valeur reste visible mais n'est pas appliquée).
+Correspond champ par champ aux recommandations officielles de la
+communauté MeshCore France, y compris `dutycycle` (respect du duty-cycle
 LoRa européen) et la hiérarchie de régions `eu → europe → fr` avec
 `home`/`default` sur `fr`. Générique à toute la France, pas à une ville en
 particulier : `lat`/`lon` sont volontairement `#`-désactivés (valeurs
@@ -190,21 +384,20 @@ ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
 l'appliquer (au minimum `lat`/`lon`) — regardez d'abord ce qui changerait
-avec `--dry-run`. Une fois appliqué (si le template touche aux régions),
-la recommandation officielle demande aussi de synchroniser l'horloge et de
-redémarrer — hors du périmètre de cet outil : `clock sync` ne fonctionne
-**pas** en connexion série directe (elle refuse toujours avec
-`"ERR: clock cannot go backwards"`, quel que soit l'état de l'horloge —
-confirmé sur matériel réel). Réglez l'horloge du device par le mécanisme
-propre à votre installation (companion/app MeshCore), puis redémarrez-le
-manuellement une fois le template appliqué.
+avec `--dry-run` (CLI) ou la comparaison de l'onglet Configuration (IHM).
+Une fois appliqué (si le template touche aux régions), la recommandation
+officielle demande aussi de synchroniser l'horloge et de redémarrer —
+hors du périmètre de cet outil : `clock sync` ne fonctionne **pas** en
+connexion série directe (elle refuse toujours avec `"ERR: clock cannot
+go backwards"`, quel que soit l'état de l'horloge). Réglez l'horloge du
+device par le mécanisme propre à votre installation (companion/app
+MeshCore), puis redémarrez-le manuellement une fois le template appliqué.
 
 Les changements de région ne survivent pas à un redémarrage sans un
 `region save` explicite (contrairement aux autres champs, persistés
-automatiquement à chaque écriture) — `apply-template`/`clone` l'envoient
-désormais automatiquement dès qu'un changement de région a réellement été
-appliqué, confirmé par `region save: OK (persisted across reboot)` dans la
-sortie.
+automatiquement à chaque écriture) — `apply-template`/`clone` (CLI) et le
+bouton « Appliquer toutes les régions » (IHM) l'envoient automatiquement
+dès qu'un changement de région a réellement été appliqué.
 
 ### Variante `templates/template-fr-idf.json`
 
@@ -228,36 +421,39 @@ Un template est un fichier JSON avec, au choix ou en combinaison :
   "acl": { "<clé-publique-hex-64>": "admin" },
   "regions": { "fr": { "parent": "europe", "flood_allowed": true } },
   "home": "fr",
-  "default": null
+  "default": null,
+  "device_type": "repeater"
 }
 ```
 
 - Une clé préfixée par `#` (dans `vars`, `acl` ou `regions`) documente une
   valeur sans l'appliquer — pratique pour garder un template complet en
-  référence tout en ne touchant qu'à un sous-ensemble de champs.
-- `apply-template` accepte plusieurs fichiers d'un coup et détecte
-  automatiquement le contenu de chacun — pas besoin de préciser s'il s'agit
-  d'un template de variables, de régions, ou des deux.
-- **`apply-template` n'est jamais destructeur par défaut** : il ne touche
-  que ce que le fichier mentionne, jamais ce qu'il ne mentionne pas. En
-  changeant de template de régions (par exemple en passant du template
-  national à une variante régionale avec une hiérarchie différente), les
-  régions de l'ancien template qui ne sont plus mentionnées restent en
-  place, orphelines. Le flag `--prune` supprime ces résidus (et rien
-  d'autre) :
+  référence tout en ne touchant qu'à un sous-ensemble de champs. C'est
+  aussi ce préfixe qui colore une ligne en orange dans l'onglet
+  Configuration de l'IHM.
+- `device_type` (optionnel) déclare le type de device attendu
+  (`repeater`/`room_server`/`sensor`/`companion`) — vérifié contre le
+  device connecté avant toute application.
+- `apply-template` (CLI) accepte plusieurs fichiers d'un coup et détecte
+  automatiquement le contenu de chacun — pas besoin de préciser s'il
+  s'agit d'un template de variables, de régions, ou des deux.
+- **`apply-template`/l'IHM ne sont jamais destructeurs par défaut** : ils
+  ne touchent que ce que le fichier mentionne, jamais ce qu'il ne
+  mentionne pas. En changeant de template de régions (par exemple en
+  passant du template national à une variante régionale avec une
+  hiérarchie différente), les régions de l'ancien template qui ne sont
+  plus mentionnées restent en place, orphelines. Le flag `--prune` (CLI
+  uniquement pour l'instant) supprime ces résidus (et rien d'autre) :
 
   ```bash
-  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune --dry-run
-  meshcore-repeater-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune
+  meshcore-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune --dry-run
+  meshcore-cfg --port /dev/ttyUSB0 apply-template templates/template-fr.json --prune
   ```
 
-  Vérifié sur matériel réel (passage d'un template avec une région
-  intermédiaire `europe` à un autre sans ce niveau) : sans `--prune`,
-  `region list` continuait à montrer `europe`, orpheline ; avec `--prune`,
-  elle disparaît proprement. `--prune` reste optionnel (off par défaut,
-  seule opération destructive de l'outil) — recommandé par réflexe à
-  chaque changement de template de régions, sauf si vous savez vouloir
-  garder des régions ajoutées manuellement en plus.
+  `--prune` reste optionnel (off par défaut, seule opération destructive
+  de l'outil sur les répéteurs/room-servers/sensors) — recommandé par
+  réflexe à chaque changement de template de régions, sauf si vous savez
+  vouloir garder des régions ajoutées manuellement en plus.
 
 ## Licence
 

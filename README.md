@@ -9,14 +9,14 @@ companion à distance via un autre companion sur le mesh LoRa, et flash de
 firmware ESP32 en natif.
 
 > **Sources** : pas encore publiées — ce repo distribue uniquement les
-> binaires précompilés (voir [Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases)
+> binaires précompilés (voir [Releases](https://github.com/jmpuch/meshcore-cfg/releases)
 > pour le détail de chaque version). Si l'outil intéresse plus largement,
 > les sources suivront.
 
 ## Installation
 
 Télécharger le binaire correspondant à votre système depuis la page
-[Releases](https://github.com/jmpuch/meshcore-repeater-cfg/releases) :
+[Releases](https://github.com/jmpuch/meshcore-cfg/releases) :
 
 - **Linux** (x86_64) : `meshcore-cfg-linux-x86_64`
 - **Windows** (x86_64) : `meshcore-cfg-windows-x86_64.exe` — autonome,

@@ -143,6 +143,15 @@ lancement du programme.
   (dry-run) puis une application réelle, indépendamment de l'onglet
   Configuration (utile pour tester un template sans toucher à l'état
   affiché ailleurs).
+- **Éditeur** — crée ou modifie un fichier de template **sans être
+  connecté à un device**. « Nouveau » présente d'emblée tous les champs
+  connus, désactivés (`#`) avec une valeur neutre, pour un formulaire à
+  remplir plutôt qu'une page blanche où il faudrait deviner les noms de
+  champs ; « Charger un template... » relit un fichier existant pour le
+  modifier. Chaque champ se coche/décoche (`#`), se modifie ou se
+  supprime ligne par ligne, avec possibilité d'en ajouter de nouveaux.
+  Limité aux `vars` + type de device pour l'instant (pas encore ACL/
+  régions).
 - **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3
   uniquement pour l'instant — Heltec V2/V3/V4 et similaires).
 

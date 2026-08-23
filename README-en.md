@@ -143,6 +143,14 @@ the program starts.
   then a real application, independently of the Configuration tab
   (useful for testing a template without touching what's shown
   elsewhere).
+- **Editor** — creates or edits a template file **without being
+  connected to a device**. "New" starts with every known field already
+  present, disabled (`#`) with a neutral placeholder value — a form to
+  fill in rather than a blank page where you'd have to guess field
+  names; "Load a template..." reopens an existing file to edit it. Each
+  field can be toggled (`#`), edited, or deleted row by row, and new
+  ones can be added. Limited to `vars` + device type for now (no ACL/
+  regions editing yet).
 - **Flash** — writes an already-merged `.bin` firmware (ESP32/ESP32-S3
   only for now — Heltec V2/V3/V4 and similar).
 

@@ -152,8 +152,18 @@ lancement du programme.
   supprime ligne par ligne, avec possibilité d'en ajouter de nouveaux.
   Les colonnes du tableau se redimensionnent en faisant glisser leur
   bordure, et la largeur choisie est mémorisée d'un lancement à l'autre.
-  Limité aux `vars` + type de device pour l'instant (pas encore ACL/
-  régions).
+  Une section **Régions** en dessous permet de créer/modifier la
+  hiérarchie (parent, flood autorisé, home/default) sur le même principe
+  — « Nouveau » y propose d'emblée un exemple EU → Europe → FR,
+  désactivé. Limité aux `vars` + régions + type de device pour l'instant
+  (pas encore l'ACL).
+- **Commandes** — colle un bloc de commandes CLI brutes (une par ligne,
+  ex. une recette de configuration meshcore.fr) et les exécute d'un
+  coup, dans l'ordre. Les lignes vides et celles commençant par `#` sont
+  ignorées. Une ligne qui échoue (ex. `reboot`/`clock sync`, qui échouent
+  normalement en connexion directe) n'interrompt pas les suivantes — le
+  résultat de chaque ligne et le résumé final s'affichent dans le
+  Journal.
 - **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3
   uniquement pour l'instant — Heltec V2/V3/V4 et similaires).
 
@@ -290,6 +300,11 @@ meshcore-cfg --port /dev/ttyUSB0 clone mon-repeteur
 
 # Gestion des régions (arbre de scoping du flood, pas la fréquence radio)
 meshcore-cfg --port /dev/ttyUSB0 region list
+
+# Exécuter un bloc de commandes (ex. une recette meshcore.fr collée dans un fichier)
+meshcore-cfg --port /dev/ttyUSB0 batch recette.txt
+# ou directement depuis l'entrée standard :
+cat recette.txt | meshcore-cfg --port /dev/ttyUSB0 batch
 
 # Gestion de l'ACL (qui peut administrer/lire ce répéteur — série directe uniquement)
 meshcore-cfg --port /dev/ttyUSB0 acl list

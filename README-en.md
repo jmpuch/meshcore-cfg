@@ -150,8 +150,17 @@ the program starts.
   names; "Load a template..." reopens an existing file to edit it. Each
   field can be toggled (`#`), edited, or deleted row by row, and new
   ones can be added. Table columns can be resized by dragging their
-  border, and the chosen widths are remembered across launches.
-  Limited to `vars` + device type for now (no ACL/regions editing yet).
+  border, and the chosen widths are remembered across launches. A
+  **Regions** section below lets you build the hierarchy the same way
+  (parent, flood allowed, home/default) — "New" starts it off with a
+  disabled EU → Europe → FR example. Limited to `vars` + regions +
+  device type for now (no ACL editing yet).
+- **Commands** — paste a block of raw CLI commands (one per line, e.g. a
+  meshcore.fr-style setup recipe) and run them all at once, in order.
+  Blank lines and lines starting with `#` are skipped. A failing line
+  (e.g. `reboot`/`clock sync`, which normally fail over a direct
+  connection) doesn't stop the rest — each line's result and the final
+  tally show up in the Journal.
 - **Flash** — writes an already-merged `.bin` firmware (ESP32/ESP32-S3
   only for now — Heltec V2/V3/V4 and similar).
 
@@ -283,6 +292,11 @@ meshcore-cfg --port /dev/ttyUSB0 clone my-repeater
 
 # Region management (flood-scoping tree, not the radio frequency plan)
 meshcore-cfg --port /dev/ttyUSB0 region list
+
+# Run a block of commands (e.g. a meshcore.fr-style recipe saved to a file)
+meshcore-cfg --port /dev/ttyUSB0 batch recipe.txt
+# or straight from stdin:
+cat recipe.txt | meshcore-cfg --port /dev/ttyUSB0 batch
 
 # ACL management (who can administer/read this repeater — direct serial only)
 meshcore-cfg --port /dev/ttyUSB0 acl list

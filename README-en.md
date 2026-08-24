@@ -149,8 +149,9 @@ the program starts.
   fill in rather than a blank page where you'd have to guess field
   names; "Load a template..." reopens an existing file to edit it. Each
   field can be toggled (`#`), edited, or deleted row by row, and new
-  ones can be added. Limited to `vars` + device type for now (no ACL/
-  regions editing yet).
+  ones can be added. Table columns can be resized by dragging their
+  border, and the chosen widths are remembered across launches.
+  Limited to `vars` + device type for now (no ACL/regions editing yet).
 - **Flash** — writes an already-merged `.bin` firmware (ESP32/ESP32-S3
   only for now — Heltec V2/V3/V4 and similar).
 

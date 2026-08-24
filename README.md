@@ -150,6 +150,8 @@ lancement du programme.
   champs ; « Charger un template... » relit un fichier existant pour le
   modifier. Chaque champ se coche/décoche (`#`), se modifie ou se
   supprime ligne par ligne, avec possibilité d'en ajouter de nouveaux.
+  Les colonnes du tableau se redimensionnent en faisant glisser leur
+  bordure, et la largeur choisie est mémorisée d'un lancement à l'autre.
   Limité aux `vars` + type de device pour l'instant (pas encore ACL/
   régions).
 - **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3

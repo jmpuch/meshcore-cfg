@@ -130,7 +130,9 @@ the program starts.
 - **Configuration** — described above: every attribute, comparison
   against a template, and (if the device has them) **ACL** and
   **Regions** sections below the main table, on the same principle
-  (value read vs. template value, same coloring).
+  (value read vs. template value, same coloring). Each field has its own
+  **Mask (#)** checkbox to enable/disable it without hand-editing the
+  file, and **Save as...** writes this adjusted template to a new file.
 - **Dump** — a complete snapshot of the device's state as JSON, to save
   to a file.
 - **Contacts** — the connected companion's own address book (adverts/

@@ -130,7 +130,10 @@ lancement du programme.
 - **Configuration** — décrit ci-dessus : tous les attributs, comparaison
   à un template, et (si le device en a) les sections **ACL** et
   **Régions** en dessous du tableau principal, sur le même principe
-  (valeur lue vs. valeur template, coloration identique).
+  (valeur lue vs. valeur template, coloration identique). Chaque champ a
+  sa case **Masquer (#)** pour désactiver/réactiver son application sans
+  éditer le fichier à la main, et **Enregistrer sous...** sauvegarde ce
+  template ajusté dans un nouveau fichier.
 - **Dump** — capture complète de l'état du device en JSON, à sauvegarder
   dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a

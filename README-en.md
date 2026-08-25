@@ -141,7 +141,13 @@ the program starts.
   radio parameters, which only take effect after a restart. The
   Regions section has its own **Reset regions before update** checkbox,
   to remove regions absent from the template on the device rather than
-  just adding/updating.
+  just adding/updating. The radio field is shown as two linked rows:
+  **Preset radio** (an official regional preset name — Brazil, EU/UK
+  (Narrow), USA/Canada..., 23 in total) directly above **Radio** (the
+  technical detail: frequency/bandwidth/SF/CR). Picking a preset fills
+  in the Radio row; hand-editing a radio parameter updates the preset
+  shown (the matching name, or "---" if the combination no longer
+  matches any known preset).
 - **Dump** — a complete snapshot of the device's state as JSON, to save
   to a file.
 - **Contacts** — the connected companion's own address book (adverts/
@@ -161,8 +167,11 @@ the program starts.
   names; "Load a template..." reopens an existing file to edit it. Each
   field can be toggled (`#`), edited, or deleted row by row, and new
   ones can be added. Table columns can be resized by dragging their
-  border, and the chosen widths are remembered across launches. A
-  **Regions** section below lets you build the hierarchy the same way
+  border, and the chosen widths are remembered across launches. Like
+  the Configuration tab, the radio field is shown as two linked rows,
+  **Preset radio** (23 official regional presets) and **Radio**
+  (technical detail), synced both ways.
+  A **Regions** section below lets you build the hierarchy the same way
   (parent, flood allowed, home/default) — "New" starts it off with a
   disabled EU → Europe → FR example. Limited to `vars` + regions +
   device type for now (no ACL editing yet).

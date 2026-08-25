@@ -143,7 +143,13 @@ lancement du programme.
   pris en compte qu'au redémarrage. La section Régions a sa propre case
   **RAZ régions avant update**, pour supprimer sur le device les
   régions absentes du template plutôt que se contenter d'ajouter/
-  modifier.
+  modifier. Le champ radio est présenté sur deux lignes liées :
+  **Preset radio** (nom d'un préréglage régional officiel — Brazil,
+  EU/UK (Narrow), USA/Canada..., 23 au total) juste au-dessus de
+  **Radio** (le détail technique fréquence/bande passante/SF/CR).
+  Choisir un preset remplit la ligne Radio ; modifier un paramètre radio
+  à la main met à jour le preset affiché (nom correspondant, ou « --- »
+  si la combinaison ne correspond plus à aucun préréglage connu).
 - **Dump** — capture complète de l'état du device en JSON, à sauvegarder
   dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a
@@ -165,6 +171,10 @@ lancement du programme.
   supprime ligne par ligne, avec possibilité d'en ajouter de nouveaux.
   Les colonnes du tableau se redimensionnent en faisant glisser leur
   bordure, et la largeur choisie est mémorisée d'un lancement à l'autre.
+  Comme dans l'onglet Configuration, le champ radio est présenté sur
+  deux lignes liées, **Preset radio** (23 préréglages régionaux
+  officiels) et **Radio** (détail technique), synchronisées dans les
+  deux sens.
   Une section **Régions** en dessous permet de créer/modifier la
   hiérarchie (parent, flood autorisé, home/default) sur le même principe
   — « Nouveau » y propose d'emblée un exemple EU → Europe → FR,

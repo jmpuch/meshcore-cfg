@@ -130,9 +130,18 @@ the program starts.
 - **Configuration** — described above: every attribute, comparison
   against a template, and (if the device has them) **ACL** and
   **Regions** sections below the main table, on the same principle
-  (value read vs. template value, same coloring). Each field has its own
-  **Mask (#)** checkbox to enable/disable it without hand-editing the
-  file, and **Save as...** writes this adjusted template to a new file.
+  (value read vs. template value, same coloring). The **Valeur
+  template** (template value) column is directly editable — live, and
+  it can add a field that isn't in the template yet. Each field also
+  has its own **Mask (#)** checkbox to enable/disable it without hand-
+  editing the file, and **Save as...** writes this adjusted template
+  to a new file. Table columns can be resized by dragging their border
+  (width remembered across launches, same as the Editor), and a
+  **Restart device** button sits at the top — useful after changing
+  radio parameters, which only take effect after a restart. The
+  Regions section has its own **Reset regions before update** checkbox,
+  to remove regions absent from the template on the device rather than
+  just adding/updating.
 - **Dump** — a complete snapshot of the device's state as JSON, to save
   to a file.
 - **Contacts** — the connected companion's own address book (adverts/

@@ -130,10 +130,20 @@ lancement du programme.
 - **Configuration** — décrit ci-dessus : tous les attributs, comparaison
   à un template, et (si le device en a) les sections **ACL** et
   **Régions** en dessous du tableau principal, sur le même principe
-  (valeur lue vs. valeur template, coloration identique). Chaque champ a
-  sa case **Masquer (#)** pour désactiver/réactiver son application sans
-  éditer le fichier à la main, et **Enregistrer sous...** sauvegarde ce
-  template ajusté dans un nouveau fichier.
+  (valeur lue vs. valeur template, coloration identique). La colonne
+  **Valeur template** est directement éditable (modification live, y
+  compris pour ajouter un champ absent du template) ; chaque champ a
+  aussi sa case **Masquer (#)** pour désactiver/réactiver son
+  application sans éditer le fichier à la main, et **Enregistrer
+  sous...** sauvegarde ce template ajusté dans un nouveau fichier. Les
+  colonnes du tableau se redimensionnent en faisant glisser leur
+  bordure (largeur mémorisée d'un lancement à l'autre, comme dans
+  l'Éditeur), et un bouton **Redémarrer le device** est disponible en
+  haut — utile après un changement de paramètres radio, qui ne sont
+  pris en compte qu'au redémarrage. La section Régions a sa propre case
+  **RAZ régions avant update**, pour supprimer sur le device les
+  régions absentes du template plutôt que se contenter d'ajouter/
+  modifier.
 - **Dump** — capture complète de l'état du device en JSON, à sauvegarder
   dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a

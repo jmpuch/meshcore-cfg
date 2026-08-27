@@ -149,7 +149,15 @@ lancement du programme.
   **Radio** (le détail technique fréquence/bande passante/SF/CR).
   Choisir un preset remplit la ligne Radio ; modifier un paramètre radio
   à la main met à jour le preset affiché (nom correspondant, ou « --- »
-  si la combinaison ne correspond plus à aucun préréglage connu).
+  si la combinaison ne correspond plus à aucun préréglage connu). La
+  ligne **Radio** elle-même n'accepte plus une valeur libre : bande
+  passante, facteur d'étalement (SF) et taux de codage (CR) se
+  choisissent dans une liste ne proposant que les valeurs réellement
+  supportées par la puce radio, et la fréquence reste un champ numérique
+  borné à la plage acceptée par le firmware — impossible d'entrer une
+  combinaison incohérente. Le tableau se déplace aussi horizontalement
+  (pas seulement verticalement) si la fenêtre est trop étroite pour
+  afficher toutes les colonnes.
 - **Dump** — capture complète de l'état du device en JSON, à sauvegarder
   dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a

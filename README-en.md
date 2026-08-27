@@ -147,7 +147,13 @@ the program starts.
   technical detail: frequency/bandwidth/SF/CR). Picking a preset fills
   in the Radio row; hand-editing a radio parameter updates the preset
   shown (the matching name, or "---" if the combination no longer
-  matches any known preset).
+  matches any known preset). The **Radio** row itself no longer takes
+  free-text input: bandwidth, spreading factor (SF), and coding rate
+  (CR) are picked from a list of only the values the radio chip actually
+  supports, and frequency stays a numeric field clamped to the range the
+  firmware accepts — an inconsistent combination can no longer be typed
+  in. The table also scrolls horizontally, not just vertically, if the
+  window is too narrow to show every column.
 - **Dump** — a complete snapshot of the device's state as JSON, to save
   to a file.
 - **Contacts** — the connected companion's own address book (adverts/

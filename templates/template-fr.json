@@ -1,8 +1,14 @@
 {
   "vars": {
+    "name": "ChangeMe",
+    "#password": "changeme — device-wide admin password, sent as the raw command `password <value>` (not `set password <value>`). Unlike other fields it can never be read back (no `get password` handler), so it's always (re-)applied when enabled, never diffed against a current value.",
+    "owner.info": "",
+    "guest.password": "",
+    "lat": 0.0,
+    "lon": 0.0,
+
     "#_comment1": "Préconisations selon https://meshcore.fr/ ",
     "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
-
     "advert.interval": 240,
     "flood.advert.interval": 24,
     "agc.reset.interval": 4,
@@ -13,15 +19,12 @@
     "flood.max.advert": 8,
     "flood.max.unscoped": 5,
     "repeat": true,
-    "guest.password": "",
 
     "#_comment2": "autres paramètres/balises gérés",
-    "#name": "Heltec Repeater",
-    "#lat": 48.85661,
-    "#lon": 2.35222,     
+    "#prv.key": "REDACTED - identity key; a base template shouldn't clone one device's identity onto many, remove the # only when deliberately cloning a single specific device",
+    "#public.key": "REDACTED - informational only, no set handler exists for this field in the firmware",
     "#allow.read.only": false,
     "#flood.max": 64,
-    "#owner.info": "",
     "#int.thresh": 0,
     "#tx": 20,
     "#rxdelay": 0,

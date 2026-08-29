@@ -1,4 +1,7 @@
 {
+  "acl": {
+    "#InsertPubKeyOfNewAdminDevice": "admin"
+  },
   "default": "fr",
   "device_type": "repeater",
   "home": "fr",

@@ -1,0 +1,58 @@
+{
+  "default": "fr",
+  "device_type": "repeater",
+  "home": "fr",
+  "regions": {
+    "eu": {
+      "flood_allowed": true,
+      "parent": null
+    },
+    "fr": {
+      "flood_allowed": true,
+      "parent": "eu"
+    },
+    "fr-06": {
+      "flood_allowed": true,
+      "parent": "fr-pac"
+    },
+    "fr-pac": {
+      "flood_allowed": true,
+      "parent": "fr"
+    }
+  },
+  "vars": {
+    "name": "ChangeMe",
+    "#password": "UncommentIfYouWantToChangeIt",
+    "owner.info": "YourEmailOrOtherContactInfo",
+    "lat": 0.0,
+    "lon": 0.0,
+    "#_comment1": "Préconisations selon https://meshcore.lorapaca.org/index.php/configmesh ",
+    "guest.password": "",
+    "radio": {
+      "bw": "62.5",
+      "cr": "8",
+      "freq": "869.6179809",
+      "sf": "8"
+    },
+    "advert.interval": 240,
+    "flood.advert.interval": 24,
+    "flood.max.advert": 6,
+    "flood.max.unscoped": 5,
+    "multi.acks": 1,
+    "path.hash.mode": 1,
+    "loop.detect": "minimal",
+    "dutycycle": 10.0,
+    "agc.reset.interval": 4,
+
+    "#_comment2": "autres paramètres/balises gérés",
+    "#prv.key": "Not present in template",
+    "#public.key": "Not present in template",
+    "#af": 9.0,
+    "#direct.txdelay": 0.3,
+    "#flood.max": 64,
+    "#int.thresh": 0,
+    "#rxdelay": 0.0,
+    "#tx": 22,
+    "#txdelay": 0.5
+  }
+}

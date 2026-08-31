@@ -99,7 +99,10 @@ is read automatically (no need to click "Refresh" first) — each row of
 the table appears as it's read, rather than waiting for the whole
 read to finish.
 
-![Configuration tab, device connected](docs/screenshots/02-connecte-companion.png)
+![Configuration tab, with a template loaded](docs/screenshots/02-connecte-companion.png)
+
+*(Captured without an active connection — the table/ACL/Regions look the
+same once connected, with the "Valeur lue" column filled in too.)*
 
 Each field gets its own row: the value currently read from the device,
 a box to type a new value, and a **Set** button to write it. Fields
@@ -129,8 +132,7 @@ the program starts.
 
 - **Configuration** — described above: every attribute, comparison
   against a template, and (if the device has them) **ACL** and
-  **Regions** sections below the main table, on the same principle
-  (value read vs. template value, same coloring). The **Valeur
+  **Regions** sections below the main table. The **Valeur
   template** (template value) column is directly editable — live, and
   it can add a field that isn't in the template yet. Each field also
   has its own **Mask (#)** checkbox to enable/disable it without hand-
@@ -138,21 +140,56 @@ the program starts.
   to a new file. Table columns can be resized by dragging their border
   (width remembered across launches, same as the Editor), and a
   **Restart device** button sits at the top — useful after changing
-  radio parameters, which only take effect after a restart. The
-  Regions section has its own **Reset regions before update** checkbox,
-  to remove regions absent from the template on the device rather than
-  just adding/updating. The radio field is shown as two linked rows:
-  **Preset radio** (an official regional preset name — Brazil, EU/UK
-  (Narrow), USA/Canada..., 23 in total) directly above **Radio** (the
-  technical detail: frequency/bandwidth/SF/CR). Picking a preset fills
-  in the Radio row; hand-editing a radio parameter updates the preset
-  shown (the matching name, or "---" if the combination no longer
-  matches any known preset). The **Radio** row itself no longer takes
-  free-text input: bandwidth, spreading factor (SF), and coding rate
-  (CR) are picked from a list of only the values the radio chip actually
-  supports, and frequency stays a numeric field clamped to the range the
-  firmware accepts — an inconsistent combination can no longer be typed
-  in. The table also scrolls horizontally, not just vertically, if the
+  radio parameters, which only take effect after a restart.
+
+  **Row order**: a loaded template displays in exactly the order its
+  fields are written in the JSON file — comments (`#_comment...`)
+  included, in their real position. Two **^ / v** buttons on each row
+  let you reorder directly from the GUI; that order is what **Save
+  as...** writes back out. With no template loaded, the default order
+  is: identity (name, coordinates, passwords), then radio/network
+  settings, then everything else.
+
+  **ACL**: same shape as the fields table — role read, desired role (a
+  guest/read-only/read-write/admin dropdown), a **Mask (#)** checkbox, a
+  per-row **Apply** button, plus a **New ACL entry** row to add a public
+  key that isn't there yet. An enabled ACL entry is also applied by
+  **Apply whole template**, just like any other field.
+
+  **Regions**: two indented trees side by side, **Device (read)** and
+  **Template (desired)** — same layout as a CLI `region list`, with
+  home/default marked (`^home`/`•default`) and one color per region
+  (green = already matches, red = differs, orange = disabled in the
+  template). A **Delete** button on any template region removes it
+  **and all its children**, and **Clear the template** starts it over
+  from scratch — none of this writes to the device, that's still
+  **Apply whole template**'s job, all at once (regions absent from the
+  template are always removed from the device so it ends up an exact
+  mirror of the file). A collapsible **French region assistant** lets
+  you search a French department (name or number) and insert the whole
+  `eu`/`fr`/region/department chain in one click — handy for never
+  mistyping a region code by hand.
+
+  The radio field is shown as two linked rows: **Preset radio** (an
+  official regional preset name — Brazil, EU/UK (Narrow), USA/Canada...,
+  23 in total) directly above **Radio** (the technical detail:
+  frequency/bandwidth/SF/CR). Picking a preset fills in the Radio row;
+  hand-editing a radio parameter updates the preset shown (the matching
+  name, or "---" if the combination no longer matches any known preset).
+  The **Radio** row itself no longer takes free-text input: bandwidth,
+  spreading factor (SF), and coding rate (CR) are picked from a list of
+  only the values the radio chip actually supports, and frequency stays
+  a numeric field clamped to the range the firmware accepts — an
+  inconsistent combination can no longer be typed in.
+
+  The same way, a **Paste position** row directly above `lat` accepts a
+  pasted `latitude, longitude` pair or an OpenStreetMap/Google Maps link
+  copied from a browser — the tool extracts both coordinates with no
+  ambiguity over which is which; a **Map** button on the `lat` row also
+  opens OpenStreetMap in the default browser, centered on the current
+  coordinates, to visually find a spot before copying its link.
+
+  The table also scrolls horizontally, not just vertically, if the
   window is too narrow to show every column.
 - **Dump** — a complete snapshot of the device's state as JSON, to save
   to a file.
@@ -177,16 +214,25 @@ the program starts.
   the Configuration tab, the radio field is shown as two linked rows,
   **Preset radio** (23 official regional presets) and **Radio**
   (technical detail), synced both ways.
-  A **Regions** section below lets you build the hierarchy the same way
-  (parent, flood allowed, home/default) — "New" starts it off with a
-  disabled EU → Europe → FR example. Limited to `vars` + regions +
-  device type for now (no ACL editing yet).
+  An **ACL** section lets you add/edit/disable entries (public key +
+  role) the same way, with its own **New ACL entry** row. A **Regions**
+  section below lets you build the hierarchy the same way (parent, flood
+  allowed, home/default), with a per-row **Delete** and a **Clear
+  regions** button to start over — "New" starts it off with a disabled
+  EU → Europe → FR example. The same **French region assistant** as
+  Configuration (search a department, insert the `eu`/`fr`/region/
+  department chain in one click) is available here too. Same row order
+  as the Configuration tab (the loaded file's own, reorderable with
+  **^ / v**), and the same **Paste position** row above `lat`.
 - **Commands** — paste a block of raw CLI commands (one per line, e.g. a
   meshcore.fr-style setup recipe) and run them all at once, in order.
   Blank lines and lines starting with `#` are skipped. A failing line
   (e.g. `reboot`/`clock sync`, which normally fail over a direct
   connection) doesn't stop the rest — each line's result and the final
-  tally show up in the Journal.
+  tally show up in the Journal. The same **French region assistant** as
+  Configuration/Editor is available here too: searching a department
+  inserts the matching `region put`/`allowf`/`save` sequence straight
+  into the command block, to review before running it.
 - **Flash** — writes an already-merged `.bin` firmware (ESP32/ESP32-S3
   only for now — Heltec V2/V3/V4 and similar).
 

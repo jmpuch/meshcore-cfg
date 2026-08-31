@@ -97,7 +97,11 @@ automatiquement (pas besoin de cliquer sur « Rafraîchir » en premier) —
 chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
 plutôt que d'attendre la fin de la lecture complète.
 
-![Onglet Configuration, device connecté](docs/screenshots/02-connecte-companion.png)
+![Onglet Configuration, avec template chargé](docs/screenshots/02-connecte-companion.png)
+
+*(Capturée sans connexion active — le tableau/ACL/Régions s'affichent
+identiquement une fois connecté, avec en plus la colonne « Valeur lue »
+remplie.)*
 
 Chaque champ a sa propre ligne : la valeur actuellement lue sur le
 device, un champ pour taper une nouvelle valeur, et un bouton **Set**
@@ -129,8 +133,7 @@ lancement du programme.
 
 - **Configuration** — décrit ci-dessus : tous les attributs, comparaison
   à un template, et (si le device en a) les sections **ACL** et
-  **Régions** en dessous du tableau principal, sur le même principe
-  (valeur lue vs. valeur template, coloration identique). La colonne
+  **Régions** en dessous du tableau principal. La colonne
   **Valeur template** est directement éditable (modification live, y
   compris pour ajouter un champ absent du template) ; chaque champ a
   aussi sa case **Masquer (#)** pour désactiver/réactiver son
@@ -140,24 +143,62 @@ lancement du programme.
   bordure (largeur mémorisée d'un lancement à l'autre, comme dans
   l'Éditeur), et un bouton **Redémarrer le device** est disponible en
   haut — utile après un changement de paramètres radio, qui ne sont
-  pris en compte qu'au redémarrage. La section Régions a sa propre case
-  **RAZ régions avant update**, pour supprimer sur le device les
-  régions absentes du template plutôt que se contenter d'ajouter/
-  modifier. Le champ radio est présenté sur deux lignes liées :
-  **Preset radio** (nom d'un préréglage régional officiel — Brazil,
-  EU/UK (Narrow), USA/Canada..., 23 au total) juste au-dessus de
-  **Radio** (le détail technique fréquence/bande passante/SF/CR).
-  Choisir un preset remplit la ligne Radio ; modifier un paramètre radio
-  à la main met à jour le preset affiché (nom correspondant, ou « --- »
-  si la combinaison ne correspond plus à aucun préréglage connu). La
-  ligne **Radio** elle-même n'accepte plus une valeur libre : bande
-  passante, facteur d'étalement (SF) et taux de codage (CR) se
-  choisissent dans une liste ne proposant que les valeurs réellement
-  supportées par la puce radio, et la fréquence reste un champ numérique
-  borné à la plage acceptée par le firmware — impossible d'entrer une
-  combinaison incohérente. Le tableau se déplace aussi horizontalement
-  (pas seulement verticalement) si la fenêtre est trop étroite pour
-  afficher toutes les colonnes.
+  pris en compte qu'au redémarrage.
+
+  **Ordre des lignes** : un template chargé s'affiche exactement dans
+  l'ordre où ses champs sont écrits dans le fichier JSON — commentaires
+  (`#_comment...`) compris, à leur vraie place. Deux boutons **^ / v**
+  sur chaque ligne permettent de réordonner directement depuis l'IHM ;
+  l'ordre choisi est celui utilisé par **Enregistrer sous...**. Sans
+  template chargé, l'ordre par défaut reste : identité (nom, coordonnées,
+  mots de passe) puis réglages radio/réseau puis le reste.
+
+  **ACL** : même principe que le tableau des champs — rôle lu, rôle
+  souhaité (menu déroulant guest/read-only/read-write/admin), case
+  **Masquer (#)**, bouton **Appliquer** par ligne, plus une ligne
+  **Nouvelle entrée ACL** pour ajouter une clé publique pas encore
+  connue. Une entrée ACL non désactivée est aussi appliquée par
+  **Appliquer tout le template**, comme n'importe quel autre champ.
+
+  **Régions** : deux arbres indentés côte à côte, **Device (lu)** et
+  **Template (souhaité)** — même présentation qu'un `region list` en
+  CLI, avec home/default marqués (`^home`/`•default`) et une couleur par
+  région (vert = déjà identique, rouge = diffère, orange = désactivée
+  dans le template). Un "Supprimer" sur chaque région du template la
+  retire **avec tous ses enfants**, et **Vider le template** repart de
+  zéro d'un coup — rien de tout ça n'écrit sur le device, c'est
+  **Appliquer tout le template** qui le fait, en une fois pour tout
+  (régions absentes du template toujours supprimées du device, pour que
+  celui-ci corresponde exactement au fichier). Un **assistant région
+  française** repliable propose de chercher un département (nom ou
+  numéro) et d'insérer d'un clic toute la hiérarchie
+  `eu`/`fr`/région/département correspondante — pratique pour ne jamais
+  fauter un code de région à la main.
+
+  Le champ radio est présenté sur deux lignes liées : **Preset radio**
+  (nom d'un préréglage régional officiel — Brazil, EU/UK (Narrow),
+  USA/Canada..., 23 au total) juste au-dessus de **Radio** (le détail
+  technique fréquence/bande passante/SF/CR). Choisir un preset remplit
+  la ligne Radio ; modifier un paramètre radio à la main met à jour le
+  preset affiché (nom correspondant, ou « --- » si la combinaison ne
+  correspond plus à aucun préréglage connu). La ligne **Radio**
+  elle-même n'accepte plus une valeur libre : bande passante, facteur
+  d'étalement (SF) et taux de codage (CR) se choisissent dans une liste
+  ne proposant que les valeurs réellement supportées par la puce radio,
+  et la fréquence reste un champ numérique borné à la plage acceptée par
+  le firmware — impossible d'entrer une combinaison incohérente.
+
+  De la même façon, une ligne **Coller position** juste au-dessus de
+  `lat` accepte de coller un couple `latitude, longitude` ou un lien
+  OpenStreetMap/Google Maps copié depuis un navigateur — l'outil en
+  extrait les deux coordonnées sans ambiguïté sur laquelle est laquelle ;
+  un bouton **Carte** sur la ligne `lat` ouvre aussi OpenStreetMap dans
+  le navigateur par défaut, centré sur les coordonnées actuelles, pour
+  repérer visuellement un point avant de copier son lien.
+
+  Le tableau se déplace aussi horizontalement (pas seulement
+  verticalement) si la fenêtre est trop étroite pour afficher toutes les
+  colonnes.
 - **Dump** — capture complète de l'état du device en JSON, à sauvegarder
   dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a
@@ -183,18 +224,28 @@ lancement du programme.
   deux lignes liées, **Preset radio** (23 préréglages régionaux
   officiels) et **Radio** (détail technique), synchronisées dans les
   deux sens.
-  Une section **Régions** en dessous permet de créer/modifier la
-  hiérarchie (parent, flood autorisé, home/default) sur le même principe
-  — « Nouveau » y propose d'emblée un exemple EU → Europe → FR,
-  désactivé. Limité aux `vars` + régions + type de device pour l'instant
-  (pas encore l'ACL).
+  Une section **ACL** permet d'ajouter/modifier/désactiver des entrées
+  (clé publique + rôle) de la même façon, avec sa propre ligne
+  **Nouvelle entrée ACL**. Une section **Régions** en dessous permet de
+  créer/modifier la hiérarchie (parent, flood autorisé, home/default) sur
+  le même principe, avec **Supprimer** par ligne et **Vider les
+  régions** pour repartir de zéro — « Nouveau » y propose d'emblée un
+  exemple EU → Europe → FR, désactivé. Le même **assistant région
+  française** que dans Configuration (chercher un département, insérer
+  la hiérarchie `eu`/`fr`/région/département en un clic) y est aussi
+  disponible. Même ordre de lignes que l'onglet Configuration (celui du
+  fichier chargé, réordonnable avec **^ / v**), et même ligne **Coller
+  position** au-dessus de `lat`.
 - **Commandes** — colle un bloc de commandes CLI brutes (une par ligne,
   ex. une recette de configuration meshcore.fr) et les exécute d'un
   coup, dans l'ordre. Les lignes vides et celles commençant par `#` sont
   ignorées. Une ligne qui échoue (ex. `reboot`/`clock sync`, qui échouent
   normalement en connexion directe) n'interrompt pas les suivantes — le
   résultat de chaque ligne et le résumé final s'affichent dans le
-  Journal.
+  Journal. Le même **assistant région française** que Configuration/
+  Éditeur y est disponible : chercher un département insère directement
+  la séquence `region put`/`allowf`/`save` correspondante dans le bloc de
+  commandes, à relire avant d'exécuter.
 - **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3
   uniquement pour l'instant — Heltec V2/V3/V4 et similaires).
 

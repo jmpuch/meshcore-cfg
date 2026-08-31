@@ -21,6 +21,8 @@
     "repeat": true,
 
     "#_comment2": "autres paramètres/balises gérés",
+    "#_comment3": "af is the same underlying value as dutycycle above (dutycycle = 100/(af+1)) in a different unit — setting dutycycle already covers it",
+    "#af": 9,
     "#prv.key": "REDACTED - identity key; a base template shouldn't clone one device's identity onto many, remove the # only when deliberately cloning a single specific device",
     "#public.key": "REDACTED - informational only, no set handler exists for this field in the firmware",
     "#allow.read.only": false,

@@ -3,12 +3,12 @@
 *[🇫🇷 Version française](README.md)*
 
 A tool (Rust) to configure [MeshCore](https://meshcore.io/) devices —
-repeater, room-server, sensor, **and companion** — with a graphical
-interface for everyday use, and a full CLI for advanced/scriptable
-usage. Applies complete configuration templates, manages the region
-tree, manages the ACL (admin/guest permissions), configures a remote
-companion over another companion on the LoRa mesh, and flashes ESP32
-firmware natively.
+repeater, room-server, sensor, **and companion** (serial or Bluetooth) —
+with a graphical interface for everyday use, and a full CLI for
+advanced/scriptable usage. Applies complete configuration templates,
+region assistant (44 countries), manages the ACL (admin/guest
+permissions), configures a remote companion over another companion on
+the LoRa mesh, and flashes ESP32 firmware natively.
 
 > **Source code**: not published yet — this repo only distributes
 > precompiled binaries (see [Releases](https://github.com/jmpuch/meshcore-cfg/releases)

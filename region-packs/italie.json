@@ -1,0 +1,115 @@
+{
+  "display_name": "Italie (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "it",
+      "label": "Italie",
+      "parent": "eu"
+    },
+    {
+      "code": "it-65",
+      "label": "Abruzzes",
+      "parent": "it"
+    },
+    {
+      "code": "it-77",
+      "label": "Basilicate",
+      "parent": "it"
+    },
+    {
+      "code": "it-78",
+      "label": "Calabre",
+      "parent": "it"
+    },
+    {
+      "code": "it-72",
+      "label": "Campanie",
+      "parent": "it"
+    },
+    {
+      "code": "it-45",
+      "label": "Émilie-Romagne",
+      "parent": "it"
+    },
+    {
+      "code": "it-36",
+      "label": "Frioul-Vénétie Julienne",
+      "parent": "it"
+    },
+    {
+      "code": "it-62",
+      "label": "Latium",
+      "parent": "it"
+    },
+    {
+      "code": "it-42",
+      "label": "Ligurie",
+      "parent": "it"
+    },
+    {
+      "code": "it-25",
+      "label": "Lombardie",
+      "parent": "it"
+    },
+    {
+      "code": "it-57",
+      "label": "Marches",
+      "parent": "it"
+    },
+    {
+      "code": "it-67",
+      "label": "Molise",
+      "parent": "it"
+    },
+    {
+      "code": "it-21",
+      "label": "Piémont",
+      "parent": "it"
+    },
+    {
+      "code": "it-75",
+      "label": "Pouille",
+      "parent": "it"
+    },
+    {
+      "code": "it-88",
+      "label": "Sardaigne",
+      "parent": "it"
+    },
+    {
+      "code": "it-82",
+      "label": "Sicile",
+      "parent": "it"
+    },
+    {
+      "code": "it-52",
+      "label": "Toscane",
+      "parent": "it"
+    },
+    {
+      "code": "it-32",
+      "label": "Trentin-Haut-Adige",
+      "parent": "it"
+    },
+    {
+      "code": "it-55",
+      "label": "Ombrie",
+      "parent": "it"
+    },
+    {
+      "code": "it-23",
+      "label": "Vallée d'Aoste",
+      "parent": "it"
+    },
+    {
+      "code": "it-34",
+      "label": "Vénétie",
+      "parent": "it"
+    }
+  ]
+}

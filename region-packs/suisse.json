@@ -1,0 +1,145 @@
+{
+  "display_name": "Suisse (cantons)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ch",
+      "label": "Suisse",
+      "parent": "eu"
+    },
+    {
+      "code": "ch-ag",
+      "label": "Argovie",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ar",
+      "label": "Appenzell Rhodes-Extérieures",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ai",
+      "label": "Appenzell Rhodes-Intérieures",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-bl",
+      "label": "Bâle-Campagne",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-bs",
+      "label": "Bâle-Ville",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-be",
+      "label": "Berne",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-fr",
+      "label": "Fribourg",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ge",
+      "label": "Genève",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-gl",
+      "label": "Glaris",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-gr",
+      "label": "Grisons",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ju",
+      "label": "Jura",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-lu",
+      "label": "Lucerne",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ne",
+      "label": "Neuchâtel",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-nw",
+      "label": "Nidwald",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ow",
+      "label": "Obwald",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-sg",
+      "label": "Saint-Gall",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-sh",
+      "label": "Schaffhouse",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-sz",
+      "label": "Schwytz",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-so",
+      "label": "Soleure",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-tg",
+      "label": "Thurgovie",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ti",
+      "label": "Tessin",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-ur",
+      "label": "Uri",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-vs",
+      "label": "Valais",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-vd",
+      "label": "Vaud",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-zg",
+      "label": "Zoug",
+      "parent": "ch"
+    },
+    {
+      "code": "ch-zh",
+      "label": "Zurich",
+      "parent": "ch"
+    }
+  ]
+}

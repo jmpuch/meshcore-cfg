@@ -1,0 +1,95 @@
+{
+  "display_name": "Allemagne (Länder)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "de",
+      "label": "Allemagne",
+      "parent": "eu"
+    },
+    {
+      "code": "de-bw",
+      "label": "Baden-Wurtemberg",
+      "parent": "de"
+    },
+    {
+      "code": "de-by",
+      "label": "Bavière",
+      "parent": "de"
+    },
+    {
+      "code": "de-be",
+      "label": "Berlin",
+      "parent": "de"
+    },
+    {
+      "code": "de-bb",
+      "label": "Brandebourg",
+      "parent": "de"
+    },
+    {
+      "code": "de-hb",
+      "label": "Brême",
+      "parent": "de"
+    },
+    {
+      "code": "de-hh",
+      "label": "Hambourg",
+      "parent": "de"
+    },
+    {
+      "code": "de-he",
+      "label": "Hesse",
+      "parent": "de"
+    },
+    {
+      "code": "de-mv",
+      "label": "Mecklembourg-Poméranie-Occidentale",
+      "parent": "de"
+    },
+    {
+      "code": "de-ni",
+      "label": "Basse-Saxe",
+      "parent": "de"
+    },
+    {
+      "code": "de-nw",
+      "label": "Rhénanie-du-Nord-Westphalie",
+      "parent": "de"
+    },
+    {
+      "code": "de-rp",
+      "label": "Rhénanie-Palatinat",
+      "parent": "de"
+    },
+    {
+      "code": "de-sl",
+      "label": "Sarre",
+      "parent": "de"
+    },
+    {
+      "code": "de-sn",
+      "label": "Saxe",
+      "parent": "de"
+    },
+    {
+      "code": "de-st",
+      "label": "Saxe-Anhalt",
+      "parent": "de"
+    },
+    {
+      "code": "de-sh",
+      "label": "Schleswig-Holstein",
+      "parent": "de"
+    },
+    {
+      "code": "de-th",
+      "label": "Thuringe",
+      "parent": "de"
+    }
+  ]
+}

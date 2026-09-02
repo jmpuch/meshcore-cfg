@@ -1,0 +1,585 @@
+{
+  "display_name": "France (régions et départements)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "fr",
+      "label": "France",
+      "parent": "eu"
+    },
+    {
+      "code": "fr-ara",
+      "label": "Auvergne-Rhône-Alpes",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-bfc",
+      "label": "Bourgogne-Franche-Comté",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-bre",
+      "label": "Bretagne",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-cvl",
+      "label": "Centre-Val de Loire",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-cor",
+      "label": "Corse",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-ges",
+      "label": "Grand Est",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-hdf",
+      "label": "Hauts-de-France",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-idf",
+      "label": "Île-de-France",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-nor",
+      "label": "Normandie",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-naq",
+      "label": "Nouvelle-Aquitaine",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-occ",
+      "label": "Occitanie",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-pdl",
+      "label": "Pays de la Loire",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-pac",
+      "label": "Provence-Alpes-Côte d'Azur",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-01",
+      "label": "01 - Ain",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-02",
+      "label": "02 - Aisne",
+      "parent": "fr-hdf"
+    },
+    {
+      "code": "fr-03",
+      "label": "03 - Allier",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-04",
+      "label": "04 - Alpes-de-Haute-Provence",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-05",
+      "label": "05 - Hautes-Alpes",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-06",
+      "label": "06 - Alpes-Maritimes",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-07",
+      "label": "07 - Ardèche",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-08",
+      "label": "08 - Ardennes",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-09",
+      "label": "09 - Ariège",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-10",
+      "label": "10 - Aube",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-11",
+      "label": "11 - Aude",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-12",
+      "label": "12 - Aveyron",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-13",
+      "label": "13 - Bouches-du-Rhône",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-14",
+      "label": "14 - Calvados",
+      "parent": "fr-nor"
+    },
+    {
+      "code": "fr-15",
+      "label": "15 - Cantal",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-16",
+      "label": "16 - Charente",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-17",
+      "label": "17 - Charente-Maritime",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-18",
+      "label": "18 - Cher",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-19",
+      "label": "19 - Corrèze",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-2a",
+      "label": "2A - Corse-du-Sud",
+      "parent": "fr-cor"
+    },
+    {
+      "code": "fr-2b",
+      "label": "2B - Haute-Corse",
+      "parent": "fr-cor"
+    },
+    {
+      "code": "fr-21",
+      "label": "21 - Côte-d'Or",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-22",
+      "label": "22 - Côtes-d'Armor",
+      "parent": "fr-bre"
+    },
+    {
+      "code": "fr-23",
+      "label": "23 - Creuse",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-24",
+      "label": "24 - Dordogne",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-25",
+      "label": "25 - Doubs",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-26",
+      "label": "26 - Drôme",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-27",
+      "label": "27 - Eure",
+      "parent": "fr-nor"
+    },
+    {
+      "code": "fr-28",
+      "label": "28 - Eure-et-Loir",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-29",
+      "label": "29 - Finistère",
+      "parent": "fr-bre"
+    },
+    {
+      "code": "fr-30",
+      "label": "30 - Gard",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-31",
+      "label": "31 - Haute-Garonne",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-32",
+      "label": "32 - Gers",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-33",
+      "label": "33 - Gironde",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-34",
+      "label": "34 - Hérault",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-35",
+      "label": "35 - Ille-et-Vilaine",
+      "parent": "fr-bre"
+    },
+    {
+      "code": "fr-36",
+      "label": "36 - Indre",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-37",
+      "label": "37 - Indre-et-Loire",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-38",
+      "label": "38 - Isère",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-39",
+      "label": "39 - Jura",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-40",
+      "label": "40 - Landes",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-41",
+      "label": "41 - Loir-et-Cher",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-42",
+      "label": "42 - Loire",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-43",
+      "label": "43 - Haute-Loire",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-44",
+      "label": "44 - Loire-Atlantique",
+      "parent": "fr-pdl"
+    },
+    {
+      "code": "fr-45",
+      "label": "45 - Loiret",
+      "parent": "fr-cvl"
+    },
+    {
+      "code": "fr-46",
+      "label": "46 - Lot",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-47",
+      "label": "47 - Lot-et-Garonne",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-48",
+      "label": "48 - Lozère",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-49",
+      "label": "49 - Maine-et-Loire",
+      "parent": "fr-pdl"
+    },
+    {
+      "code": "fr-50",
+      "label": "50 - Manche",
+      "parent": "fr-nor"
+    },
+    {
+      "code": "fr-51",
+      "label": "51 - Marne",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-52",
+      "label": "52 - Haute-Marne",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-53",
+      "label": "53 - Mayenne",
+      "parent": "fr-pdl"
+    },
+    {
+      "code": "fr-54",
+      "label": "54 - Meurthe-et-Moselle",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-55",
+      "label": "55 - Meuse",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-56",
+      "label": "56 - Morbihan",
+      "parent": "fr-bre"
+    },
+    {
+      "code": "fr-57",
+      "label": "57 - Moselle",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-58",
+      "label": "58 - Nièvre",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-59",
+      "label": "59 - Nord",
+      "parent": "fr-hdf"
+    },
+    {
+      "code": "fr-60",
+      "label": "60 - Oise",
+      "parent": "fr-hdf"
+    },
+    {
+      "code": "fr-61",
+      "label": "61 - Orne",
+      "parent": "fr-nor"
+    },
+    {
+      "code": "fr-62",
+      "label": "62 - Pas-de-Calais",
+      "parent": "fr-hdf"
+    },
+    {
+      "code": "fr-63",
+      "label": "63 - Puy-de-Dôme",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-64",
+      "label": "64 - Pyrénées-Atlantiques",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-65",
+      "label": "65 - Hautes-Pyrénées",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-66",
+      "label": "66 - Pyrénées-Orientales",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-67",
+      "label": "67 - Bas-Rhin",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-68",
+      "label": "68 - Haut-Rhin",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-69",
+      "label": "69 - Rhône",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-70",
+      "label": "70 - Haute-Saône",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-71",
+      "label": "71 - Saône-et-Loire",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-72",
+      "label": "72 - Sarthe",
+      "parent": "fr-pdl"
+    },
+    {
+      "code": "fr-73",
+      "label": "73 - Savoie",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-74",
+      "label": "74 - Haute-Savoie",
+      "parent": "fr-ara"
+    },
+    {
+      "code": "fr-75",
+      "label": "75 - Paris",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-76",
+      "label": "76 - Seine-Maritime",
+      "parent": "fr-nor"
+    },
+    {
+      "code": "fr-77",
+      "label": "77 - Seine-et-Marne",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-78",
+      "label": "78 - Yvelines",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-79",
+      "label": "79 - Deux-Sèvres",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-80",
+      "label": "80 - Somme",
+      "parent": "fr-hdf"
+    },
+    {
+      "code": "fr-81",
+      "label": "81 - Tarn",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-82",
+      "label": "82 - Tarn-et-Garonne",
+      "parent": "fr-occ"
+    },
+    {
+      "code": "fr-83",
+      "label": "83 - Var",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-84",
+      "label": "84 - Vaucluse",
+      "parent": "fr-pac"
+    },
+    {
+      "code": "fr-85",
+      "label": "85 - Vendée",
+      "parent": "fr-pdl"
+    },
+    {
+      "code": "fr-86",
+      "label": "86 - Vienne",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-87",
+      "label": "87 - Haute-Vienne",
+      "parent": "fr-naq"
+    },
+    {
+      "code": "fr-88",
+      "label": "88 - Vosges",
+      "parent": "fr-ges"
+    },
+    {
+      "code": "fr-89",
+      "label": "89 - Yonne",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-90",
+      "label": "90 - Territoire de Belfort",
+      "parent": "fr-bfc"
+    },
+    {
+      "code": "fr-91",
+      "label": "91 - Essonne",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-92",
+      "label": "92 - Hauts-de-Seine",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-93",
+      "label": "93 - Seine-Saint-Denis",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-94",
+      "label": "94 - Val-de-Marne",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-95",
+      "label": "95 - Val-d'Oise",
+      "parent": "fr-idf"
+    },
+    {
+      "code": "fr-971",
+      "label": "971 - Guadeloupe",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-972",
+      "label": "972 - Martinique",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-973",
+      "label": "973 - Guyane",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-974",
+      "label": "974 - La Réunion",
+      "parent": "fr"
+    },
+    {
+      "code": "fr-976",
+      "label": "976 - Mayotte",
+      "parent": "fr"
+    }
+  ]
+}

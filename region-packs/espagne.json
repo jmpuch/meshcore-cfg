@@ -1,0 +1,110 @@
+{
+  "display_name": "Espagne (communautés autonomes)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "es",
+      "label": "Espagne",
+      "parent": "eu"
+    },
+    {
+      "code": "es-an",
+      "label": "Andalousie",
+      "parent": "es"
+    },
+    {
+      "code": "es-ar",
+      "label": "Aragon",
+      "parent": "es"
+    },
+    {
+      "code": "es-as",
+      "label": "Asturies",
+      "parent": "es"
+    },
+    {
+      "code": "es-cn",
+      "label": "Îles Canaries",
+      "parent": "es"
+    },
+    {
+      "code": "es-cb",
+      "label": "Cantabrie",
+      "parent": "es"
+    },
+    {
+      "code": "es-cl",
+      "label": "Castille-et-León",
+      "parent": "es"
+    },
+    {
+      "code": "es-cm",
+      "label": "Castille-La Manche",
+      "parent": "es"
+    },
+    {
+      "code": "es-ct",
+      "label": "Catalogne",
+      "parent": "es"
+    },
+    {
+      "code": "es-ce",
+      "label": "Ceuta",
+      "parent": "es"
+    },
+    {
+      "code": "es-ex",
+      "label": "Estrémadure",
+      "parent": "es"
+    },
+    {
+      "code": "es-ga",
+      "label": "Galice",
+      "parent": "es"
+    },
+    {
+      "code": "es-ib",
+      "label": "Îles Baléares",
+      "parent": "es"
+    },
+    {
+      "code": "es-ri",
+      "label": "La Rioja",
+      "parent": "es"
+    },
+    {
+      "code": "es-md",
+      "label": "Madrid (communauté)",
+      "parent": "es"
+    },
+    {
+      "code": "es-ml",
+      "label": "Melilla",
+      "parent": "es"
+    },
+    {
+      "code": "es-mc",
+      "label": "Murcie (région)",
+      "parent": "es"
+    },
+    {
+      "code": "es-nc",
+      "label": "Navarre",
+      "parent": "es"
+    },
+    {
+      "code": "es-pv",
+      "label": "Pays basque",
+      "parent": "es"
+    },
+    {
+      "code": "es-vc",
+      "label": "Communauté valencienne",
+      "parent": "es"
+    }
+  ]
+}

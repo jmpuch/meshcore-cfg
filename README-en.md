@@ -165,10 +165,12 @@ the program starts.
   from scratch — none of this writes to the device, that's still
   **Apply whole template**'s job, all at once (regions absent from the
   template are always removed from the device so it ends up an exact
-  mirror of the file). A collapsible **French region assistant** lets
-  you search a French department (name or number) and insert the whole
-  `eu`/`fr`/region/department chain in one click — handy for never
-  mistyping a region code by hand.
+  mirror of the file). A collapsible **region assistant** lets you search
+  a region/area (name or code) and insert its whole hierarchy in one
+  click — handy for never mistyping a region code by hand. Data comes
+  from JSON "region pack" files you can enable/disable right in the
+  panel — see the dedicated section below for the format and how to add
+  a country.
 
   The radio field is shown as two linked rows: **Preset radio** (an
   official regional preset name — Brazil, EU/UK (Narrow), USA/Canada...,
@@ -219,22 +221,72 @@ the program starts.
   section below lets you build the hierarchy the same way (parent, flood
   allowed, home/default), with a per-row **Delete** and a **Clear
   regions** button to start over — "New" starts it off with a disabled
-  EU → Europe → FR example. The same **French region assistant** as
-  Configuration (search a department, insert the `eu`/`fr`/region/
-  department chain in one click) is available here too. Same row order
-  as the Configuration tab (the loaded file's own, reorderable with
-  **^ / v**), and the same **Paste position** row above `lat`.
+  EU → Europe → FR example. The same **region assistant** as
+  Configuration (search a region, insert its hierarchy in one click) is
+  available here too. Same row order as the Configuration tab (the loaded
+  file's own, reorderable with **^ / v**), and the same **Paste position**
+  row above `lat`.
 - **Commands** — paste a block of raw CLI commands (one per line, e.g. a
   meshcore.fr-style setup recipe) and run them all at once, in order.
   Blank lines and lines starting with `#` are skipped. A failing line
   (e.g. `reboot`/`clock sync`, which normally fail over a direct
   connection) doesn't stop the rest — each line's result and the final
-  tally show up in the Journal. The same **French region assistant** as
-  Configuration/Editor is available here too: searching a department
-  inserts the matching `region put`/`allowf`/`save` sequence straight
-  into the command block, to review before running it.
-- **Flash** — writes an already-merged `.bin` firmware (ESP32/ESP32-S3
-  only for now — Heltec V2/V3/V4 and similar).
+  tally show up in the Journal. The same **region assistant** as
+  Configuration/Editor is available here too: searching a region inserts
+  the matching `region put`/`allowf`/`save` sequence straight into the
+  command block, to review before running it.
+- **ESP-Flash** — writes an already-merged `.bin` firmware. **ESP32/
+  ESP32-S3 only** — Heltec V2/V3/V4 and similar; nRF52 boards (Heltec
+  T114, RAK4631, ...) are not supported by this tab.
+
+## Region packs: adding more countries to the assistant
+
+The region assistant (Commands/Editor/Configuration) has no country
+hardcoded — it reads one or more JSON "region pack" files, enabled/
+disabled right in the panel itself (a checkbox per file, **+ Add a
+file...**, **Reload** after a manual edit). Six packs ship in
+`region-packs/`:
+
+| File | Content |
+|---|---|
+| `france.json` | 13 regions + 101 departments (active by default) |
+| `belgique.json` | 3 regions + 10 provinces |
+| `allemagne.json` | 16 Länder |
+| `italie.json` | 20 regions |
+| `espagne.json` | 17 autonomous communities + 2 autonomous cities |
+| `suisse.json` | 26 cantons |
+
+Codes and labels come from Wikipedia's [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
+pages for each country (verified before generating these files, not
+typed from memory) — labels other than the country itself are in
+English/native spelling rather than translated, to avoid a translation
+mistake; feel free to edit them in the file, no recompile needed.
+
+Pack format:
+
+```json
+{
+  "display_name": "Belgium",
+  "entries": [
+    { "code": "eu", "label": "Europe", "parent": null },
+    { "code": "be", "label": "Belgium", "parent": "eu" },
+    { "code": "be-bru", "label": "Brussels-Capital", "parent": "be" },
+    { "code": "be-vlg", "label": "Flanders", "parent": "be" },
+    { "code": "be-wal", "label": "Wallonia", "parent": "be" }
+  ]
+}
+```
+
+`parent` references another entry's `code` in the same pack (or `null`
+for a root) — no imposed structure, each country defines its own depth
+(a small country might only need one or two levels, France has four). A
+shared `eu` (Europe) root, as above, is just a convention — all six
+bundled packs use it, so their regions end up under the same "Europe"
+node when several are active at once, but nothing enforces it. Every
+entry, not just "leaf" ones, is searchable and insertable in the
+assistant.
+Write a `.json` file on this model, then **+ Add a file...** in any of
+the three panels activates it everywhere.
 
 ## Companion: configure it locally, or drive a remote target over LoRa
 

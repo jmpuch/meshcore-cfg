@@ -169,11 +169,13 @@ lancement du programme.
   zéro d'un coup — rien de tout ça n'écrit sur le device, c'est
   **Appliquer tout le template** qui le fait, en une fois pour tout
   (régions absentes du template toujours supprimées du device, pour que
-  celui-ci corresponde exactement au fichier). Un **assistant région
-  française** repliable propose de chercher un département (nom ou
-  numéro) et d'insérer d'un clic toute la hiérarchie
-  `eu`/`fr`/région/département correspondante — pratique pour ne jamais
-  fauter un code de région à la main.
+  celui-ci corresponde exactement au fichier). Un **assistant région**
+  repliable propose de chercher une région/un secteur (nom ou code) et
+  d'insérer d'un clic toute sa hiérarchie — pratique pour ne jamais fauter
+  un code de région à la main. Les données viennent de fichiers JSON
+  ("packs de régions") activables/désactivables directement dans l'IHM —
+  voir la section dédiée plus bas pour le format et comment ajouter un
+  pays.
 
   Le champ radio est présenté sur deux lignes liées : **Preset radio**
   (nom d'un préréglage régional officiel — Brazil, EU/UK (Narrow),
@@ -230,24 +232,75 @@ lancement du programme.
   créer/modifier la hiérarchie (parent, flood autorisé, home/default) sur
   le même principe, avec **Supprimer** par ligne et **Vider les
   régions** pour repartir de zéro — « Nouveau » y propose d'emblée un
-  exemple EU → Europe → FR, désactivé. Le même **assistant région
-  française** que dans Configuration (chercher un département, insérer
-  la hiérarchie `eu`/`fr`/région/département en un clic) y est aussi
-  disponible. Même ordre de lignes que l'onglet Configuration (celui du
-  fichier chargé, réordonnable avec **^ / v**), et même ligne **Coller
-  position** au-dessus de `lat`.
+  exemple EU → Europe → FR, désactivé. Le même **assistant région** que
+  dans Configuration (chercher une région, insérer sa hiérarchie en un
+  clic) y est aussi disponible. Même ordre de lignes que l'onglet
+  Configuration (celui du fichier chargé, réordonnable avec **^ / v**), et
+  même ligne **Coller position** au-dessus de `lat`.
 - **Commandes** — colle un bloc de commandes CLI brutes (une par ligne,
   ex. une recette de configuration meshcore.fr) et les exécute d'un
   coup, dans l'ordre. Les lignes vides et celles commençant par `#` sont
   ignorées. Une ligne qui échoue (ex. `reboot`/`clock sync`, qui échouent
   normalement en connexion directe) n'interrompt pas les suivantes — le
   résultat de chaque ligne et le résumé final s'affichent dans le
-  Journal. Le même **assistant région française** que Configuration/
-  Éditeur y est disponible : chercher un département insère directement
-  la séquence `region put`/`allowf`/`save` correspondante dans le bloc de
-  commandes, à relire avant d'exécuter.
-- **Flash** — écrit un firmware `.bin` déjà mergé (ESP32/ESP32-S3
-  uniquement pour l'instant — Heltec V2/V3/V4 et similaires).
+  Journal. Le même **assistant région** que Configuration/Éditeur y est
+  disponible : chercher une région insère directement la séquence
+  `region put`/`allowf`/`save` correspondante dans le bloc de commandes, à
+  relire avant d'exécuter.
+- **ESP-Flash** — écrit un firmware `.bin` déjà mergé. **ESP32/ESP32-S3
+  uniquement** — Heltec V2/V3/V4 et similaires ; les boards nRF52 (Heltec
+  T114, RAK4631...) ne sont pas supportées par cet onglet.
+
+## Packs de régions : ajouter d'autres pays à l'assistant
+
+L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
+par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
+« packs de régions », activables/désactivables dans le panneau lui-même
+(case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
+après une modification manuelle). Six packs sont fournis dans
+`region-packs/` :
+
+| Fichier | Contenu |
+|---|---|
+| `france.json` | 13 régions + 101 départements (actif par défaut) |
+| `belgique.json` | 3 régions + 10 provinces |
+| `allemagne.json` | 16 Länder |
+| `italie.json` | 20 régions |
+| `espagne.json` | 17 communautés autonomes + 2 villes autonomes |
+| `suisse.json` | 26 cantons |
+
+Codes et libellés issus des pages [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) de Wikipédia
+pour chaque pays (vérifiés avant génération, pas retapés de mémoire) — les
+libellés autres que le pays lui-même sont en anglais/nom natif plutôt que
+traduits en français, pour éviter une erreur de traduction ; libre à vous
+de les adapter dans le fichier, aucune recompilation nécessaire.
+
+Format d'un pack :
+
+```json
+{
+  "display_name": "Belgique",
+  "entries": [
+    { "code": "eu", "label": "Europe", "parent": null },
+    { "code": "be", "label": "Belgique", "parent": "eu" },
+    { "code": "be-bru", "label": "Bruxelles-Capitale", "parent": "be" },
+    { "code": "be-vlg", "label": "Flandre", "parent": "be" },
+    { "code": "be-wal", "label": "Wallonie", "parent": "be" }
+  ]
+}
+```
+
+`parent` référence le `code` d'une autre entrée du même pack (ou `null`
+pour une racine) — aucune structure imposée : chaque pays définit sa
+propre profondeur (un petit pays peut n'avoir qu'un ou deux niveaux, la
+France en a quatre). Un `eu` (Europe) partagé en racine, comme ci-dessus,
+n'est qu'une convention — les six packs fournis s'en servent tous, ce qui
+permet à leurs régions de cohabiter sous le même nœud "Europe" quand
+plusieurs sont actifs en même temps, mais rien ne l'impose. Chaque entrée,
+pas seulement les « feuilles », est cherchable et insérable dans
+l'assistant. Créer un fichier `.json` sur ce modèle, puis **+ Ajouter un
+fichier...** dans n'importe lequel des trois panneaux suffit à l'activer
+partout.
 
 ## Companion : configurer localement, ou piloter une cible distante via LoRa
 

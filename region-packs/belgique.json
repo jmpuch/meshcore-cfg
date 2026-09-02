@@ -1,0 +1,80 @@
+{
+  "display_name": "Belgique (régions et provinces)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "be",
+      "label": "Belgique",
+      "parent": "eu"
+    },
+    {
+      "code": "be-bru",
+      "label": "Bruxelles-Capitale",
+      "parent": "be"
+    },
+    {
+      "code": "be-vlg",
+      "label": "Flandre",
+      "parent": "be"
+    },
+    {
+      "code": "be-wal",
+      "label": "Wallonie",
+      "parent": "be"
+    },
+    {
+      "code": "be-van",
+      "label": "Anvers",
+      "parent": "be-vlg"
+    },
+    {
+      "code": "be-vli",
+      "label": "Limbourg",
+      "parent": "be-vlg"
+    },
+    {
+      "code": "be-vov",
+      "label": "Flandre-Orientale",
+      "parent": "be-vlg"
+    },
+    {
+      "code": "be-vbr",
+      "label": "Brabant flamand",
+      "parent": "be-vlg"
+    },
+    {
+      "code": "be-vwv",
+      "label": "Flandre-Occidentale",
+      "parent": "be-vlg"
+    },
+    {
+      "code": "be-wbr",
+      "label": "Brabant wallon",
+      "parent": "be-wal"
+    },
+    {
+      "code": "be-wht",
+      "label": "Hainaut",
+      "parent": "be-wal"
+    },
+    {
+      "code": "be-wlg",
+      "label": "Liège",
+      "parent": "be-wal"
+    },
+    {
+      "code": "be-wlx",
+      "label": "Luxembourg (province)",
+      "parent": "be-wal"
+    },
+    {
+      "code": "be-wna",
+      "label": "Namur",
+      "parent": "be-wal"
+    }
+  ]
+}

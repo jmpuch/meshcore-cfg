@@ -1,0 +1,230 @@
+{
+  "display_name": "Hongrie (comitats et villes à statut de comitat)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "hu",
+      "label": "Hongrie",
+      "parent": "eu"
+    },
+    {
+      "code": "hu-bk",
+      "label": "Bács-Kiskun",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ba",
+      "label": "Baranya",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-be",
+      "label": "Békés",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-bc",
+      "label": "Békéscsaba",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-bz",
+      "label": "Borsod-Abaúj-Zemplén",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-bu",
+      "label": "Budapest",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-cs",
+      "label": "Csongrád-Csanád",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-de",
+      "label": "Debrecen",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-du",
+      "label": "Dunaújváros",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-eg",
+      "label": "Eger",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-er",
+      "label": "Érd",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-fe",
+      "label": "Fejér",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-gy",
+      "label": "Győr",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-gs",
+      "label": "Győr-Moson-Sopron",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-hb",
+      "label": "Hajdú-Bihar",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-he",
+      "label": "Heves",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-hv",
+      "label": "Hódmezővásárhely",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-jn",
+      "label": "Jász-Nagykun-Szolnok",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-kv",
+      "label": "Kaposvár",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-km",
+      "label": "Kecskemét",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ke",
+      "label": "Komárom-Esztergom",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-mi",
+      "label": "Miskolc",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-nk",
+      "label": "Nagykanizsa",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-no",
+      "label": "Nógrád",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ny",
+      "label": "Nyíregyháza",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ps",
+      "label": "Pécs",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-pe",
+      "label": "Pest",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-st",
+      "label": "Salgótarján",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-so",
+      "label": "Somogy",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sn",
+      "label": "Sopron",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sz",
+      "label": "Szabolcs-Szatmár-Bereg",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sd",
+      "label": "Szeged",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sf",
+      "label": "Székesfehérvár",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ss",
+      "label": "Szekszárd",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sk",
+      "label": "Szolnok",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-sh",
+      "label": "Szombathely",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-tb",
+      "label": "Tatabánya",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-to",
+      "label": "Tolna",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-va",
+      "label": "Vas",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-vm",
+      "label": "Veszprém (ville)",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ve",
+      "label": "Veszprém (comitat)",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-za",
+      "label": "Zala",
+      "parent": "hu"
+    },
+    {
+      "code": "hu-ze",
+      "label": "Zalaegerszeg",
+      "parent": "hu"
+    }
+  ]
+}

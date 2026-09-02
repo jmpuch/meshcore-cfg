@@ -1,0 +1,50 @@
+{
+  "display_name": "Andorre (paroisses)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ad",
+      "label": "Andorre",
+      "parent": "eu"
+    },
+    {
+      "code": "ad-07",
+      "label": "Andorra-la-Vieille",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-02",
+      "label": "Canillo",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-03",
+      "label": "Encamp",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-08",
+      "label": "Escaldes-Engordany",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-04",
+      "label": "La Massana",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-05",
+      "label": "Ordino",
+      "parent": "ad"
+    },
+    {
+      "code": "ad-06",
+      "label": "Sant Julià de Lòria",
+      "parent": "ad"
+    }
+  ]
+}

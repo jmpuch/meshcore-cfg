@@ -1,0 +1,155 @@
+{
+  "display_name": "Bulgarie (provinces)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "bg",
+      "label": "Bulgarie",
+      "parent": "eu"
+    },
+    {
+      "code": "bg-01",
+      "label": "Blagoevgrad",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-02",
+      "label": "Burgas",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-08",
+      "label": "Dobrich",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-07",
+      "label": "Gabrovo",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-26",
+      "label": "Haskovo",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-09",
+      "label": "Kardzhali",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-10",
+      "label": "Kyustendil",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-11",
+      "label": "Lovech",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-12",
+      "label": "Montana",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-13",
+      "label": "Pazardzhik",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-14",
+      "label": "Pernik",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-15",
+      "label": "Pleven",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-16",
+      "label": "Plovdiv",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-17",
+      "label": "Razgrad",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-18",
+      "label": "Ruse",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-27",
+      "label": "Shumen",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-19",
+      "label": "Silistra",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-20",
+      "label": "Sliven",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-21",
+      "label": "Smolyan",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-23",
+      "label": "Sofia (province)",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-22",
+      "label": "Sofia (ville)",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-24",
+      "label": "Stara Zagora",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-25",
+      "label": "Targovishte",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-03",
+      "label": "Varna",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-04",
+      "label": "Veliko Tarnovo",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-05",
+      "label": "Vidin",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-06",
+      "label": "Vratsa",
+      "parent": "bg"
+    },
+    {
+      "code": "bg-28",
+      "label": "Yambol",
+      "parent": "bg"
+    }
+  ]
+}

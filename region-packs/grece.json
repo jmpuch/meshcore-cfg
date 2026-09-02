@@ -1,0 +1,85 @@
+{
+  "display_name": "Grèce (régions administratives)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "gr",
+      "label": "Grèce",
+      "parent": "eu"
+    },
+    {
+      "code": "gr-a",
+      "label": "Macédoine-Orientale-et-Thrace",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-i",
+      "label": "Attique",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-g",
+      "label": "Grèce-Occidentale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-c",
+      "label": "Macédoine-Occidentale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-f",
+      "label": "Îles Ioniennes",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-d",
+      "label": "Épire",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-b",
+      "label": "Macédoine-Centrale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-m",
+      "label": "Crète",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-l",
+      "label": "Égée-Méridionale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-j",
+      "label": "Péloponnèse",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-h",
+      "label": "Grèce-Centrale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-e",
+      "label": "Thessalie",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-k",
+      "label": "Égée-Septentrionale",
+      "parent": "gr"
+    },
+    {
+      "code": "gr-69",
+      "label": "Mont Athos (partie autonome)",
+      "parent": "gr"
+    }
+  ]
+}

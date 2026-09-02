@@ -1,0 +1,100 @@
+{
+  "display_name": "Monaco (quartiers)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "mc",
+      "label": "Monaco",
+      "parent": "eu"
+    },
+    {
+      "code": "mc-fo",
+      "label": "Fontvieille",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-je",
+      "label": "Jardin Exotique",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-cl",
+      "label": "La Colle",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-co",
+      "label": "La Condamine",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-ga",
+      "label": "La Gare",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-so",
+      "label": "La Source",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-la",
+      "label": "Larvotto",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-ma",
+      "label": "Malbousquet",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-mo",
+      "label": "Monaco-Ville",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-mg",
+      "label": "Moneghetti",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-mc",
+      "label": "Monte-Carlo",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-mu",
+      "label": "Moulins",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-ph",
+      "label": "Port-Hercule",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-sr",
+      "label": "Saint-Roman",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-sd",
+      "label": "Sainte-Dévote",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-sp",
+      "label": "Spélugues",
+      "parent": "mc"
+    },
+    {
+      "code": "mc-vr",
+      "label": "Vallon de la Rousse",
+      "parent": "mc"
+    }
+  ]
+}

@@ -257,7 +257,7 @@ L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
 par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
 « packs de régions », activables/désactivables dans le panneau lui-même
 (case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
-après une modification manuelle). Dix-huit packs sont fournis dans
+après une modification manuelle). Trente-sept packs sont fournis dans
 `region-packs/` :
 
 | Fichier | Contenu |
@@ -280,6 +280,25 @@ après une modification manuelle). Dix-huit packs sont fournis dans
 | `finlande.json` | 19 régions |
 | `islande.json` | 8 régions |
 | `emirats-arabes-unis.json` | 7 émirats — racine `ae` indépendante, pas rattachée à `eu` (hors Europe) |
+| `pologne.json` | 16 voïvodies |
+| `tchequie.json` | 13 régions + Prague |
+| `slovaquie.json` | 8 régions |
+| `hongrie.json` | 19 comitats + 23 villes à statut de comitat + Budapest |
+| `roumanie.json` | 41 départements + Bucarest |
+| `bulgarie.json` | 28 provinces |
+| `grece.json` | 13 régions + Mont Athos |
+| `croatie.json` | 20 comitats + Zagreb |
+| `serbie.json` | 2 provinces autonomes + Belgrade + 29 districts |
+| `lituanie.json` | 10 comtés |
+| `lettonie.json` | 43 municipalités/villes d'État (seul niveau ISO officiel) |
+| `estonie.json` | 15 comtés |
+| `monaco.json` | 17 quartiers |
+| `andorre.json` | 7 paroisses |
+| `liechtenstein.json` | 11 communes |
+| `saint-marin.json` | 9 communes (castelli) |
+| `malte.json` | 68 localités (seul niveau ISO officiel) |
+| `chypre.json` | 6 districts |
+| `slovenie.json` | 212 communes (seul niveau ISO officiel) |
 
 Codes et libellés issus des pages [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) de Wikipédia
 pour chaque pays (vérifiés avant génération, pas retapés de mémoire) — les

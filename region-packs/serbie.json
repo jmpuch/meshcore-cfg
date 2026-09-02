@@ -1,0 +1,175 @@
+{
+  "display_name": "Serbie (provinces autonomes et districts)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "rs",
+      "label": "Serbie",
+      "parent": "eu"
+    },
+    {
+      "code": "rs-km",
+      "label": "Kosovo-Metohija",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-vo",
+      "label": "Voïvodine",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-00",
+      "label": "Belgrade",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-14",
+      "label": "Bor",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-11",
+      "label": "Braničevo",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-23",
+      "label": "Jablanica",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-06",
+      "label": "Bačka du Sud",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-04",
+      "label": "Banat du Sud",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-09",
+      "label": "Kolubara",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-25",
+      "label": "Kosovo",
+      "parent": "rs-km"
+    },
+    {
+      "code": "rs-28",
+      "label": "Kosovska Mitrovica",
+      "parent": "rs-km"
+    },
+    {
+      "code": "rs-29",
+      "label": "Kosovo-Pomoravlje",
+      "parent": "rs-km"
+    },
+    {
+      "code": "rs-08",
+      "label": "Mačva",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-17",
+      "label": "Moravica",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-20",
+      "label": "Nišava",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-24",
+      "label": "Pčinja",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-26",
+      "label": "Peć",
+      "parent": "rs-km"
+    },
+    {
+      "code": "rs-22",
+      "label": "Pirot",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-10",
+      "label": "Podunavlje",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-13",
+      "label": "Pomoravlje",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-27",
+      "label": "Prizren",
+      "parent": "rs-km"
+    },
+    {
+      "code": "rs-19",
+      "label": "Rasina",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-18",
+      "label": "Raška",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-01",
+      "label": "Bačka du Nord",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-03",
+      "label": "Banat du Nord",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-02",
+      "label": "Banat Central",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-07",
+      "label": "Syrmie",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-12",
+      "label": "Šumadija",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-21",
+      "label": "Toplica",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-15",
+      "label": "Zaječar",
+      "parent": "rs"
+    },
+    {
+      "code": "rs-05",
+      "label": "Bačka de l'Ouest",
+      "parent": "rs-vo"
+    },
+    {
+      "code": "rs-16",
+      "label": "Zlatibor",
+      "parent": "rs"
+    }
+  ]
+}

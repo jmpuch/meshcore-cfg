@@ -1,0 +1,355 @@
+{
+  "display_name": "Malte (localités, seul niveau ISO officiel)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "mt",
+      "label": "Malte",
+      "parent": "eu"
+    },
+    {
+      "code": "mt-01",
+      "label": "Attard",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-02",
+      "label": "Balzan",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-03",
+      "label": "Birgu",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-04",
+      "label": "Birkirkara",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-05",
+      "label": "Birżebbuġa",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-06",
+      "label": "Bormla",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-07",
+      "label": "Dingli",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-08",
+      "label": "Fgura",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-09",
+      "label": "Floriana",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-10",
+      "label": "Fontana",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-11",
+      "label": "Gudja",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-12",
+      "label": "Gżira",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-13",
+      "label": "Għajnsielem",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-14",
+      "label": "Għarb",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-15",
+      "label": "Għargħur",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-16",
+      "label": "Għasri",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-17",
+      "label": "Għaxaq",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-18",
+      "label": "Ħamrun",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-19",
+      "label": "Iklin",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-20",
+      "label": "Isla",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-21",
+      "label": "Kalkara",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-22",
+      "label": "Kerċem",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-23",
+      "label": "Kirkop",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-24",
+      "label": "Lija",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-25",
+      "label": "Luqa",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-26",
+      "label": "Marsa",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-27",
+      "label": "Marsaskala",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-28",
+      "label": "Marsaxlokk",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-29",
+      "label": "Mdina",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-30",
+      "label": "Mellieħa",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-31",
+      "label": "Mġarr",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-32",
+      "label": "Mosta",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-33",
+      "label": "Mqabba",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-34",
+      "label": "Msida",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-35",
+      "label": "Mtarfa",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-36",
+      "label": "Munxar",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-37",
+      "label": "Nadur",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-38",
+      "label": "Naxxar",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-39",
+      "label": "Paola",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-40",
+      "label": "Pembroke",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-41",
+      "label": "Pietà",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-42",
+      "label": "Qala",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-43",
+      "label": "Qormi",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-44",
+      "label": "Qrendi",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-45",
+      "label": "Rabat Għawdex (Gozo)",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-46",
+      "label": "Rabat Malta",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-47",
+      "label": "Safi",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-48",
+      "label": "San Ġiljan",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-49",
+      "label": "San Ġwann",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-50",
+      "label": "San Lawrenz",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-51",
+      "label": "San Pawl il-Baħar",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-52",
+      "label": "Sannat",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-53",
+      "label": "Santa Luċija",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-54",
+      "label": "Santa Venera",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-55",
+      "label": "Siġġiewi",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-56",
+      "label": "Sliema",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-57",
+      "label": "Swieqi",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-58",
+      "label": "Ta' Xbiex",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-59",
+      "label": "Tarxien",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-60",
+      "label": "Valletta",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-61",
+      "label": "Xagħra",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-62",
+      "label": "Xewkija",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-63",
+      "label": "Xgħajra",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-64",
+      "label": "Żabbar",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-65",
+      "label": "Żebbuġ Għawdex (Gozo)",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-66",
+      "label": "Żebbuġ Malta",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-67",
+      "label": "Żejtun",
+      "parent": "mt"
+    },
+    {
+      "code": "mt-68",
+      "label": "Żurrieq",
+      "parent": "mt"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "display_name": "Liechtenstein (communes)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "li",
+      "label": "Liechtenstein",
+      "parent": "eu"
+    },
+    {
+      "code": "li-01",
+      "label": "Balzers",
+      "parent": "li"
+    },
+    {
+      "code": "li-02",
+      "label": "Eschen",
+      "parent": "li"
+    },
+    {
+      "code": "li-03",
+      "label": "Gamprin",
+      "parent": "li"
+    },
+    {
+      "code": "li-04",
+      "label": "Mauren",
+      "parent": "li"
+    },
+    {
+      "code": "li-05",
+      "label": "Planken",
+      "parent": "li"
+    },
+    {
+      "code": "li-06",
+      "label": "Ruggell",
+      "parent": "li"
+    },
+    {
+      "code": "li-07",
+      "label": "Schaan",
+      "parent": "li"
+    },
+    {
+      "code": "li-08",
+      "label": "Schellenberg",
+      "parent": "li"
+    },
+    {
+      "code": "li-09",
+      "label": "Triesen",
+      "parent": "li"
+    },
+    {
+      "code": "li-10",
+      "label": "Triesenberg",
+      "parent": "li"
+    },
+    {
+      "code": "li-11",
+      "label": "Vaduz",
+      "parent": "li"
+    }
+  ]
+}

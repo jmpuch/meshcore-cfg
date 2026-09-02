@@ -1,0 +1,85 @@
+{
+  "display_name": "Tchéquie (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "cz",
+      "label": "Tchéquie",
+      "parent": "eu"
+    },
+    {
+      "code": "cz-31",
+      "label": "Bohême du Sud",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-64",
+      "label": "Moravie du Sud",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-41",
+      "label": "Karlovy Vary",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-52",
+      "label": "Hradec Králové",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-51",
+      "label": "Liberec",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-80",
+      "label": "Moravie-Silésie",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-71",
+      "label": "Olomouc",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-53",
+      "label": "Pardubice",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-32",
+      "label": "Plzeň",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-10",
+      "label": "Prague",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-20",
+      "label": "Bohême Centrale",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-42",
+      "label": "Ústí nad Labem",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-63",
+      "label": "Vysočina",
+      "parent": "cz"
+    },
+    {
+      "code": "cz-72",
+      "label": "Zlín",
+      "parent": "cz"
+    }
+  ]
+}

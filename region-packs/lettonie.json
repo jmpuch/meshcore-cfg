@@ -1,0 +1,230 @@
+{
+  "display_name": "Lettonie (municipalités, seul niveau ISO officiel)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "lv",
+      "label": "Lettonie",
+      "parent": "eu"
+    },
+    {
+      "code": "lv-002",
+      "label": "Aizkraukle",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-007",
+      "label": "Alūksne",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-111",
+      "label": "Augšdaugava",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-011",
+      "label": "Ādaži",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-015",
+      "label": "Balvi",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-016",
+      "label": "Bauska",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-022",
+      "label": "Cēsis",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-dgv",
+      "label": "Daugavpils (ville)",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-112",
+      "label": "Dienvidkurzeme",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-026",
+      "label": "Dobele",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-033",
+      "label": "Gulbene",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-jel",
+      "label": "Jelgava (ville)",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-041",
+      "label": "Jelgava",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-042",
+      "label": "Jēkabpils",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-jur",
+      "label": "Jūrmala",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-047",
+      "label": "Krāslava",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-050",
+      "label": "Kuldīga",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-052",
+      "label": "Ķekava",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-lpx",
+      "label": "Liepāja",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-054",
+      "label": "Limbaži",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-056",
+      "label": "Līvāni",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-058",
+      "label": "Ludza",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-059",
+      "label": "Madona",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-062",
+      "label": "Mārupe",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-067",
+      "label": "Ogre",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-068",
+      "label": "Olaine",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-073",
+      "label": "Preiļi",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-rez",
+      "label": "Rēzekne (ville)",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-077",
+      "label": "Rēzekne",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-rix",
+      "label": "Riga",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-080",
+      "label": "Ropaži",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-087",
+      "label": "Salaspils",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-088",
+      "label": "Saldus",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-089",
+      "label": "Saulkrasti",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-091",
+      "label": "Sigulda",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-094",
+      "label": "Smiltene",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-097",
+      "label": "Talsi",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-099",
+      "label": "Tukums",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-101",
+      "label": "Valka",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-113",
+      "label": "Valmiera",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-102",
+      "label": "Varakļāni",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-ven",
+      "label": "Ventspils (ville)",
+      "parent": "lv"
+    },
+    {
+      "code": "lv-106",
+      "label": "Ventspils",
+      "parent": "lv"
+    }
+  ]
+}

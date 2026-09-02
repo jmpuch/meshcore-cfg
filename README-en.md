@@ -244,7 +244,7 @@ the program starts.
 The region assistant (Commands/Editor/Configuration) has no country
 hardcoded — it reads one or more JSON "region pack" files, enabled/
 disabled right in the panel itself (a checkbox per file, **+ Add a
-file...**, **Reload** after a manual edit). Eighteen packs ship in
+file...**, **Reload** after a manual edit). Thirty-seven packs ship in
 `region-packs/`:
 
 | File | Content |
@@ -267,6 +267,25 @@ file...**, **Reload** after a manual edit). Eighteen packs ship in
 | `finlande.json` | 19 regions |
 | `islande.json` | 8 regions |
 | `emirats-arabes-unis.json` | 7 emirates — its own `ae` root, not under `eu` (not in Europe) |
+| `pologne.json` | 16 voivodeships |
+| `tchequie.json` | 13 regions + Prague |
+| `slovaquie.json` | 8 regions |
+| `hongrie.json` | 19 counties + 23 cities with county rights + Budapest |
+| `roumanie.json` | 41 counties + Bucharest |
+| `bulgarie.json` | 28 provinces |
+| `grece.json` | 13 regions + Mount Athos |
+| `croatie.json` | 20 counties + Zagreb |
+| `serbie.json` | 2 autonomous provinces + Belgrade + 29 districts |
+| `lituanie.json` | 10 counties |
+| `lettonie.json` | 43 municipalities/state cities (only official ISO level) |
+| `estonie.json` | 15 counties |
+| `monaco.json` | 17 wards |
+| `andorre.json` | 7 parishes |
+| `liechtenstein.json` | 11 municipalities |
+| `saint-marin.json` | 9 municipalities (castelli) |
+| `malte.json` | 68 localities (only official ISO level) |
+| `chypre.json` | 6 districts |
+| `slovenie.json` | 212 municipalities (only official ISO level) |
 
 Codes and labels come from Wikipedia's [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
 pages for each country (verified before generating these files, not

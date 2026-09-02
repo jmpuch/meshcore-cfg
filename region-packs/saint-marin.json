@@ -1,0 +1,60 @@
+{
+  "display_name": "Saint-Marin (communes)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "sm",
+      "label": "Saint-Marin",
+      "parent": "eu"
+    },
+    {
+      "code": "sm-01",
+      "label": "Acquaviva",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-06",
+      "label": "Borgo Maggiore",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-02",
+      "label": "Chiesanuova",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-07",
+      "label": "Città di San Marino",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-03",
+      "label": "Domagnano",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-04",
+      "label": "Faetano",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-05",
+      "label": "Fiorentino",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-08",
+      "label": "Montegiardino",
+      "parent": "sm"
+    },
+    {
+      "code": "sm-09",
+      "label": "Serravalle",
+      "parent": "sm"
+    }
+  ]
+}

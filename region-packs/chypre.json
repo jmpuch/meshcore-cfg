@@ -1,0 +1,45 @@
+{
+  "display_name": "Chypre (districts)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "cy",
+      "label": "Chypre",
+      "parent": "eu"
+    },
+    {
+      "code": "cy-04",
+      "label": "Famagouste",
+      "parent": "cy"
+    },
+    {
+      "code": "cy-06",
+      "label": "Kyrenia",
+      "parent": "cy"
+    },
+    {
+      "code": "cy-03",
+      "label": "Larnaca",
+      "parent": "cy"
+    },
+    {
+      "code": "cy-01",
+      "label": "Nicosie",
+      "parent": "cy"
+    },
+    {
+      "code": "cy-02",
+      "label": "Limassol",
+      "parent": "cy"
+    },
+    {
+      "code": "cy-05",
+      "label": "Paphos",
+      "parent": "cy"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "display_name": "Croatie (comitats)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "hr",
+      "label": "Croatie",
+      "parent": "eu"
+    },
+    {
+      "code": "hr-07",
+      "label": "Bjelovar-Bilogora",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-12",
+      "label": "Brod-Posavina",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-19",
+      "label": "Dubrovnik-Neretva",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-21",
+      "label": "Zagreb (ville)",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-18",
+      "label": "Istrie",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-04",
+      "label": "Karlovac",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-06",
+      "label": "Koprivnica-Križevci",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-02",
+      "label": "Krapina-Zagorje",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-09",
+      "label": "Lika-Senj",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-20",
+      "label": "Međimurje",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-14",
+      "label": "Osijek-Baranja",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-11",
+      "label": "Požega-Slavonie",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-08",
+      "label": "Primorje-Gorski Kotar",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-03",
+      "label": "Sisak-Moslavina",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-17",
+      "label": "Split-Dalmatie",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-15",
+      "label": "Šibenik-Knin",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-05",
+      "label": "Varaždin",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-10",
+      "label": "Virovitica-Podravina",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-16",
+      "label": "Vukovar-Syrmie",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-13",
+      "label": "Zadar",
+      "parent": "hr"
+    },
+    {
+      "code": "hr-01",
+      "label": "Zagreb (comitat)",
+      "parent": "hr"
+    }
+  ]
+}

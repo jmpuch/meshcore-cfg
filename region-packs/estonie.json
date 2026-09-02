@@ -1,0 +1,90 @@
+{
+  "display_name": "Estonie (comtés)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ee",
+      "label": "Estonie",
+      "parent": "eu"
+    },
+    {
+      "code": "ee-37",
+      "label": "Harju",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-39",
+      "label": "Hiiu",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-45",
+      "label": "Ida-Viru",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-50",
+      "label": "Jõgeva",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-52",
+      "label": "Järva",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-60",
+      "label": "Lääne-Viru",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-56",
+      "label": "Lääne",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-64",
+      "label": "Põlva",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-68",
+      "label": "Pärnu",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-71",
+      "label": "Rapla",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-74",
+      "label": "Saare",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-79",
+      "label": "Tartu",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-81",
+      "label": "Valga",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-84",
+      "label": "Viljandi",
+      "parent": "ee"
+    },
+    {
+      "code": "ee-87",
+      "label": "Võru",
+      "parent": "ee"
+    }
+  ]
+}

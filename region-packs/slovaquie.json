@@ -1,0 +1,55 @@
+{
+  "display_name": "Slovaquie (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "sk",
+      "label": "Slovaquie",
+      "parent": "eu"
+    },
+    {
+      "code": "sk-bc",
+      "label": "Banská Bystrica",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-bl",
+      "label": "Bratislava",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-ki",
+      "label": "Košice",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-ni",
+      "label": "Nitra",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-pv",
+      "label": "Prešov",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-tc",
+      "label": "Trenčín",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-ta",
+      "label": "Trnava",
+      "parent": "sk"
+    },
+    {
+      "code": "sk-zi",
+      "label": "Žilina",
+      "parent": "sk"
+    }
+  ]
+}

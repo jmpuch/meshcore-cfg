@@ -1,0 +1,225 @@
+{
+  "display_name": "Roumanie (départements)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ro",
+      "label": "Roumanie",
+      "parent": "eu"
+    },
+    {
+      "code": "ro-ab",
+      "label": "Alba",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ar",
+      "label": "Arad",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ag",
+      "label": "Argeș",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bc",
+      "label": "Bacău",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bh",
+      "label": "Bihor",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bn",
+      "label": "Bistrița-Năsăud",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bt",
+      "label": "Botoșani",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bv",
+      "label": "Brașov",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-br",
+      "label": "Brăila",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-b",
+      "label": "Bucarest",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-bz",
+      "label": "Buzău",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-cs",
+      "label": "Caraș-Severin",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-cl",
+      "label": "Călărași",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-cj",
+      "label": "Cluj",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ct",
+      "label": "Constanța",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-cv",
+      "label": "Covasna",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-db",
+      "label": "Dâmbovița",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-dj",
+      "label": "Dolj",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-gl",
+      "label": "Galați",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-gr",
+      "label": "Giurgiu",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-gj",
+      "label": "Gorj",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-hr",
+      "label": "Harghita",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-hd",
+      "label": "Hunedoara",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-il",
+      "label": "Ialomița",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-is",
+      "label": "Iași",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-if",
+      "label": "Ilfov",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-mm",
+      "label": "Maramureș",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-mh",
+      "label": "Mehedinți",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ms",
+      "label": "Mureș",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-nt",
+      "label": "Neamț",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ot",
+      "label": "Olt",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-ph",
+      "label": "Prahova",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-sm",
+      "label": "Satu Mare",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-sj",
+      "label": "Sălaj",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-sb",
+      "label": "Sibiu",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-sv",
+      "label": "Suceava",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-tr",
+      "label": "Teleorman",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-tm",
+      "label": "Timiș",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-tl",
+      "label": "Tulcea",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-vs",
+      "label": "Vaslui",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-vl",
+      "label": "Vâlcea",
+      "parent": "ro"
+    },
+    {
+      "code": "ro-vn",
+      "label": "Vrancea",
+      "parent": "ro"
+    }
+  ]
+}

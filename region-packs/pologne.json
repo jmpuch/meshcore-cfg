@@ -1,0 +1,95 @@
+{
+  "display_name": "Pologne (voïvodies)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "pl",
+      "label": "Pologne",
+      "parent": "eu"
+    },
+    {
+      "code": "pl-02",
+      "label": "Basse-Silésie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-04",
+      "label": "Couïavie-Poméranie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-06",
+      "label": "Lublin",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-08",
+      "label": "Lubusz",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-10",
+      "label": "Łódź",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-12",
+      "label": "Petite-Pologne",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-14",
+      "label": "Mazovie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-16",
+      "label": "Opole",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-18",
+      "label": "Basses-Carpates",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-20",
+      "label": "Podlachie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-22",
+      "label": "Poméranie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-24",
+      "label": "Silésie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-26",
+      "label": "Sainte-Croix",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-28",
+      "label": "Varmie-Mazurie",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-30",
+      "label": "Grande-Pologne",
+      "parent": "pl"
+    },
+    {
+      "code": "pl-32",
+      "label": "Poméranie-Occidentale",
+      "parent": "pl"
+    }
+  ]
+}

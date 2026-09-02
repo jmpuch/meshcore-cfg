@@ -1,0 +1,65 @@
+{
+  "display_name": "Lituanie (comtés)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "lt",
+      "label": "Lituanie",
+      "parent": "eu"
+    },
+    {
+      "code": "lt-al",
+      "label": "Alytus",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-ku",
+      "label": "Kaunas",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-kl",
+      "label": "Klaipėda",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-mr",
+      "label": "Marijampolė",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-pn",
+      "label": "Panevėžys",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-sa",
+      "label": "Šiauliai",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-ta",
+      "label": "Tauragė",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-te",
+      "label": "Telšiai",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-ut",
+      "label": "Utena",
+      "parent": "lt"
+    },
+    {
+      "code": "lt-vl",
+      "label": "Vilnius",
+      "parent": "lt"
+    }
+  ]
+}

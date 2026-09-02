@@ -244,7 +244,7 @@ the program starts.
 The region assistant (Commands/Editor/Configuration) has no country
 hardcoded — it reads one or more JSON "region pack" files, enabled/
 disabled right in the panel itself (a checkbox per file, **+ Add a
-file...**, **Reload** after a manual edit). Six packs ship in
+file...**, **Reload** after a manual edit). Seven packs ship in
 `region-packs/`:
 
 | File | Content |
@@ -255,6 +255,7 @@ file...**, **Reload** after a manual edit). Six packs ship in
 | `italie.json` | 20 regions |
 | `espagne.json` | 17 autonomous communities + 2 autonomous cities |
 | `suisse.json` | 26 cantons |
+| `emirats-arabes-unis.json` | 7 emirates — its own `ae` root, not under `eu` (not in Europe) |
 
 Codes and labels come from Wikipedia's [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
 pages for each country (verified before generating these files, not

@@ -257,7 +257,7 @@ L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
 par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
 « packs de régions », activables/désactivables dans le panneau lui-même
 (case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
-après une modification manuelle). Six packs sont fournis dans
+après une modification manuelle). Sept packs sont fournis dans
 `region-packs/` :
 
 | Fichier | Contenu |
@@ -268,6 +268,7 @@ après une modification manuelle). Six packs sont fournis dans
 | `italie.json` | 20 régions |
 | `espagne.json` | 17 communautés autonomes + 2 villes autonomes |
 | `suisse.json` | 26 cantons |
+| `emirats-arabes-unis.json` | 7 émirats — racine `ae` indépendante, pas rattachée à `eu` (hors Europe) |
 
 Codes et libellés issus des pages [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) de Wikipédia
 pour chaque pays (vérifiés avant génération, pas retapés de mémoire) — les

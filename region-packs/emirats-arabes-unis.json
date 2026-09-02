@@ -1,0 +1,45 @@
+{
+  "display_name": "Émirats Arabes Unis (émirats)",
+  "entries": [
+    {
+      "code": "ae",
+      "label": "Émirats Arabes Unis",
+      "parent": null
+    },
+    {
+      "code": "ae-az",
+      "label": "Abu Dhabi",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-aj",
+      "label": "Ajman",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-du",
+      "label": "Dubaï",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-fu",
+      "label": "Fujairah",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-rk",
+      "label": "Ras al-Khaïmah",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-sh",
+      "label": "Sharjah",
+      "parent": "ae"
+    },
+    {
+      "code": "ae-uq",
+      "label": "Umm al-Qaïwaïn",
+      "parent": "ae"
+    }
+  ]
+}

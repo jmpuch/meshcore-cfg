@@ -1,0 +1,55 @@
+{
+  "display_name": "Islande (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "is",
+      "label": "Islande",
+      "parent": "eu"
+    },
+    {
+      "code": "is-1",
+      "label": "Höfuðborgarsvæði (région de la capitale)",
+      "parent": "is"
+    },
+    {
+      "code": "is-2",
+      "label": "Suðurnes",
+      "parent": "is"
+    },
+    {
+      "code": "is-3",
+      "label": "Vesturland",
+      "parent": "is"
+    },
+    {
+      "code": "is-4",
+      "label": "Vestfirðir",
+      "parent": "is"
+    },
+    {
+      "code": "is-5",
+      "label": "Norðurland vestra",
+      "parent": "is"
+    },
+    {
+      "code": "is-6",
+      "label": "Norðurland eystra",
+      "parent": "is"
+    },
+    {
+      "code": "is-7",
+      "label": "Austurland",
+      "parent": "is"
+    },
+    {
+      "code": "is-8",
+      "label": "Suðurland",
+      "parent": "is"
+    }
+  ]
+}

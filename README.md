@@ -257,7 +257,7 @@ L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
 par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
 « packs de régions », activables/désactivables dans le panneau lui-même
 (case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
-après une modification manuelle). Huit packs sont fournis dans
+après une modification manuelle). Dix-huit packs sont fournis dans
 `region-packs/` :
 
 | Fichier | Contenu |
@@ -269,6 +269,16 @@ après une modification manuelle). Huit packs sont fournis dans
 | `espagne.json` | 17 communautés autonomes + 2 villes autonomes |
 | `suisse.json` | 26 cantons |
 | `royaume-uni.json` | 4 nations + 217 comtés/autorités unitaires/districts (ISO 3166-2:GB complet) |
+| `irlande.json` | 4 provinces + 26 comtés (République d'Irlande) |
+| `pays-bas.json` | 12 provinces (hors territoires caribéens) |
+| `luxembourg.json` | 12 cantons |
+| `portugal.json` | 18 districts + 2 régions autonomes |
+| `autriche.json` | 9 Länder |
+| `suede.json` | 21 comtés (län) |
+| `norvege.json` | 13 comtés (dont Svalbard, Jan Mayen) |
+| `danemark.json` | 5 régions |
+| `finlande.json` | 19 régions |
+| `islande.json` | 8 régions |
 | `emirats-arabes-unis.json` | 7 émirats — racine `ae` indépendante, pas rattachée à `eu` (hors Europe) |
 
 Codes et libellés issus des pages [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) de Wikipédia

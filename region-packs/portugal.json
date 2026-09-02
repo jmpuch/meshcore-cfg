@@ -1,0 +1,115 @@
+{
+  "display_name": "Portugal (districts et régions autonomes)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "pt",
+      "label": "Portugal",
+      "parent": "eu"
+    },
+    {
+      "code": "pt-01",
+      "label": "Aveiro",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-02",
+      "label": "Beja",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-03",
+      "label": "Braga",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-04",
+      "label": "Bragança",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-05",
+      "label": "Castelo Branco",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-06",
+      "label": "Coimbra",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-07",
+      "label": "Évora",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-08",
+      "label": "Faro",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-09",
+      "label": "Guarda",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-10",
+      "label": "Leiria",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-11",
+      "label": "Lisboa",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-12",
+      "label": "Portalegre",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-13",
+      "label": "Porto",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-14",
+      "label": "Santarém",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-15",
+      "label": "Setúbal",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-16",
+      "label": "Viana do Castelo",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-17",
+      "label": "Vila Real",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-18",
+      "label": "Viseu",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-20",
+      "label": "Açores",
+      "parent": "pt"
+    },
+    {
+      "code": "pt-30",
+      "label": "Madeira",
+      "parent": "pt"
+    }
+  ]
+}

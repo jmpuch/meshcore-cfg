@@ -1,0 +1,80 @@
+{
+  "display_name": "Norvège (comtés)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "no",
+      "label": "Norvège",
+      "parent": "eu"
+    },
+    {
+      "code": "no-42",
+      "label": "Agder",
+      "parent": "no"
+    },
+    {
+      "code": "no-34",
+      "label": "Innlandet",
+      "parent": "no"
+    },
+    {
+      "code": "no-22",
+      "label": "Jan Mayen",
+      "parent": "no"
+    },
+    {
+      "code": "no-15",
+      "label": "Møre og Romsdal",
+      "parent": "no"
+    },
+    {
+      "code": "no-18",
+      "label": "Nordland",
+      "parent": "no"
+    },
+    {
+      "code": "no-03",
+      "label": "Oslo",
+      "parent": "no"
+    },
+    {
+      "code": "no-11",
+      "label": "Rogaland",
+      "parent": "no"
+    },
+    {
+      "code": "no-21",
+      "label": "Svalbard",
+      "parent": "no"
+    },
+    {
+      "code": "no-54",
+      "label": "Troms og Finnmark",
+      "parent": "no"
+    },
+    {
+      "code": "no-50",
+      "label": "Trøndelag",
+      "parent": "no"
+    },
+    {
+      "code": "no-38",
+      "label": "Vestfold og Telemark",
+      "parent": "no"
+    },
+    {
+      "code": "no-46",
+      "label": "Vestland",
+      "parent": "no"
+    },
+    {
+      "code": "no-30",
+      "label": "Viken",
+      "parent": "no"
+    }
+  ]
+}

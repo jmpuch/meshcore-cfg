@@ -244,7 +244,7 @@ the program starts.
 The region assistant (Commands/Editor/Configuration) has no country
 hardcoded — it reads one or more JSON "region pack" files, enabled/
 disabled right in the panel itself (a checkbox per file, **+ Add a
-file...**, **Reload** after a manual edit). Eight packs ship in
+file...**, **Reload** after a manual edit). Eighteen packs ship in
 `region-packs/`:
 
 | File | Content |
@@ -256,6 +256,16 @@ file...**, **Reload** after a manual edit). Eight packs ship in
 | `espagne.json` | 17 autonomous communities + 2 autonomous cities |
 | `suisse.json` | 26 cantons |
 | `royaume-uni.json` | 4 nations + 217 counties/unitary authorities/districts (full ISO 3166-2:GB) |
+| `irlande.json` | 4 provinces + 26 counties (Republic of Ireland) |
+| `pays-bas.json` | 12 provinces (Caribbean territories excluded) |
+| `luxembourg.json` | 12 cantons |
+| `portugal.json` | 18 districts + 2 autonomous regions |
+| `autriche.json` | 9 Länder |
+| `suede.json` | 21 counties (län) |
+| `norvege.json` | 13 counties (incl. Svalbard, Jan Mayen) |
+| `danemark.json` | 5 regions |
+| `finlande.json` | 19 regions |
+| `islande.json` | 8 regions |
 | `emirats-arabes-unis.json` | 7 emirates — its own `ae` root, not under `eu` (not in Europe) |
 
 Codes and labels come from Wikipedia's [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)

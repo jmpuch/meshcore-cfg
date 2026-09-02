@@ -1,0 +1,40 @@
+{
+  "display_name": "Danemark (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "dk",
+      "label": "Danemark",
+      "parent": "eu"
+    },
+    {
+      "code": "dk-84",
+      "label": "Hovedstaden (Capitale)",
+      "parent": "dk"
+    },
+    {
+      "code": "dk-82",
+      "label": "Midtjylland",
+      "parent": "dk"
+    },
+    {
+      "code": "dk-81",
+      "label": "Nordjylland",
+      "parent": "dk"
+    },
+    {
+      "code": "dk-85",
+      "label": "Sjælland (Zélande)",
+      "parent": "dk"
+    },
+    {
+      "code": "dk-83",
+      "label": "Syddanmark",
+      "parent": "dk"
+    }
+  ]
+}

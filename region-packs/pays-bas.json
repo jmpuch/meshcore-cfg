@@ -1,0 +1,75 @@
+{
+  "display_name": "Pays-Bas (provinces, hors territoires caribéens)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "nl",
+      "label": "Pays-Bas",
+      "parent": "eu"
+    },
+    {
+      "code": "nl-dr",
+      "label": "Drenthe",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-fl",
+      "label": "Flevoland",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-fr",
+      "label": "Fryslân (Frise)",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-ge",
+      "label": "Gelderland",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-gr",
+      "label": "Groningen",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-li",
+      "label": "Limburg",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-nb",
+      "label": "Noord-Brabant",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-nh",
+      "label": "Noord-Holland",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-ov",
+      "label": "Overijssel",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-ut",
+      "label": "Utrecht",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-ze",
+      "label": "Zeeland",
+      "parent": "nl"
+    },
+    {
+      "code": "nl-zh",
+      "label": "Zuid-Holland",
+      "parent": "nl"
+    }
+  ]
+}

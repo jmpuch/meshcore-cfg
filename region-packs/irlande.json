@@ -1,0 +1,165 @@
+{
+  "display_name": "Irlande (provinces et comtés)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ie",
+      "label": "Irlande",
+      "parent": "eu"
+    },
+    {
+      "code": "ie-c",
+      "label": "Connacht",
+      "parent": "ie"
+    },
+    {
+      "code": "ie-l",
+      "label": "Leinster",
+      "parent": "ie"
+    },
+    {
+      "code": "ie-m",
+      "label": "Munster",
+      "parent": "ie"
+    },
+    {
+      "code": "ie-u",
+      "label": "Ulster",
+      "parent": "ie"
+    },
+    {
+      "code": "ie-cw",
+      "label": "Carlow",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-cn",
+      "label": "Cavan",
+      "parent": "ie-u"
+    },
+    {
+      "code": "ie-ce",
+      "label": "Clare",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-co",
+      "label": "Cork",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-dl",
+      "label": "Donegal",
+      "parent": "ie-u"
+    },
+    {
+      "code": "ie-d",
+      "label": "Dublin",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-g",
+      "label": "Galway",
+      "parent": "ie-c"
+    },
+    {
+      "code": "ie-ky",
+      "label": "Kerry",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-ke",
+      "label": "Kildare",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-kk",
+      "label": "Kilkenny",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-ls",
+      "label": "Laois",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-lm",
+      "label": "Leitrim",
+      "parent": "ie-c"
+    },
+    {
+      "code": "ie-lk",
+      "label": "Limerick",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-ld",
+      "label": "Longford",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-lh",
+      "label": "Louth",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-mo",
+      "label": "Mayo",
+      "parent": "ie-c"
+    },
+    {
+      "code": "ie-mh",
+      "label": "Meath",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-mn",
+      "label": "Monaghan",
+      "parent": "ie-u"
+    },
+    {
+      "code": "ie-oy",
+      "label": "Offaly",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-rn",
+      "label": "Roscommon",
+      "parent": "ie-c"
+    },
+    {
+      "code": "ie-so",
+      "label": "Sligo",
+      "parent": "ie-c"
+    },
+    {
+      "code": "ie-ta",
+      "label": "Tipperary",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-wd",
+      "label": "Waterford",
+      "parent": "ie-m"
+    },
+    {
+      "code": "ie-wh",
+      "label": "Westmeath",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-wx",
+      "label": "Wexford",
+      "parent": "ie-l"
+    },
+    {
+      "code": "ie-ww",
+      "label": "Wicklow",
+      "parent": "ie-l"
+    }
+  ]
+}

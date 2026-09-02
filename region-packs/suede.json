@@ -1,0 +1,120 @@
+{
+  "display_name": "Suède (comtés / län)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "se",
+      "label": "Suède",
+      "parent": "eu"
+    },
+    {
+      "code": "se-k",
+      "label": "Blekinge",
+      "parent": "se"
+    },
+    {
+      "code": "se-w",
+      "label": "Dalarna",
+      "parent": "se"
+    },
+    {
+      "code": "se-i",
+      "label": "Gotland",
+      "parent": "se"
+    },
+    {
+      "code": "se-x",
+      "label": "Gävleborg",
+      "parent": "se"
+    },
+    {
+      "code": "se-n",
+      "label": "Halland",
+      "parent": "se"
+    },
+    {
+      "code": "se-z",
+      "label": "Jämtland",
+      "parent": "se"
+    },
+    {
+      "code": "se-f",
+      "label": "Jönköping",
+      "parent": "se"
+    },
+    {
+      "code": "se-h",
+      "label": "Kalmar",
+      "parent": "se"
+    },
+    {
+      "code": "se-g",
+      "label": "Kronoberg",
+      "parent": "se"
+    },
+    {
+      "code": "se-bd",
+      "label": "Norrbotten",
+      "parent": "se"
+    },
+    {
+      "code": "se-m",
+      "label": "Skåne",
+      "parent": "se"
+    },
+    {
+      "code": "se-ab",
+      "label": "Stockholm",
+      "parent": "se"
+    },
+    {
+      "code": "se-d",
+      "label": "Södermanland",
+      "parent": "se"
+    },
+    {
+      "code": "se-c",
+      "label": "Uppsala",
+      "parent": "se"
+    },
+    {
+      "code": "se-s",
+      "label": "Värmland",
+      "parent": "se"
+    },
+    {
+      "code": "se-ac",
+      "label": "Västerbotten",
+      "parent": "se"
+    },
+    {
+      "code": "se-y",
+      "label": "Västernorrland",
+      "parent": "se"
+    },
+    {
+      "code": "se-u",
+      "label": "Västmanland",
+      "parent": "se"
+    },
+    {
+      "code": "se-o",
+      "label": "Västra Götaland",
+      "parent": "se"
+    },
+    {
+      "code": "se-t",
+      "label": "Örebro",
+      "parent": "se"
+    },
+    {
+      "code": "se-e",
+      "label": "Östergötland",
+      "parent": "se"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "display_name": "Finlande (régions)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "fi",
+      "label": "Finlande",
+      "parent": "eu"
+    },
+    {
+      "code": "fi-01",
+      "label": "Åland",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-02",
+      "label": "Etelä-Karjala (Carélie du Sud)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-03",
+      "label": "Etelä-Pohjanmaa (Ostrobotnie du Sud)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-04",
+      "label": "Etelä-Savo (Savonie du Sud)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-05",
+      "label": "Kainuu",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-06",
+      "label": "Kanta-Häme",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-07",
+      "label": "Keski-Pohjanmaa (Ostrobotnie centrale)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-08",
+      "label": "Keski-Suomi (Finlande centrale)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-09",
+      "label": "Kymenlaakso",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-10",
+      "label": "Lappi (Laponie)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-11",
+      "label": "Pirkanmaa",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-12",
+      "label": "Pohjanmaa (Ostrobotnie)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-13",
+      "label": "Pohjois-Karjala (Carélie du Nord)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-14",
+      "label": "Pohjois-Pohjanmaa (Ostrobotnie du Nord)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-15",
+      "label": "Pohjois-Savo (Savonie du Nord)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-16",
+      "label": "Päijät-Häme",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-17",
+      "label": "Satakunta",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-18",
+      "label": "Uusimaa (Nyland)",
+      "parent": "fi"
+    },
+    {
+      "code": "fi-19",
+      "label": "Varsinais-Suomi (Finlande du Sud-Ouest)",
+      "parent": "fi"
+    }
+  ]
+}

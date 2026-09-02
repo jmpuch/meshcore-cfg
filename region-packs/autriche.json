@@ -1,0 +1,60 @@
+{
+  "display_name": "Autriche (Länder)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "at",
+      "label": "Autriche",
+      "parent": "eu"
+    },
+    {
+      "code": "at-1",
+      "label": "Burgenland",
+      "parent": "at"
+    },
+    {
+      "code": "at-2",
+      "label": "Carinthie",
+      "parent": "at"
+    },
+    {
+      "code": "at-3",
+      "label": "Basse-Autriche",
+      "parent": "at"
+    },
+    {
+      "code": "at-4",
+      "label": "Haute-Autriche",
+      "parent": "at"
+    },
+    {
+      "code": "at-5",
+      "label": "Salzbourg",
+      "parent": "at"
+    },
+    {
+      "code": "at-6",
+      "label": "Styrie",
+      "parent": "at"
+    },
+    {
+      "code": "at-7",
+      "label": "Tyrol",
+      "parent": "at"
+    },
+    {
+      "code": "at-8",
+      "label": "Vorarlberg",
+      "parent": "at"
+    },
+    {
+      "code": "at-9",
+      "label": "Vienne",
+      "parent": "at"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "display_name": "Luxembourg (cantons)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "lu",
+      "label": "Luxembourg",
+      "parent": "eu"
+    },
+    {
+      "code": "lu-ca",
+      "label": "Capellen",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-cl",
+      "label": "Clervaux",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-di",
+      "label": "Diekirch",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-ec",
+      "label": "Echternach",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-es",
+      "label": "Esch-sur-Alzette",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-gr",
+      "label": "Grevenmacher",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-lu",
+      "label": "Luxembourg (canton)",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-me",
+      "label": "Mersch",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-rd",
+      "label": "Redange",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-rm",
+      "label": "Remich",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-vd",
+      "label": "Vianden",
+      "parent": "lu"
+    },
+    {
+      "code": "lu-wi",
+      "label": "Wiltz",
+      "parent": "lu"
+    }
+  ]
+}

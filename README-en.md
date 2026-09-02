@@ -55,6 +55,26 @@ behavior. If it happens, adding an exception is enough; reporting it as
 a false positive to your antivirus vendor helps get it fixed for
 everyone.
 
+**For a first install, it's strongly recommended to grab, in addition to
+the program:**
+
+- **one or more templates** ([`templates/`](templates/)) — to try the
+  "Compare to a template" step below right away;
+- **a region file** ([`region-packs/`](region-packs/)) — the program
+  looks for `region-packs/france.json` next to itself by default; without
+  that file, the region assistant (Commands/Editor/Configuration tabs)
+  shows a load error on startup and stays empty.
+
+Neither templates nor region packs ship in the
+[Releases](https://github.com/jmpuch/meshcore-cfg/releases) (which only
+contain the binaries) — they live in the repo itself. Easiest way: the
+green **Code → Download ZIP** button at the top of the repo's GitHub page,
+then place the separately-downloaded binary next to the `templates/` and
+`region-packs/` folders extracted from that ZIP. Path resolution accepts
+a file either next to the binary or in its subfolder
+(`templates/xxx.json` or just `xxx.json` if the file is already inside
+`templates/`), so either layout works.
+
 ## Getting started (graphical interface)
 
 ### 1. Plug in the device and pick a port

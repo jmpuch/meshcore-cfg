@@ -54,6 +54,27 @@ suspect réel. Si ça arrive, ajouter une exception suffit ; le signaler
 comme faux positif à l'éditeur de votre antivirus aide à corriger ça pour
 tout le monde.
 
+**Pour une première installation, il est fortement recommandé de
+récupérer, en plus du programme :**
+
+- **un ou plusieurs templates** ([`templates/`](templates/)) — pour tester
+  tout de suite l'étape « Comparer à un template » ci-dessous ;
+- **un fichier de région** ([`region-packs/`](region-packs/)) — le
+  programme cherche par défaut `region-packs/france.json` à côté de lui ;
+  sans ce fichier, l'assistant région (onglets Commandes/Éditeur/
+  Configuration) affiche une erreur de chargement au démarrage et reste
+  vide.
+
+Ni les templates ni les packs de régions ne sont livrés dans les
+[Releases](https://github.com/jmpuch/meshcore-cfg/releases) (qui ne
+contiennent que les binaires) — ils vivent dans le dépôt lui-même. Le plus
+simple : bouton vert **Code → Download ZIP** en haut de la page GitHub du
+dépôt, puis placer le binaire téléchargé séparément à côté des dossiers
+`templates/` et `region-packs/` extraits de ce ZIP. La résolution de
+chemin accepte aussi bien un fichier à côté du binaire que dans son
+sous-dossier (`templates/xxx.json` ou juste `xxx.json` si le fichier est
+déjà dans `templates/`), donc les deux organisations fonctionnent.
+
 ## Premiers pas (interface graphique)
 
 ### 1. Brancher le device et choisir le port

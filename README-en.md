@@ -244,7 +244,7 @@ the program starts.
 The region assistant (Commands/Editor/Configuration) has no country
 hardcoded — it reads one or more JSON "region pack" files, enabled/
 disabled right in the panel itself (a checkbox per file, **+ Add a
-file...**, **Reload** after a manual edit). Thirty-seven packs ship in
+file...**, **Reload** after a manual edit). Forty-four packs ship in
 `region-packs/`:
 
 | File | Content |
@@ -286,6 +286,13 @@ file...**, **Reload** after a manual edit). Thirty-seven packs ship in
 | `malte.json` | 68 localities (only official ISO level) |
 | `chypre.json` | 6 districts |
 | `slovenie.json` | 212 municipalities (only official ISO level) |
+| `bosnie-herzegovine.json` | 3 entities + 10 cantons (Federation-only) |
+| `montenegro.json` | 25 municipalities |
+| `albanie.json` | 12 counties |
+| `moldavie.json` | 37 districts/cities/units (incl. Găgăuzia, Transnistria) |
+| `ukraine.json` | 27 oblasts/cities/Crimea (full ISO 3166-2:UA) |
+| `bielorussie.json` | 6 oblasts + Minsk City |
+| `macedoine-du-nord.json` | 80 municipalities (only official ISO level) |
 
 Codes and labels come from Wikipedia's [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
 pages for each country (verified before generating these files, not

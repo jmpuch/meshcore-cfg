@@ -1,0 +1,50 @@
+{
+  "display_name": "Biélorussie (oblasts)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "by",
+      "label": "Biélorussie",
+      "parent": "eu"
+    },
+    {
+      "code": "by-br",
+      "label": "Brest",
+      "parent": "by"
+    },
+    {
+      "code": "by-ho",
+      "label": "Gomel",
+      "parent": "by"
+    },
+    {
+      "code": "by-hm",
+      "label": "Minsk (ville)",
+      "parent": "by"
+    },
+    {
+      "code": "by-hr",
+      "label": "Grodno",
+      "parent": "by"
+    },
+    {
+      "code": "by-ma",
+      "label": "Mogilev",
+      "parent": "by"
+    },
+    {
+      "code": "by-mi",
+      "label": "Minsk (oblast)",
+      "parent": "by"
+    },
+    {
+      "code": "by-vi",
+      "label": "Vitebsk",
+      "parent": "by"
+    }
+  ]
+}

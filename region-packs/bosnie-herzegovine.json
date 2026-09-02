@@ -1,0 +1,80 @@
+{
+  "display_name": "Bosnie-Herzégovine (entités et cantons)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ba",
+      "label": "Bosnie-Herzégovine",
+      "parent": "eu"
+    },
+    {
+      "code": "ba-bih",
+      "label": "Fédération de Bosnie-et-Herzégovine",
+      "parent": "ba"
+    },
+    {
+      "code": "ba-srp",
+      "label": "Republika Srpska",
+      "parent": "ba"
+    },
+    {
+      "code": "ba-brc",
+      "label": "District de Brčko",
+      "parent": "ba"
+    },
+    {
+      "code": "ba-05",
+      "label": "Bosansko-podrinjski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-07",
+      "label": "Hercegovačko-neretvanski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-10",
+      "label": "Kanton 10 (Livanjski kanton)",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-09",
+      "label": "Kanton Sarajevo",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-02",
+      "label": "Posavski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-06",
+      "label": "Srednjobosanski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-03",
+      "label": "Tuzlanski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-01",
+      "label": "Unsko-sanski kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-08",
+      "label": "Zapadnohercegovački kanton",
+      "parent": "ba-bih"
+    },
+    {
+      "code": "ba-04",
+      "label": "Zeničko-dobojski kanton",
+      "parent": "ba-bih"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "display_name": "Monténégro (municipalités)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "me",
+      "label": "Monténégro",
+      "parent": "eu"
+    },
+    {
+      "code": "me-01",
+      "label": "Andrijevica",
+      "parent": "me"
+    },
+    {
+      "code": "me-02",
+      "label": "Bar",
+      "parent": "me"
+    },
+    {
+      "code": "me-03",
+      "label": "Berane",
+      "parent": "me"
+    },
+    {
+      "code": "me-04",
+      "label": "Bijelo Polje",
+      "parent": "me"
+    },
+    {
+      "code": "me-05",
+      "label": "Budva",
+      "parent": "me"
+    },
+    {
+      "code": "me-06",
+      "label": "Cetinje",
+      "parent": "me"
+    },
+    {
+      "code": "me-07",
+      "label": "Danilovgrad",
+      "parent": "me"
+    },
+    {
+      "code": "me-08",
+      "label": "Herceg-Novi",
+      "parent": "me"
+    },
+    {
+      "code": "me-09",
+      "label": "Kolašin",
+      "parent": "me"
+    },
+    {
+      "code": "me-10",
+      "label": "Kotor",
+      "parent": "me"
+    },
+    {
+      "code": "me-11",
+      "label": "Mojkovac",
+      "parent": "me"
+    },
+    {
+      "code": "me-12",
+      "label": "Nikšić",
+      "parent": "me"
+    },
+    {
+      "code": "me-13",
+      "label": "Plav",
+      "parent": "me"
+    },
+    {
+      "code": "me-14",
+      "label": "Pljevlja",
+      "parent": "me"
+    },
+    {
+      "code": "me-15",
+      "label": "Plužine",
+      "parent": "me"
+    },
+    {
+      "code": "me-16",
+      "label": "Podgorica",
+      "parent": "me"
+    },
+    {
+      "code": "me-17",
+      "label": "Rožaje",
+      "parent": "me"
+    },
+    {
+      "code": "me-18",
+      "label": "Šavnik",
+      "parent": "me"
+    },
+    {
+      "code": "me-19",
+      "label": "Tivat",
+      "parent": "me"
+    },
+    {
+      "code": "me-20",
+      "label": "Ulcinj",
+      "parent": "me"
+    },
+    {
+      "code": "me-21",
+      "label": "Žabljak",
+      "parent": "me"
+    },
+    {
+      "code": "me-22",
+      "label": "Gusinje",
+      "parent": "me"
+    },
+    {
+      "code": "me-23",
+      "label": "Petnjica",
+      "parent": "me"
+    },
+    {
+      "code": "me-24",
+      "label": "Tuzi",
+      "parent": "me"
+    },
+    {
+      "code": "me-25",
+      "label": "Zeta",
+      "parent": "me"
+    }
+  ]
+}

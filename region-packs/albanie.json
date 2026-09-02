@@ -1,0 +1,75 @@
+{
+  "display_name": "Albanie (comtés)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "al",
+      "label": "Albanie",
+      "parent": "eu"
+    },
+    {
+      "code": "al-01",
+      "label": "Berat",
+      "parent": "al"
+    },
+    {
+      "code": "al-02",
+      "label": "Durrës",
+      "parent": "al"
+    },
+    {
+      "code": "al-03",
+      "label": "Elbasan",
+      "parent": "al"
+    },
+    {
+      "code": "al-04",
+      "label": "Fier",
+      "parent": "al"
+    },
+    {
+      "code": "al-05",
+      "label": "Gjirokastër",
+      "parent": "al"
+    },
+    {
+      "code": "al-06",
+      "label": "Korçë",
+      "parent": "al"
+    },
+    {
+      "code": "al-07",
+      "label": "Kukës",
+      "parent": "al"
+    },
+    {
+      "code": "al-08",
+      "label": "Lezhë",
+      "parent": "al"
+    },
+    {
+      "code": "al-09",
+      "label": "Dibër",
+      "parent": "al"
+    },
+    {
+      "code": "al-10",
+      "label": "Shkodër",
+      "parent": "al"
+    },
+    {
+      "code": "al-11",
+      "label": "Tiranë",
+      "parent": "al"
+    },
+    {
+      "code": "al-12",
+      "label": "Vlorë",
+      "parent": "al"
+    }
+  ]
+}

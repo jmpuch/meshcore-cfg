@@ -257,7 +257,7 @@ L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
 par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
 « packs de régions », activables/désactivables dans le panneau lui-même
 (case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
-après une modification manuelle). Trente-sept packs sont fournis dans
+après une modification manuelle). Quarante-quatre packs sont fournis dans
 `region-packs/` :
 
 | Fichier | Contenu |
@@ -299,6 +299,13 @@ après une modification manuelle). Trente-sept packs sont fournis dans
 | `malte.json` | 68 localités (seul niveau ISO officiel) |
 | `chypre.json` | 6 districts |
 | `slovenie.json` | 212 communes (seul niveau ISO officiel) |
+| `bosnie-herzegovine.json` | 3 entités + 10 cantons (sous la Fédération uniquement) |
+| `montenegro.json` | 25 municipalités |
+| `albanie.json` | 12 comtés |
+| `moldavie.json` | 37 districts/villes/unités (dont Gagaouzie, Transnistrie) |
+| `ukraine.json` | 27 oblasts/villes/Crimée (ISO 3166-2:UA complet) |
+| `bielorussie.json` | 6 oblasts + Minsk (ville) |
+| `macedoine-du-nord.json` | 80 municipalités (seul niveau ISO officiel) |
 
 Codes et libellés issus des pages [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) de Wikipédia
 pour chaque pays (vérifiés avant génération, pas retapés de mémoire) — les

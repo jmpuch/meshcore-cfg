@@ -1,0 +1,415 @@
+{
+  "display_name": "Macédoine du Nord (municipalités)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "mk",
+      "label": "Macédoine du Nord",
+      "parent": "eu"
+    },
+    {
+      "code": "mk-101",
+      "label": "Veles",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-102",
+      "label": "Gradsko",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-103",
+      "label": "Demir Kapija",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-104",
+      "label": "Kavadarci",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-105",
+      "label": "Lozovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-106",
+      "label": "Negotino",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-107",
+      "label": "Rosoman",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-108",
+      "label": "Sveti Nikole",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-109",
+      "label": "Čaška",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-201",
+      "label": "Berovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-202",
+      "label": "Vinica",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-203",
+      "label": "Delčevo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-204",
+      "label": "Zrnovci",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-205",
+      "label": "Karbinci",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-206",
+      "label": "Kočani",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-207",
+      "label": "Makedonska Kamenica",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-208",
+      "label": "Pehčevo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-209",
+      "label": "Probištip",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-210",
+      "label": "Češinovo-Obleševo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-211",
+      "label": "Štip",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-301",
+      "label": "Vevčani",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-303",
+      "label": "Debar",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-304",
+      "label": "Debrca",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-307",
+      "label": "Kičevo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-308",
+      "label": "Makedonski Brod",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-310",
+      "label": "Ohrid",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-311",
+      "label": "Plasnica",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-312",
+      "label": "Struga",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-313",
+      "label": "Centar Župa",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-401",
+      "label": "Bogdanci",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-402",
+      "label": "Bosilovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-403",
+      "label": "Valandovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-404",
+      "label": "Vasilevo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-405",
+      "label": "Gevgelija",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-406",
+      "label": "Dojran",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-407",
+      "label": "Konče",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-408",
+      "label": "Novo Selo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-409",
+      "label": "Radoviš",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-410",
+      "label": "Strumica",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-501",
+      "label": "Bitola",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-502",
+      "label": "Demir Hisar",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-503",
+      "label": "Dolneni",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-504",
+      "label": "Krivogaštani",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-505",
+      "label": "Kruševo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-506",
+      "label": "Mogila",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-507",
+      "label": "Novaci",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-508",
+      "label": "Prilep",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-509",
+      "label": "Resen",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-601",
+      "label": "Bogovinje",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-602",
+      "label": "Brvenica",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-603",
+      "label": "Vrapčište",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-604",
+      "label": "Gostivar",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-605",
+      "label": "Želino",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-606",
+      "label": "Jegunovce",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-607",
+      "label": "Mavrovo i Rostuše",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-608",
+      "label": "Tearce",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-609",
+      "label": "Tetovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-701",
+      "label": "Kratovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-702",
+      "label": "Kriva Palanka",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-703",
+      "label": "Kumanovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-704",
+      "label": "Lipkovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-705",
+      "label": "Rankovce",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-706",
+      "label": "Staro Nagoričane",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-801",
+      "label": "Aerodrom",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-802",
+      "label": "Aračinovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-803",
+      "label": "Butel",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-804",
+      "label": "Gazi Baba",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-805",
+      "label": "Gjorče Petrov",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-806",
+      "label": "Zelenikovo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-807",
+      "label": "Ilinden",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-808",
+      "label": "Karpoš",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-809",
+      "label": "Kisela Voda",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-810",
+      "label": "Petrovec",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-811",
+      "label": "Saraj",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-812",
+      "label": "Sopište",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-813",
+      "label": "Studeničani",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-814",
+      "label": "Centar",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-815",
+      "label": "Čair",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-816",
+      "label": "Čučer-Sandevo",
+      "parent": "mk"
+    },
+    {
+      "code": "mk-817",
+      "label": "Šuto Orizari",
+      "parent": "mk"
+    }
+  ]
+}

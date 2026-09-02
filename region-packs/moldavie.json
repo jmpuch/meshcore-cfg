@@ -1,0 +1,200 @@
+{
+  "display_name": "Moldavie (districts et unités)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "md",
+      "label": "Moldavie",
+      "parent": "eu"
+    },
+    {
+      "code": "md-an",
+      "label": "Anenii Noi",
+      "parent": "md"
+    },
+    {
+      "code": "md-bs",
+      "label": "Basarabeasca",
+      "parent": "md"
+    },
+    {
+      "code": "md-ba",
+      "label": "Bălți",
+      "parent": "md"
+    },
+    {
+      "code": "md-bd",
+      "label": "Bender",
+      "parent": "md"
+    },
+    {
+      "code": "md-br",
+      "label": "Briceni",
+      "parent": "md"
+    },
+    {
+      "code": "md-ca",
+      "label": "Cahul",
+      "parent": "md"
+    },
+    {
+      "code": "md-ct",
+      "label": "Cantemir",
+      "parent": "md"
+    },
+    {
+      "code": "md-cl",
+      "label": "Călărași",
+      "parent": "md"
+    },
+    {
+      "code": "md-cs",
+      "label": "Căușeni",
+      "parent": "md"
+    },
+    {
+      "code": "md-cu",
+      "label": "Chișinău",
+      "parent": "md"
+    },
+    {
+      "code": "md-cm",
+      "label": "Cimișlia",
+      "parent": "md"
+    },
+    {
+      "code": "md-cr",
+      "label": "Criuleni",
+      "parent": "md"
+    },
+    {
+      "code": "md-do",
+      "label": "Dondușeni",
+      "parent": "md"
+    },
+    {
+      "code": "md-dr",
+      "label": "Drochia",
+      "parent": "md"
+    },
+    {
+      "code": "md-du",
+      "label": "Dubăsari",
+      "parent": "md"
+    },
+    {
+      "code": "md-ed",
+      "label": "Edineț",
+      "parent": "md"
+    },
+    {
+      "code": "md-fa",
+      "label": "Fălești",
+      "parent": "md"
+    },
+    {
+      "code": "md-fl",
+      "label": "Florești",
+      "parent": "md"
+    },
+    {
+      "code": "md-ga",
+      "label": "Găgăuzia (unité territoriale autonome)",
+      "parent": "md"
+    },
+    {
+      "code": "md-gl",
+      "label": "Glodeni",
+      "parent": "md"
+    },
+    {
+      "code": "md-hi",
+      "label": "Hîncești",
+      "parent": "md"
+    },
+    {
+      "code": "md-ia",
+      "label": "Ialoveni",
+      "parent": "md"
+    },
+    {
+      "code": "md-le",
+      "label": "Leova",
+      "parent": "md"
+    },
+    {
+      "code": "md-ni",
+      "label": "Nisporeni",
+      "parent": "md"
+    },
+    {
+      "code": "md-oc",
+      "label": "Ocnița",
+      "parent": "md"
+    },
+    {
+      "code": "md-or",
+      "label": "Orhei",
+      "parent": "md"
+    },
+    {
+      "code": "md-re",
+      "label": "Rezina",
+      "parent": "md"
+    },
+    {
+      "code": "md-ri",
+      "label": "Rîșcani",
+      "parent": "md"
+    },
+    {
+      "code": "md-si",
+      "label": "Sîngerei",
+      "parent": "md"
+    },
+    {
+      "code": "md-so",
+      "label": "Soroca",
+      "parent": "md"
+    },
+    {
+      "code": "md-sn",
+      "label": "Rive gauche du Dniestr (Transnistrie)",
+      "parent": "md"
+    },
+    {
+      "code": "md-st",
+      "label": "Strășeni",
+      "parent": "md"
+    },
+    {
+      "code": "md-sd",
+      "label": "Șoldănești",
+      "parent": "md"
+    },
+    {
+      "code": "md-sv",
+      "label": "Ștefan Vodă",
+      "parent": "md"
+    },
+    {
+      "code": "md-ta",
+      "label": "Taraclia",
+      "parent": "md"
+    },
+    {
+      "code": "md-te",
+      "label": "Telenești",
+      "parent": "md"
+    },
+    {
+      "code": "md-un",
+      "label": "Ungheni",
+      "parent": "md"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "display_name": "Ukraine (oblasts)",
+  "entries": [
+    {
+      "code": "eu",
+      "label": "Europe",
+      "parent": null
+    },
+    {
+      "code": "ua",
+      "label": "Ukraine",
+      "parent": "eu"
+    },
+    {
+      "code": "ua-05",
+      "label": "Vinnytsia",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-07",
+      "label": "Volyn",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-09",
+      "label": "Luhansk",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-12",
+      "label": "Dnipropetrovsk",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-14",
+      "label": "Donetsk",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-18",
+      "label": "Zhytomyr",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-21",
+      "label": "Transcarpathia",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-23",
+      "label": "Zaporizhzhia",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-26",
+      "label": "Ivano-Frankivsk",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-30",
+      "label": "Kyiv (ville)",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-32",
+      "label": "Kyiv (oblast)",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-35",
+      "label": "Kirovohrad",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-40",
+      "label": "Sevastopol",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-43",
+      "label": "Crimée (République autonome)",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-46",
+      "label": "Lviv",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-48",
+      "label": "Mykolaiv",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-51",
+      "label": "Odesa",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-53",
+      "label": "Poltava",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-56",
+      "label": "Rivne",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-59",
+      "label": "Sumy",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-61",
+      "label": "Ternopil",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-63",
+      "label": "Kharkiv",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-65",
+      "label": "Kherson",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-68",
+      "label": "Khmelnytskyi",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-71",
+      "label": "Cherkasy",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-74",
+      "label": "Chernihiv",
+      "parent": "ua"
+    },
+    {
+      "code": "ua-77",
+      "label": "Chernivtsi",
+      "parent": "ua"
+    }
+  ]
+}

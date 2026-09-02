@@ -15,24 +15,36 @@ firmware ESP32 en natif.
 
 ## Installation
 
-Télécharger le binaire correspondant à votre système depuis la page
-[Releases](https://github.com/jmpuch/meshcore-cfg/releases) :
+Télécharger l'archive correspondant à votre système depuis la page
+[Releases](https://github.com/jmpuch/meshcore-cfg/releases) — chacune
+contient déjà tout le nécessaire pour démarrer : le binaire, un dossier
+[`templates/`](templates/) (voir « Comparer à un template » plus bas) et
+un dossier [`region-packs/`](region-packs/) (voir « Packs de régions »
+plus bas ; le programme cherche par défaut `region-packs/france.json` à
+côté de lui) :
 
-- **Linux** (x86_64) : `meshcore-cfg-linux-x86_64`
-- **Windows** (x86_64) : `meshcore-cfg-windows-x86_64.exe` — autonome,
-  aucune DLL supplémentaire à installer
+- **Linux** (x86_64) : `meshcore-cfg-linux-x86_64.zip`
+- **Windows** (x86_64) : `meshcore-cfg-windows-x86_64.zip` — le binaire à
+  l'intérieur est autonome, aucune DLL supplémentaire à installer
 - **macOS** (Intel + Apple Silicon, binaire universel) :
-  `meshcore-cfg-macos-universal`
+  `meshcore-cfg-macos-universal.zip`
+
+Extraire l'archive, puis rendre le binaire exécutable sur Linux/macOS :
 
 ```bash
-# Linux/macOS : rendre le binaire exécutable
-chmod +x meshcore-cfg-linux-x86_64   # ou -macos-universal
+unzip meshcore-cfg-linux-x86_64.zip -d meshcore-cfg   # ou -windows-x86_64 / -macos-universal
+chmod +x meshcore-cfg/meshcore-cfg   # Linux/macOS uniquement
 ```
 
-**Double-cliquer sur le binaire (ou le lancer sans aucun argument) ouvre
-l'interface graphique.** C'est le point d'entrée normal pour la plupart
-des usages — le CLI (ligne de commande, avec des arguments) reste
-disponible en parallèle pour l'usage avancé, voir plus bas.
+**Double-cliquer sur le binaire extrait (ou le lancer sans aucun argument)
+ouvre l'interface graphique.** C'est le point d'entrée normal pour la
+plupart des usages — le CLI (ligne de commande, avec des arguments) reste
+disponible en parallèle pour l'usage avancé, voir plus bas. Le binaire
+doit rester dans le même dossier que `templates/` et `region-packs/`
+extraits à côté de lui pour que ces deux fonctions marchent — la
+résolution de chemin accepte aussi bien un fichier à côté du binaire que
+dans son sous-dossier, donc si vous déplacez le binaire seul plus tard,
+lui recréer un sous-dossier `templates/`/`region-packs/` à côté suffit.
 
 **Gatekeeper (macOS)** : le binaire n'étant pas signé/notarié par un
 compte développeur Apple, macOS refuse de le lancer au premier essai
@@ -43,7 +55,7 @@ cliquer *Autoriser quand même* ; ou en ligne de commande, une fois pour
 toutes :
 
 ```bash
-xattr -d com.apple.quarantine ./meshcore-cfg-macos-universal
+xattr -d com.apple.quarantine ./meshcore-cfg
 ```
 
 **Antivirus (Windows)** : un exécutable non signé et tout juste publié peut
@@ -53,27 +65,6 @@ signature et à la nouveauté du fichier plutôt qu'à un comportement
 suspect réel. Si ça arrive, ajouter une exception suffit ; le signaler
 comme faux positif à l'éditeur de votre antivirus aide à corriger ça pour
 tout le monde.
-
-**Pour une première installation, il est fortement recommandé de
-récupérer, en plus du programme :**
-
-- **un ou plusieurs templates** ([`templates/`](templates/)) — pour tester
-  tout de suite l'étape « Comparer à un template » ci-dessous ;
-- **un fichier de région** ([`region-packs/`](region-packs/)) — le
-  programme cherche par défaut `region-packs/france.json` à côté de lui ;
-  sans ce fichier, l'assistant région (onglets Commandes/Éditeur/
-  Configuration) affiche une erreur de chargement au démarrage et reste
-  vide.
-
-Ni les templates ni les packs de régions ne sont livrés dans les
-[Releases](https://github.com/jmpuch/meshcore-cfg/releases) (qui ne
-contiennent que les binaires) — ils vivent dans le dépôt lui-même. Le plus
-simple : bouton vert **Code → Download ZIP** en haut de la page GitHub du
-dépôt, puis placer le binaire téléchargé séparément à côté des dossiers
-`templates/` et `region-packs/` extraits de ce ZIP. La résolution de
-chemin accepte aussi bien un fichier à côté du binaire que dans son
-sous-dossier (`templates/xxx.json` ou juste `xxx.json` si le fichier est
-déjà dans `templates/`), donc les deux organisations fonctionnent.
 
 ## Premiers pas (interface graphique)
 

@@ -17,24 +17,36 @@ firmware natively.
 
 ## Installation
 
-Download the binary for your system from the
-[Releases](https://github.com/jmpuch/meshcore-cfg/releases) page:
+Download the archive for your system from the
+[Releases](https://github.com/jmpuch/meshcore-cfg/releases) page — each
+one already bundles everything needed to get started: the binary, a
+[`templates/`](templates/) folder (see "Compare to a template" below),
+and a [`region-packs/`](region-packs/) folder (see "Region packs" below;
+the program looks for `region-packs/france.json` next to itself by
+default):
 
-- **Linux** (x86_64): `meshcore-cfg-linux-x86_64`
-- **Windows** (x86_64): `meshcore-cfg-windows-x86_64.exe` —
-  self-contained, no extra DLL to install
+- **Linux** (x86_64): `meshcore-cfg-linux-x86_64.zip`
+- **Windows** (x86_64): `meshcore-cfg-windows-x86_64.zip` — the binary
+  inside is self-contained, no extra DLL to install
 - **macOS** (Intel + Apple Silicon, universal binary):
-  `meshcore-cfg-macos-universal`
+  `meshcore-cfg-macos-universal.zip`
+
+Extract the archive, then make the binary executable on Linux/macOS:
 
 ```bash
-# Linux/macOS: make the binary executable
-chmod +x meshcore-cfg-linux-x86_64   # or -macos-universal
+unzip meshcore-cfg-linux-x86_64.zip -d meshcore-cfg   # or -windows-x86_64 / -macos-universal
+chmod +x meshcore-cfg/meshcore-cfg   # Linux/macOS only
 ```
 
-**Double-click the binary (or run it with no arguments) to open the
-graphical interface.** That's the normal entry point for most use
+**Double-click the extracted binary (or run it with no arguments) to open
+the graphical interface.** That's the normal entry point for most use
 cases — the CLI (command line, with arguments) is still available
-alongside it for advanced usage, see below.
+alongside it for advanced usage, see below. The binary needs to stay in
+the same folder as the `templates/`/`region-packs/` folders extracted
+next to it for those two features to work — path resolution accepts a
+file either next to the binary or in its subfolder, so if you move the
+binary alone later, recreating a `templates/`/`region-packs/` subfolder
+next to it is enough.
 
 **Gatekeeper (macOS)**: since the binary isn't signed/notarized with an
 Apple developer account, macOS refuses to launch it on the first try
@@ -44,7 +56,7 @@ to the blocked-file message and click *Open Anyway*; or from the
 command line, once and for all:
 
 ```bash
-xattr -d com.apple.quarantine ./meshcore-cfg-macos-universal
+xattr -d com.apple.quarantine ./meshcore-cfg
 ```
 
 **Antivirus (Windows)**: an unsigned, freshly-published executable can
@@ -54,26 +66,6 @@ signature and the file's newness rather than actual suspicious
 behavior. If it happens, adding an exception is enough; reporting it as
 a false positive to your antivirus vendor helps get it fixed for
 everyone.
-
-**For a first install, it's strongly recommended to grab, in addition to
-the program:**
-
-- **one or more templates** ([`templates/`](templates/)) — to try the
-  "Compare to a template" step below right away;
-- **a region file** ([`region-packs/`](region-packs/)) — the program
-  looks for `region-packs/france.json` next to itself by default; without
-  that file, the region assistant (Commands/Editor/Configuration tabs)
-  shows a load error on startup and stays empty.
-
-Neither templates nor region packs ship in the
-[Releases](https://github.com/jmpuch/meshcore-cfg/releases) (which only
-contain the binaries) — they live in the repo itself. Easiest way: the
-green **Code → Download ZIP** button at the top of the repo's GitHub page,
-then place the separately-downloaded binary next to the `templates/` and
-`region-packs/` folders extracted from that ZIP. Path resolution accepts
-a file either next to the binary or in its subfolder
-(`templates/xxx.json` or just `xxx.json` if the file is already inside
-`templates/`), so either layout works.
 
 ## Getting started (graphical interface)
 

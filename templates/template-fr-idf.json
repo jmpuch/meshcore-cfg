@@ -10,8 +10,8 @@
 
     "#_comment1": "Préconisations Île-de-France selon https://wiki.mesh-idf.fr/fr/meshcore/regions_et_canaux ( !! à vérifier !! )",
     "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
-    "advert.interval": 240,
-    "flood.advert.interval": 24,
+    "advert.interval": 180,
+    "flood.advert.interval": 9,
     "agc.reset.interval": 4,
     "multi.acks": "1",
     "dutycycle": 10,
@@ -19,6 +19,10 @@
     "loop.detect": "minimal",
     "flood.max.advert": 16,
     "flood.max.unscoped": 16,
+    "tx": 22,
+    "rxdelay": 0,
+    "txdelay": 0.5,
+    "direct.txdelay": 0.2,
     "repeat": true,
 
     "#_comment2": "autres paramètres/balises gérés",
@@ -28,11 +32,7 @@
     "#public.key": "REDACTED - informational only, no set handler exists for this field in the firmware",
     "#allow.read.only": false,
     "#flood.max": 64,
-    "#int.thresh": 0,
-    "#tx": 20,
-    "#rxdelay": 0,
-    "#txdelay": 0.5,
-    "#direct.txdelay": 0.3
+    "#int.thresh": 0
   },
   "regions": {
     "eu": { "parent": null, "flood_allowed": true },

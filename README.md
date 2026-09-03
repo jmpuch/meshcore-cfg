@@ -610,6 +610,18 @@ automatiquement à chaque écriture) — `apply-template`/`clone` (CLI) et le
 bouton « Appliquer toutes les régions » (IHM) l'envoient automatiquement
 dès qu'un changement de région a réellement été appliqué.
 
+### Template companion `templates/template-companion-fr.json`
+
+Équivalent pour un **companion** (série ou Bluetooth) — mêmes réglages
+radio que `template-fr.json`, mais un jeu de champs complètement
+différent : un companion n'a ni région, ni ACL, ni la plupart des
+réglages `vars` d'un répéteur (opcodes binaires dédiés, pas de CLI-texte).
+Champs actifs : `name`, `lat`/`lon`, `radio`, `tx`, `multi.acks` ; les 7
+autres réglages companion existants sont listés `#`-désactivés pour
+référence. Balise `"device_type": "companion"` en tête — appliquer ce
+fichier à un répéteur/room-server/sensor est refusé immédiatement, sans
+envoyer la moindre commande.
+
 ### Variante `templates/template-fr-idf.json`
 
 Adaptation pour la communauté Île-de-France, d'après

@@ -587,6 +587,18 @@ write) — `apply-template`/`clone` (CLI) and the "Apply all regions"
 button (GUI) send it automatically whenever a region change was
 actually applied.
 
+### Companion template `templates/template-companion-fr.json`
+
+The equivalent for a **companion** (serial or Bluetooth) — same radio
+settings as `template-fr.json`, but a completely different field set: a
+companion has no regions, no ACL, and none of a repeater's `vars` fields
+(dedicated binary opcodes instead, no CLI-text protocol at all). Active
+fields: `name`, `lat`/`lon`, `radio`, `tx`, `multi.acks`; the other 7
+companion fields that exist are listed `#`-disabled for reference. Tagged
+`"device_type": "companion"` at the top — applying this file to a
+repeater/room-server/sensor is refused immediately, before sending a
+single command.
+
 ### `templates/template-fr-idf.json` variant
 
 Adapted for the Île-de-France community, based on

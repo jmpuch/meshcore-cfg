@@ -1,4 +1,5 @@
 {
+  "device_type": "repeater",
   "vars": {
     "name": "ChangeMe",
     "#password": "changeme — device-wide admin password, sent as the raw command `password <value>` (not `set password <value>`). Unlike other fields it can never be read back (no `get password` handler), so it's always (re-)applied when enabled, never diffed against a current value.",

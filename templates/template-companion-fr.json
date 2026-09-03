@@ -1,0 +1,22 @@
+{
+  "device_type": "companion",
+  "vars": {
+    "name": "ChangeMe",
+    "lat": 0.0,
+    "lon": 0.0,
+
+    "#_comment1": "Préconisations selon https://meshcore.fr/ — mêmes valeurs que template-fr.json",
+    "radio": { "freq": "869.618", "bw": "62.5", "sf": "8", "cr": "8" },
+    "tx": 20,
+    "multi.acks": 1,
+
+    "#_comment2": "autres paramètres companion gérés (opcodes dédiés, pas des vars CLI-texte)",
+    "#manual.add.contacts": 0,
+    "#advert.loc.policy": 0,
+    "#telemetry.mode.base": 0,
+    "#telemetry.mode.loc": 0,
+    "#telemetry.mode.env": 0,
+    "#rx.delay.base": 0,
+    "#airtime.factor": 1.0
+  }
+}

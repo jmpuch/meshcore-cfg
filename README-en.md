@@ -104,69 +104,91 @@ Repeater, Room Server, or Companion).
 used — see step 4 — even before any connection: that's expected, the
 comparison updates as soon as a device is read.)*
 
-### 3. The Configuration tab fills in by itself
+### 3. The Device tab fills in by itself
 
 As soon as the connection is established, every attribute of the device
-is read automatically (no need to click "Refresh" first) — each row of
+is read automatically (no need to click "📄 Read" first) — each row of
 the table appears as it's read, rather than waiting for the whole
-read to finish.
+read to finish. The action bar at the top of the tab groups **📄 Read**,
+**🔄 Compare against template**, **⬆ Write the diffs**,
+**⬇ Full dump** and **🔌 Restart** — five same-sized, icon buttons.
 
-![Configuration tab, with a template loaded](docs/screenshots/02-connecte-companion.png)
+![Device tab, with a template loaded](docs/screenshots/02-connecte-companion.png)
 
 *(Captured without an active connection — the table/ACL/Regions look the
-same once connected, with the "Valeur lue" column filled in too.)*
+same once connected, with the "Device (read)" column filled in too.)*
 
-Each field gets its own row: the value currently read from the device,
-a box to type a new value, and a **Set** button to write it. Fields
-shown in orange are sensitive fields, or fields the loaded template
-documents but leaves disabled (see below) — they stay visible but
-never get applied until the `#` is removed from the file.
+Each field gets its own row: the value currently read from the device in
+the **Device (read)** column (not editable — it's a direct read from the
+hardware), and the wanted value in **Template (desired)**, with an
+**Apply** button to write it to the device. Fields shown in orange are
+sensitive fields, or fields the loaded template documents but leaves
+disabled (see below) — they stay visible but never get applied until the
+`#` is removed from the file.
 
 ### 4. Compare against a template
 
-The **Choose a template...** button loads a JSON configuration file
-(see "Template format" below) and shows, for every field, the value
-currently read **and** the value the template wants, side by side:
+A template is loaded or created in the **Template** tab ("New" or "Load
+a template...", see below — there's only ever one active template,
+shared between the two tabs). Back in **Device**, the **Compare against
+template** button shows, for every field, the value currently read
+**and** the value the template wants, side by side:
 
 - **Green**: the value already matches the template — nothing to do.
 - **Red**: it differs — that row's **Apply** button writes just that
   one field.
 - **Orange**: a sensitive field (private key, channel secret...) or one
   deliberately disabled in the template (prefixed `#`) — never applied
-  automatically, even by "Apply the whole template".
+  automatically, even by "Write the diffs".
 
-The **Apply the whole template** button, at the top, writes every
-differing field at once (excluding disabled/sensitive ones). The last
-template used is remembered automatically and reloaded the next time
-the program starts.
+The **⬆ Write the diffs** button, at the top, writes every differing
+field at once (excluding disabled/sensitive ones) — its label shows the
+pending count directly ("Write the diffs (3)") and lights up blue as
+soon as there's something to write. The last template used is
+remembered automatically and reloaded the next time the program starts.
+
+## Interface size
+
+Text too small on a large screen (4K, etc.)? A **"Interface size"** row
+in the connection bar (at the top, visible on every tab) offers **-**/
+**+**/**Reset** to scale all the text and controls at once — the chosen
+value is remembered across launches. The `Ctrl +`/`Ctrl -`/`Ctrl 0`
+keyboard shortcuts (`Cmd` on macOS) do the same thing without touching
+the mouse.
 
 ## The tabs
 
-- **Configuration** — described above: every attribute, comparison
-  against a template, and (if the device has them) **ACL** and
-  **Regions** sections below the main table. The **Valeur
-  template** (template value) column is directly editable — live, and
-  it can add a field that isn't in the template yet. Each field also
+- **Device** — described above: every attribute, comparison against a
+  template, and (if the device has them) **ACL** and **Regions**
+  sections below the main table. The compared template is the same
+  object managed in the **Template** tab (see below) — not a separate
+  copy: editing it in either place has the same effect. The **Device
+  (read)** column is a direct hardware read, not editable; **Template
+  (desired)** is the only editable column — live, and it can add a
+  field that isn't in the template yet. Each field also
   has its own **Mask (#)** checkbox to enable/disable it without hand-
-  editing the file, and **Save as...** writes this adjusted template
-  to a new file. Table columns can be resized by dragging their border
-  (width remembered across launches, same as the Editor), and a
-  **Restart device** button sits at the top — useful after changing
-  radio parameters, which only take effect after a restart.
+  editing the file. Table columns can be resized by dragging their
+  border (width remembered across launches, same as the Template tab).
+  An icon toolbar at the top groups the tab's five actions:
+  **📄 Read**, **🔄 Compare against template**, **⬆ Write the diffs**,
+  **⬇ Full dump** (saves every attribute read so far to a JSON file, no
+  template needed) and **🔌 Restart** — useful after changing radio
+  parameters, which only take effect after a restart.
 
   **Row order**: a loaded template displays in exactly the order its
   fields are written in the JSON file — comments (`#_comment...`)
   included, in their real position. Two **^ / v** buttons on each row
-  let you reorder directly from the GUI; that order is what **Save
-  as...** writes back out. With no template loaded, the default order
-  is: identity (name, coordinates, passwords), then radio/network
-  settings, then everything else.
+  let you reorder directly from the GUI (visible from the Template tab
+  too, same object). With no template loaded, the default order is:
+  identity (name, coordinates, passwords), then radio/network settings,
+  then everything else.
 
-  **ACL**: same shape as the fields table — role read, desired role (a
+  **ACL**: same shape as the fields table — role read (**Device (read)**,
+  not editable) and desired role (**Template (desired)**, a
   guest/read-only/read-write/admin dropdown), a **Mask (#)** checkbox, a
   per-row **Apply** button, plus a **New ACL entry** row to add a public
   key that isn't there yet. An enabled ACL entry is also applied by
-  **Apply whole template**, just like any other field.
+  **Write the diffs**, just like any other field.
 
   **Regions**: two indented trees side by side, **Device (read)** and
   **Template (desired)** — same layout as a CLI `region list`, with
@@ -175,7 +197,7 @@ the program starts.
   template). A **Delete** button on any template region removes it
   **and all its children**, and **Clear the template** starts it over
   from scratch — none of this writes to the device, that's still
-  **Apply whole template**'s job, all at once (regions absent from the
+  **Write the diffs**'s job, all at once (regions absent from the
   template are always removed from the device so it ends up an exact
   mirror of the file). A collapsible **region assistant** lets you search
   a region/area (name or code) and insert its whole hierarchy in one
@@ -205,55 +227,154 @@ the program starts.
 
   The table also scrolls horizontally, not just vertically, if the
   window is too narrow to show every column.
-- **Dump** — a complete snapshot of the device's state as JSON, to save
-  to a file.
 - **Contacts** — the connected companion's own address book (adverts/
   DMs it has heard) — useful for finding the full public key of a
-  remote device to control over LoRa (see below).
+  remote device to control over LoRa (see below). A filter bar lets you
+  search by **name prefix**, sort by name (▲/▼), show **only the
+  private directory**, or just bring **private contacts first** without
+  hiding the rest. A **Private** checkbox per row copies or removes the
+  contact from the private directory (see the **Private** tab below)
+  and reflects its current membership.
 
   ![Contacts tab](docs/screenshots/03-contacts.png)
 
-- **Template / Clone** — loads a file and offers a preview (dry-run)
-  then a real application, independently of the Configuration tab
-  (useful for testing a template without touching what's shown
-  elsewhere).
-- **Editor** — creates or edits a template file **without being
-  connected to a device**. "New" starts with every known field already
-  present, disabled (`#`) with a neutral placeholder value — a form to
-  fill in rather than a blank page where you'd have to guess field
-  names; "Load a template..." reopens an existing file to edit it. Each
-  field can be toggled (`#`), edited, or deleted row by row, and new
-  ones can be added. Table columns can be resized by dragging their
-  border, and the chosen widths are remembered across launches. Like
-  the Configuration tab, the radio field is shown as two linked rows,
-  **Preset radio** (23 official regional presets) and **Radio**
-  (technical detail), synced both ways.
-  An **ACL** section lets you add/edit/disable entries (public key +
-  role) the same way, with its own **New ACL entry** row. A **Regions**
-  section below lets you build the hierarchy the same way (parent, flood
-  allowed, home/default), with a per-row **Delete** and a **Clear
-  regions** button to start over — "New" starts it off with a disabled
-  EU → Europe → FR example. The same **region assistant** as
-  Configuration (search a region, insert its hierarchy in one click) is
-  available here too. Same row order as the Configuration tab (the loaded
-  file's own, reorderable with **^ / v**), and the same **Paste position**
-  row above `lat`.
+- **Template** — creates or edits the active template **without being
+  connected to a device** — the same object compared/applied in the
+  Device tab (see above), not a separate copy. An icon toolbar at the
+  top groups **➕ New** (starts with every known field already present,
+  disabled `#` with a neutral placeholder value — a form to fill in
+  rather than a blank page where you'd have to guess field names),
+  **📁 Load**, **💾 Save** and **Save as...**.
+
+  ![Template tab](docs/screenshots/05-template.png)
+
+  The four most commonly edited fields — **Name**, **Admin password**
+  (masked), **Contact / owner.info** and **Position** (one single
+  `lat, lon` field, which also accepts a pasted OpenStreetMap/Google
+  Maps link, plus a **Map** button) — stay always visible at the top,
+  under "Repeater identity". Everything else lives behind collapsible
+  sections, each titled with a live count: **Radio & network** (the
+  fields tuned most often — radio preset, TX, advert intervals...),
+  **Advanced** (everything else, `#_comment*` markers included, with a
+  **New field** row to add one not already known), **ACL** (role per
+  public key) and **Regions** (parent/child tree, home/default). Each
+  field can be toggled (`#`), edited, or deleted row by row; the order
+  follows the loaded file, reorderable with **^ / v**. Like the Device
+  tab, the radio field is shown as two linked rows, **Preset radio** (23
+  official regional presets) and **Radio** (technical detail), synced
+  both ways.
+
+  The **ACL** section has its own **New ACL entry** row. The **Regions**
+  section lets you build the hierarchy (parent, flood allowed,
+  home/default), with a per-row **Delete** and a **Clear regions**
+  button to start over — "New" starts it off with a disabled
+  EU → Europe → FR example; a template that has no regions section yet
+  offers a **+ Add a regions section** button instead of silently
+  creating an empty one (an empty regions section, once applied from the
+  Device tab, would remove **every** region from the device — so the
+  distinction between "no section" and "empty section" is deliberately
+  visible). The same **region assistant** as Device (search a region,
+  insert its hierarchy in one click) is available here too — and shares
+  the same template: an insertion made from either tab shows up
+  immediately in the other.
 - **Commands** — paste a block of raw CLI commands (one per line, e.g. a
-  meshcore.fr-style setup recipe) and run them all at once, in order.
-  Blank lines and lines starting with `#` are skipped. A failing line
-  (e.g. `reboot`/`clock sync`, which normally fail over a direct
-  connection) doesn't stop the rest — each line's result and the final
-  tally show up in the Journal. The same **region assistant** as
-  Configuration/Editor is available here too: searching a region inserts
-  the matching `region put`/`allowf`/`save` sequence straight into the
-  command block, to review before running it.
+  meshcore.fr-style setup recipe) and run them all at once, in order,
+  with **▶ Run**. Blank lines and lines starting with `#` are skipped. A
+  failing line (e.g. `reboot`/`clock sync`, which normally fail over a
+  direct connection — see the dedicated **🔌 Restart** button on the
+  Device tab above for a restart that's correctly reported as
+  successful) doesn't stop the rest — each line's result and the final
+  tally show up in the Journal.
+
+  ![Commands tab](docs/screenshots/06-commandes.png)
+
+  The **📋 Copy from Device diffs** button takes the fields that differ
+  (computed in the Device tab via "Compare against template") and
+  translates them straight into CLI commands (`set ...`, `setperm ...`,
+  `password ...`) appended to the block — handy for getting a re-runnable
+  script out of a comparison you already made, to review before running
+  it. The same **region assistant** as Device/Template is available
+  here too: searching a region inserts the matching `region
+  put`/`allowf`/`save` sequence straight into the command block. A
+  collapsible **ACL assistant** (public key + role) inserts a `setperm
+  ...` line the same way — handy in particular for preparing a command
+  to send over a LoRa relay, where the confirmation read (`acl list`) is
+  never possible (see above).
 - **ESP-Flash** — writes an already-merged `.bin` firmware. **ESP32/
   ESP32-S3 only** — Heltec V2/V3/V4 and similar; nRF52 boards (Heltec
   T114, RAK4631, ...) are not supported by this tab.
+- **Batch deploy** (set apart from the other tabs by a divider line in
+  the sidebar) — provisions a series of devices swapped one after
+  another on the same port, each getting the active template (Template
+  tab) with just its own name/position.
+
+  ![Batch deploy tab](docs/screenshots/07-batch-deploy.png)
+
+  A queue builds either by generating a name-pattern series
+  (**Generate series**, `RPT-{n}` + a count) or by importing a CSV in
+  one click (**⬆ Import CSV**, `nom,lat,lon`, position optional) —
+  whichever was used last replaces the current queue. Pasting raw CSV
+  text (no file) is still possible, tucked away under **Paste a CSV**.
+  Once the queue is built, the screen splits into two columns: the queue
+  on the left (clicking a name activates it), the active site on the
+  right in its own panel — **Name** directly editable, **Paste
+  position** (same mechanism as Device/Template, accepts a coordinate
+  pair or a map link), and the **⚡ Provision this repeater** button,
+  which applies the template with that name/position, verifies with a
+  full device read (saved to `<name>-dump.json`), then automatically
+  advances to the next site. **💾 Save the series (CSV)**, below the
+  queue, saves the current list (names + known positions) to a file
+  re-importable later — handy for reusing a generated series without
+  regenerating it. The tool can't verify the physically plugged-in
+  device actually matches the active row — that's a manual step — but
+  the "Device detected" line shows what the connection bar already
+  knows, to catch a leftover connection before clicking.
+
+  The collapsible **Admin contacts** section (above the queue)
+  automatically grants the admin role to a chosen list of contacts on
+  **every** provisioned site, right after the template — handy so a
+  whole fleet of repeaters recognizes the same administrators from the
+  start. The list is managed here (**Add**/**Remove**) or directly from
+  the **Private** tab (**Batch admin** checkbox) — both views share the
+  same state.
+
+- **Private** (last tab, set apart from the others by a divider line) —
+  a personal address book (name + public key), entirely local to the
+  tool: never read from or written to a device, unlike the Contacts
+  tab.
+
+  ![Private tab](docs/screenshots/08-prive.png)
+
+  **📁 Import**/**💾 Export** to a dedicated JSON file (import
+  merges, never duplicating or overwriting an existing entry). Each
+  contact has a role picker and an **Apply ACL** button — writes
+  straight to the connected device, direct or over a LoRa relay, using
+  the same mechanism as the Device tab's ACL section. The **Batch
+  admin** checkbox marks a contact for "Batch deploy" (see above); this
+  flag is saved with the export, unlike the role picked for **Apply
+  ACL**, which stays a one-off choice.
+
+  From the **Contacts** tab, a **Private** checkbox per row copies or
+  removes the entry from the directory, and reflects its current
+  membership. That tab also offers a name-prefix filter, ascending/
+  descending sort (contacts of the same **type** — repeater/room-server/
+  sensor/chat/... — are always grouped on top of that sort), a **private
+  directory only** checkbox (hides the rest) and a **private first**
+  checkbox (brings them up without hiding anything).
+
+  The private directory also holds a **Channels** section (name + 128-bit
+  secret), sharing the same export/import — one file for both contacts
+  *and* channels, handy for carrying a channel list over to a freshly
+  flashed companion. An **Apply** button per channel writes it straight
+  to a chosen slot on the connected companion (dedicated binary
+  protocol, local only — no LoRa relay for a channel). From the
+  **Device** tab, a **+ Private** button on an already-read
+  `channel.<idx>` row copies that channel into the directory without
+  retyping it.
 
 ## Region packs: adding more countries to the assistant
 
-The region assistant (Commands/Editor/Configuration) has no country
+The region assistant (Commands/Template/Device) has no country
 hardcoded — it reads one or more JSON "region pack" files, enabled/
 disabled right in the panel itself (a checkbox per file, **+ Add a
 file...**, **Reload** after a manual edit). Forty-four packs ship in
@@ -359,11 +480,12 @@ mode:
    round-trip, potentially tens of seconds): explicit text says so
    while waiting, rather than a silent spinner.
 
-Once a target is active, **every** tab (Configuration, Dump, Template/
-Clone) acts on it instead of the local companion — an orange "ACTIVE
-TARGET: ..." banner stays visible at all times in the top bar,
-whichever tab is open, so it's never unclear which device the next
-change actually reaches.
+Once a target is active, the **Device** and **Commands** tabs act on it
+instead of the local companion — an orange "ACTIVE TARGET: ..." banner
+stays visible at all times in the top bar, whichever tab is open, so
+it's never unclear which device the next
+change actually reaches. **Template** stays independent of the target
+(file editing, no device I/O at all — see above).
 
 **Important**: the target must already be a **known** contact of the
 companion (it must have heard it advertise at least once) — otherwise
@@ -472,9 +594,9 @@ meshcore-cfg --port /dev/ttyUSB0 batch recipe.txt
 # or straight from stdin:
 cat recipe.txt | meshcore-cfg --port /dev/ttyUSB0 batch
 
-# ACL management (who can administer/read this repeater — direct serial only)
-meshcore-cfg --port /dev/ttyUSB0 acl list
-meshcore-cfg --port /dev/ttyUSB0 acl set-perm <64-hex-char-pubkey> admin
+# ACL management (who can administer/read this repeater)
+meshcore-cfg --port /dev/ttyUSB0 acl list                              # reading: direct serial only
+meshcore-cfg --port /dev/ttyUSB0 acl set-perm <64-hex-char-pubkey> admin  # writing: also works over a companion relay
 
 # Direct radio neighbors (what the device has actually heard over LoRa, not a contact book)
 meshcore-cfg --port /dev/ttyUSB0 neighbors
@@ -527,6 +649,7 @@ meshcore-cfg --port /dev/ttyUSB0 --comp clone companion-backup --dry-run
 
 Known fields: `name`, `lat`, `lon`, `radio` ({freq,bw,sf,cr}, same
 display units as on a repeater — MHz/kHz), `tx`, `multi.acks`,
+`path.hash.mode` (path hash bytes per hop = value+1, so `1` for 2 bytes),
 `custom.<key>`. Never `--target`/`--password` with `--comp` (always
 local, never relayed). `region`/`acl`/`neighbors`/`raw` don't apply to
 a companion (binary protocol, no text CLI) — refused with an explicit
@@ -572,7 +695,7 @@ below if you want to add your own.
 
 Duplicate it and adapt the active values to your site before applying
 (at minimum `lat`/`lon`) — check what would change first with
-`--dry-run` (CLI) or the Configuration tab's comparison (GUI). Once
+`--dry-run` (CLI) or the Device tab's comparison (GUI). Once
 applied (if the template touches regions), the official recommendation
 also asks you to sync the clock and reboot — outside the scope of this
 tool: `clock sync` does **not** work over a direct serial connection
@@ -629,7 +752,7 @@ A template is a JSON file with, either alone or combined:
 - A key prefixed with `#` (in `vars`, `acl`, or `regions`) documents a
   value without applying it — handy for keeping a complete template as
   a reference while only touching a subset of fields. This same prefix
-  is also what colors a row orange in the GUI's Configuration tab.
+  is also what colors a row orange in the GUI's Device/Template tabs.
 - `device_type` (optional) declares the expected device type
   (`repeater`/`room_server`/`sensor`/`companion`) — checked against the
   connected device before anything is applied.

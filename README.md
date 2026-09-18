@@ -102,31 +102,37 @@ Room Server, ou Companion).
 utilisé — voir l'étape 4 — avant même toute connexion : c'est normal, la
 comparaison se met à jour dès qu'un device est lu.)*
 
-### 3. L'onglet Configuration se remplit tout seul
+### 3. L'onglet Device se remplit tout seul
 
 Dès la connexion établie, tous les attributs du device sont lus
-automatiquement (pas besoin de cliquer sur « Rafraîchir » en premier) —
+automatiquement (pas besoin de cliquer sur « 📄 Lire » en premier) —
 chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
-plutôt que d'attendre la fin de la lecture complète.
+plutôt que d'attendre la fin de la lecture complète. La barre d'actions
+en haut de l'onglet regroupe **📄 Lire**, **🔄 Comparer au template**,
+**⬆ Écrire les écarts**, **⬇ Dump complet** et **🔌 Redémarrer** — cinq
+boutons de même taille, avec icône.
 
-![Onglet Configuration, avec template chargé](docs/screenshots/02-connecte-companion.png)
+![Onglet Device, avec template chargé](docs/screenshots/02-connecte-companion.png)
 
 *(Capturée sans connexion active — le tableau/ACL/Régions s'affichent
-identiquement une fois connecté, avec en plus la colonne « Valeur lue »
+identiquement une fois connecté, avec en plus la colonne « Device (lu) »
 remplie.)*
 
 Chaque champ a sa propre ligne : la valeur actuellement lue sur le
-device, un champ pour taper une nouvelle valeur, et un bouton **Set**
-pour l'écrire. Les champs en orange sont des champs sensibles ou
-documentés-mais-désactivés dans le template chargé (voir plus bas) — ils
-restent visibles mais ne s'appliquent pas tant que le `#` n'est pas
-retiré du fichier.
+device dans la colonne **Device (lu)** (non éditable — c'est une lecture
+directe du matériel), et la valeur voulue dans **Template (voulu)**, avec
+un bouton **Appliquer** pour l'écrire sur le device. Les champs en orange
+sont des champs sensibles ou documentés-mais-désactivés dans le template
+chargé (voir plus bas) — ils restent visibles mais ne s'appliquent pas
+tant que le `#` n'est pas retiré du fichier.
 
 ### 4. Comparer à un template
 
-Le bouton **Choisir un template...** charge un fichier JSON de
-configuration (voir « Format des templates » plus bas) et affiche, pour
-chaque champ, la valeur actuellement lue **et** la valeur voulue par le
+Un template se charge ou se crée dans l'onglet **Template** (« Nouveau »
+ou « Charger un template... », voir plus bas — il n'y a qu'un seul
+template actif à la fois, partagé entre les deux onglets). De retour
+dans **Device**, le bouton **Comparer au template** affiche, pour chaque
+champ, la valeur actuellement lue **et** la valeur voulue par le
 template, côte à côte :
 
 - **Vert** : la valeur lue correspond déjà au template — rien à faire.
@@ -134,52 +140,70 @@ template, côte à côte :
   uniquement ce champ-là.
 - **Orange** : champ sensible (clé privée, secret de canal...) ou
   volontairement désactivé dans le template (préfixé `#`) — jamais
-  appliqué automatiquement, même par « Appliquer tout le template ».
+  appliqué automatiquement, même par « Écrire les écarts ».
 
-Le bouton **Appliquer tout le template**, en haut, écrit d'un coup tous
-les champs qui diffèrent (hors ceux désactivés/sensibles). Le dernier
-template utilisé est mémorisé automatiquement et rechargé au prochain
-lancement du programme.
+Le bouton **⬆ Écrire les écarts**, en haut, écrit d'un coup tous les
+champs qui diffèrent (hors ceux désactivés/sensibles) — son libellé
+affiche directement le nombre de changements en attente (« Écrire les
+écarts (3) ») et s'allume en bleu dès qu'il y a quelque chose à
+écrire. Le dernier template utilisé est mémorisé automatiquement et
+rechargé au prochain lancement du programme.
+
+## Taille de l'interface
+
+Le texte trop petit sur un grand écran (4K, etc.) ? Une ligne **« Taille
+de l'interface »** dans la barre de connexion (en haut, visible sur tous
+les onglets) propose **-**/**+**/**Réinitialiser** pour ajuster la taille
+de tout le texte et des contrôles d'un coup — la valeur choisie est
+mémorisée d'un lancement à l'autre. Les raccourcis clavier `Ctrl +`/
+`Ctrl -`/`Ctrl 0` (`Cmd` sur macOS) font la même chose sans passer par la
+souris.
 
 ## Les onglets de l'interface
 
-- **Configuration** — décrit ci-dessus : tous les attributs, comparaison
-  à un template, et (si le device en a) les sections **ACL** et
-  **Régions** en dessous du tableau principal. La colonne
-  **Valeur template** est directement éditable (modification live, y
+- **Device** — décrit ci-dessus : tous les attributs, comparaison à un
+  template, et (si le device en a) les sections **ACL** et **Régions**
+  en dessous du tableau principal. Le template comparé est le même
+  objet que celui géré dans l'onglet **Template** (voir plus bas) — pas
+  une copie séparée : l'éditer ici ou là revient au même. La colonne
+  **Device (lu)** est une lecture directe du matériel, non éditable ;
+  **Template (voulu)** est la seule colonne éditable (modification live, y
   compris pour ajouter un champ absent du template) ; chaque champ a
   aussi sa case **Masquer (#)** pour désactiver/réactiver son
-  application sans éditer le fichier à la main, et **Enregistrer
-  sous...** sauvegarde ce template ajusté dans un nouveau fichier. Les
-  colonnes du tableau se redimensionnent en faisant glisser leur
-  bordure (largeur mémorisée d'un lancement à l'autre, comme dans
-  l'Éditeur), et un bouton **Redémarrer le device** est disponible en
-  haut — utile après un changement de paramètres radio, qui ne sont
-  pris en compte qu'au redémarrage.
+  application sans éditer le fichier à la main. Les colonnes du tableau
+  se redimensionnent en faisant glisser leur bordure (largeur mémorisée
+  d'un lancement à l'autre, comme dans l'onglet Template). Une barre
+  d'outils à icônes regroupe les cinq actions de l'onglet :
+  **📄 Lire**, **🔄 Comparer au template**, **⬆ Écrire les écarts**,
+  **⬇ Dump complet** (enregistre dans un fichier JSON tous les
+  attributs lus jusqu'ici, sans avoir besoin d'un template) et
+  **🔌 Redémarrer** — utile après un changement de paramètres radio, qui
+  ne sont pris en compte qu'au redémarrage.
 
   **Ordre des lignes** : un template chargé s'affiche exactement dans
   l'ordre où ses champs sont écrits dans le fichier JSON — commentaires
   (`#_comment...`) compris, à leur vraie place. Deux boutons **^ / v**
-  sur chaque ligne permettent de réordonner directement depuis l'IHM ;
-  l'ordre choisi est celui utilisé par **Enregistrer sous...**. Sans
-  template chargé, l'ordre par défaut reste : identité (nom, coordonnées,
-  mots de passe) puis réglages radio/réseau puis le reste.
+  sur chaque ligne permettent de réordonner directement depuis l'IHM
+  (visible aussi dans l'onglet Template, même objet). Sans template
+  chargé, l'ordre par défaut reste : identité (nom, coordonnées, mots de
+  passe) puis réglages radio/réseau puis le reste.
 
-  **ACL** : même principe que le tableau des champs — rôle lu, rôle
-  souhaité (menu déroulant guest/read-only/read-write/admin), case
-  **Masquer (#)**, bouton **Appliquer** par ligne, plus une ligne
-  **Nouvelle entrée ACL** pour ajouter une clé publique pas encore
-  connue. Une entrée ACL non désactivée est aussi appliquée par
-  **Appliquer tout le template**, comme n'importe quel autre champ.
+  **ACL** : même principe que le tableau des champs — rôle lu (**Device
+  (lu)**, non éditable) et rôle voulu (**Template (voulu)**, menu
+  déroulant guest/read-only/read-write/admin), case **Masquer (#)**,
+  bouton **Appliquer** par ligne, plus une ligne **Nouvelle entrée ACL**
+  pour ajouter une clé publique pas encore connue. Une entrée ACL non
+  désactivée est aussi appliquée par **Écrire les écarts**,
+  comme n'importe quel autre champ.
 
   **Régions** : deux arbres indentés côte à côte, **Device (lu)** et
-  **Template (souhaité)** — même présentation qu'un `region list` en
+  **Template (voulu)** — même présentation qu'un `region list` en
   CLI, avec home/default marqués (`^home`/`•default`) et une couleur par
   région (vert = déjà identique, rouge = diffère, orange = désactivée
   dans le template). Un "Supprimer" sur chaque région du template la
   retire **avec tous ses enfants**, et **Vider le template** repart de
   zéro d'un coup — rien de tout ça n'écrit sur le device, c'est
-  **Appliquer tout le template** qui le fait, en une fois pour tout
+  **Écrire les écarts** qui le fait, en une fois pour tout
   (régions absentes du template toujours supprimées du device, pour que
   celui-ci corresponde exactement au fichier). Un **assistant région**
   repliable propose de chercher une région/un secteur (nom ou code) et
@@ -213,59 +237,163 @@ lancement du programme.
   Le tableau se déplace aussi horizontalement (pas seulement
   verticalement) si la fenêtre est trop étroite pour afficher toutes les
   colonnes.
-- **Dump** — capture complète de l'état du device en JSON, à sauvegarder
-  dans un fichier.
 - **Contacts** — l'annuaire du companion connecté (adverts/DMs qu'il a
   entendus) — utile pour retrouver la clé publique complète d'un device
-  distant à piloter via LoRa (voir plus bas).
+  distant à piloter via LoRa (voir plus bas). Une barre de filtres
+  permet de chercher par **début de nom**, trier par nom (▲/▼), n'afficher
+  **que le répertoire privé** ou juste faire remonter les **privés en
+  premier** sans masquer le reste. Une case **Privé** par ligne copie ou
+  retire le contact du répertoire privé (voir l'onglet **Privé**
+  ci-dessous) et reflète son appartenance actuelle.
 
   ![Onglet Contacts](docs/screenshots/03-contacts.png)
 
-- **Template / Clone** — charge un fichier et propose un aperçu
-  (dry-run) puis une application réelle, indépendamment de l'onglet
-  Configuration (utile pour tester un template sans toucher à l'état
-  affiché ailleurs).
-- **Éditeur** — crée ou modifie un fichier de template **sans être
-  connecté à un device**. « Nouveau » présente d'emblée tous les champs
-  connus, désactivés (`#`) avec une valeur neutre, pour un formulaire à
-  remplir plutôt qu'une page blanche où il faudrait deviner les noms de
-  champs ; « Charger un template... » relit un fichier existant pour le
-  modifier. Chaque champ se coche/décoche (`#`), se modifie ou se
-  supprime ligne par ligne, avec possibilité d'en ajouter de nouveaux.
-  Les colonnes du tableau se redimensionnent en faisant glisser leur
-  bordure, et la largeur choisie est mémorisée d'un lancement à l'autre.
-  Comme dans l'onglet Configuration, le champ radio est présenté sur
-  deux lignes liées, **Preset radio** (23 préréglages régionaux
-  officiels) et **Radio** (détail technique), synchronisées dans les
-  deux sens.
-  Une section **ACL** permet d'ajouter/modifier/désactiver des entrées
-  (clé publique + rôle) de la même façon, avec sa propre ligne
-  **Nouvelle entrée ACL**. Une section **Régions** en dessous permet de
-  créer/modifier la hiérarchie (parent, flood autorisé, home/default) sur
-  le même principe, avec **Supprimer** par ligne et **Vider les
-  régions** pour repartir de zéro — « Nouveau » y propose d'emblée un
-  exemple EU → Europe → FR, désactivé. Le même **assistant région** que
-  dans Configuration (chercher une région, insérer sa hiérarchie en un
-  clic) y est aussi disponible. Même ordre de lignes que l'onglet
-  Configuration (celui du fichier chargé, réordonnable avec **^ / v**), et
-  même ligne **Coller position** au-dessus de `lat`.
+- **Template** — crée ou modifie le template actif **sans être connecté
+  à un device** — c'est le même objet que celui comparé/appliqué dans
+  l'onglet Device (voir ci-dessus), pas une copie séparée. Une barre
+  d'outils à icônes en haut regroupe **➕ Nouveau** (présente d'emblée
+  tous les champs connus, désactivés `#` avec une valeur neutre, pour un
+  formulaire à remplir plutôt qu'une page blanche où il faudrait deviner
+  les noms de champs), **📁 Charger**, **💾 Enregistrer** et
+  **Enregistrer sous...**.
+
+  ![Onglet Template](docs/screenshots/05-template.png)
+
+  Les quatre champs édités le plus souvent — **Nom**, **Password
+  admin** (masqué), **Contact / owner.info** et **Position** (un seul
+  champ `lat, lon`, qui accepte aussi de coller un lien
+  OpenStreetMap/Google Maps, plus un bouton **Carte**) — sont toujours
+  visibles en haut, sous « Identité du répéteur ». Tout le reste est
+  regroupé dans des sections repliables, chacune titrée avec un compte à
+  jour : **Radio & réseau** (les champs tunés le plus souvent — preset
+  radio, TX, intervalles d'annonce...), **Avancé** (tout le reste,
+  commentaires `#_comment*` compris, avec une ligne **Nouveau champ**
+  pour ajouter un champ non prévu), **ACL** (rôle par clé publique) et
+  **Régions** (arbre parent/enfant, home/default). Chaque champ se
+  coche/décoche (`#`), se modifie ou se supprime ligne par ligne ;
+  l'ordre suit celui du fichier chargé, réordonnable avec **^ / v**.
+  Comme dans l'onglet Device, le champ radio est présenté sur deux
+  lignes liées, **Preset radio** (23 préréglages régionaux officiels) et
+  **Radio** (détail technique), synchronisées dans les deux sens.
+
+  La section **ACL** a sa propre ligne **Nouvelle entrée ACL**. La
+  section **Régions** permet de créer/modifier la hiérarchie (parent,
+  flood autorisé, home/default), avec **Supprimer** par ligne et
+  **Vider les régions** pour repartir de zéro — « Nouveau » y propose
+  d'emblée un exemple EU → Europe → FR, désactivé ; un template qui n'a
+  pas encore de section régions propose juste un bouton **+ Ajouter une
+  section régions** plutôt que d'en créer une vide silencieusement (une
+  section régions vide, une fois appliquée depuis l'onglet Device,
+  effacerait **toutes** les régions du device — la distinction "pas de
+  section" vs. "section vide" est donc délibérément visible). Le même
+  **assistant région** que dans Device (chercher une région, insérer sa
+  hiérarchie en un clic) y est aussi disponible — et partage le même
+  template : une insertion faite depuis l'un des deux onglets apparaît
+  immédiatement dans l'autre.
 - **Commandes** — colle un bloc de commandes CLI brutes (une par ligne,
   ex. une recette de configuration meshcore.fr) et les exécute d'un
-  coup, dans l'ordre. Les lignes vides et celles commençant par `#` sont
-  ignorées. Une ligne qui échoue (ex. `reboot`/`clock sync`, qui échouent
-  normalement en connexion directe) n'interrompt pas les suivantes — le
-  résultat de chaque ligne et le résumé final s'affichent dans le
-  Journal. Le même **assistant région** que Configuration/Éditeur y est
-  disponible : chercher une région insère directement la séquence
-  `region put`/`allowf`/`save` correspondante dans le bloc de commandes, à
-  relire avant d'exécuter.
+  coup, dans l'ordre avec **▶ Exécuter**. Les lignes vides et celles
+  commençant par `#` sont ignorées. Une ligne qui échoue (ex.
+  `reboot`/`clock sync`, qui échouent normalement en connexion directe —
+  voir plus haut le bouton dédié **🔌 Redémarrer** de l'onglet Device
+  pour un redémarrage rapporté correctement comme réussi) n'interrompt
+  pas les suivantes — le résultat de chaque ligne et le résumé final
+  s'affichent dans le Journal.
+
+  ![Onglet Commandes](docs/screenshots/06-commandes.png)
+
+  Le bouton **📋 Copier depuis les écarts Device** reprend les champs
+  qui diffèrent (calculés dans l'onglet Device via « Comparer au
+  template ») et les traduit directement en commandes CLI (`set ...`,
+  `setperm ...`, `password ...`) ajoutées au bloc — pratique pour
+  obtenir un script rejouable à partir d'une comparaison déjà faite,
+  à relire avant d'exécuter. Le même **assistant région** que
+  Device/Template y est disponible : chercher une région insère
+  directement la séquence `region put`/`allowf`/`save` correspondante
+  dans le bloc de commandes. Un **assistant ACL** repliable (clé
+  publique + rôle) insère de la même façon une ligne `setperm ...`
+  prête à relire — pratique en particulier pour préparer une commande
+  à envoyer via un relais LoRa, où la lecture de confirmation (`acl
+  list`) n'est jamais possible (voir plus haut).
 - **ESP-Flash** — écrit un firmware `.bin` déjà mergé. **ESP32/ESP32-S3
   uniquement** — Heltec V2/V3/V4 et similaires ; les boards nRF52 (Heltec
   T114, RAK4631...) ne sont pas supportées par cet onglet.
+- **Déploiement en lot** (séparé des autres onglets par une ligne dans
+  la barre latérale) — provisionne une série de devices échangés
+  physiquement l'un après l'autre sur le même port, chacun recevant le
+  template actif (onglet Template) avec juste son nom/sa position
+  propres.
+
+  ![Onglet Déploiement en lot](docs/screenshots/07-batch-deploy.png)
+
+  Une file se construit soit en générant une série par motif
+  (**Générer la série**, `RPT-{n}` + un nombre), soit en important un
+  CSV en un clic (**⬆ Importer CSV**, `nom,lat,lon`, position
+  optionnelle) — la dernière action utilisée remplace la file en cours.
+  Le collage direct de texte CSV (sans fichier) reste possible, replié
+  dans **Coller un CSV**. Une fois la file construite, l'écran se divise
+  en deux colonnes : la file à gauche (cliquer sur un nom l'active), le
+  site actif à droite dans son propre cadre — **Nom** directement
+  éditable, **Coller position** (même mécanisme que Device/Template,
+  accepte un couple de coordonnées ou un lien de carte) et le bouton
+  **⚡ Provisionner ce répéteur**, qui applique le template avec ce
+  nom/cette position, vérifie par une relecture complète du device
+  (enregistrée dans `<nom>-dump.json`), puis avance automatiquement au
+  site suivant. **💾 Enregistrer la série (CSV)**, sous la file,
+  sauvegarde la liste actuelle (noms + positions connues) dans un
+  fichier réimportable plus tard — pratique pour réutiliser une série
+  générée sans avoir à la régénérer. L'outil ne peut pas vérifier que le
+  device réellement branché correspond à la ligne active — c'est un
+  geste manuel — mais la ligne "Device détecté" affiche ce que la barre
+  de connexion sait déjà, pour repérer une connexion résiduelle avant de
+  cliquer.
+
+  La rubrique repliable **Contacts admin** (au-dessus de la file)
+  applique automatiquement le rôle admin à une liste de contacts choisis
+  sur **chaque** site provisionné, juste après le template — pratique
+  pour qu'une flotte entière de répéteurs reconnaisse d'emblée les mêmes
+  administrateurs. La liste se gère ici (**Ajouter**/**Retirer**) ou
+  directement depuis l'onglet **Privé** (case **Admin (lot)**) — les
+  deux vues partagent le même état.
+
+- **Privé** (dernier onglet, séparé des autres par une ligne) — un
+  carnet d'adresses personnel (nom + clé publique), entièrement local à
+  l'outil : jamais lu depuis ni écrit sur un device, contrairement à
+  l'onglet Contacts.
+
+  ![Onglet Privé](docs/screenshots/08-prive.png)
+
+  **📁 Importer**/**💾 Exporter** vers un fichier JSON
+  dédié (l'import fusionne, sans jamais dupliquer ni écraser une entrée
+  déjà présente). Chaque contact a un sélecteur de rôle et un bouton
+  **Appliquer ACL** — écrit directement sur le device connecté, en
+  connexion directe comme en relais LoRa, avec le même mécanisme que la
+  section ACL de l'onglet Device. La case **Admin (lot)** marque un
+  contact pour "Déploiement en lot" (voir ci-dessus) ; ce marquage est
+  sauvegardé avec l'export, contrairement au rôle choisi pour
+  **Appliquer ACL** qui reste ponctuel.
+
+  Depuis l'onglet **Contacts**, une case à cocher **Privé** par ligne
+  copie ou retire l'entrée du répertoire, et reflète l'appartenance
+  actuelle. Cet onglet propose aussi un filtre par début de nom, un tri
+  ascendant/descendant (les contacts d'un même **type** — répéteur/room-
+  server/sensor/chat/... — sont toujours regroupés en plus de ce tri), une
+  case **Seulement le répertoire privé** (masque le reste) et une case
+  **Privés en premier** (les fait remonter sans rien masquer).
+
+  Le répertoire privé contient aussi une section **Canaux** (nom + secret
+  128 bits), avec le même export/import — un seul fichier pour contacts
+  *et* canaux, pratique pour transférer une liste de canaux sur un
+  companion fraîchement flashé. Un bouton **Appliquer** par canal écrit
+  directement sur un emplacement choisi du companion connecté (protocole
+  binaire dédié, local uniquement — pas de relais LoRa pour un canal).
+  Depuis l'onglet **Device**, un bouton **+ Privé** sur une ligne
+  `channel.<idx>` déjà lue copie ce canal dans le répertoire sans
+  ressaisie manuelle.
 
 ## Packs de régions : ajouter d'autres pays à l'assistant
 
-L'assistant région (Commandes/Éditeur/Configuration) ne connaît aucun pays
+L'assistant région (Commandes/Template/Device) ne connaît aucun pays
 par défaut au niveau du code — il lit un ou plusieurs fichiers JSON
 « packs de régions », activables/désactivables dans le panneau lui-même
 (case à cocher par fichier, **+ Ajouter un fichier...**, **Recharger**
@@ -374,11 +502,13 @@ LoRa)** :
    secondes) : un texte explicite l'indique pendant l'attente plutôt
    qu'un simple spinner silencieux.
 
-Une fois la cible active, **tous** les onglets (Configuration, Dump,
-Template/Clone) agissent sur elle plutôt que sur le companion local — un
-bandeau orange « CIBLE ACTIVE: ... » reste affiché en permanence dans la
-barre du haut, quel que soit l'onglet ouvert, pour ne jamais perdre de
-vue quel device reçoit réellement les prochaines modifications.
+Une fois la cible active, les onglets **Device** et **Commandes**
+agissent sur elle plutôt que sur le companion local — un bandeau orange
+« CIBLE ACTIVE: ... » reste affiché en permanence dans la barre du haut,
+quel que soit l'onglet ouvert, pour ne jamais perdre de vue quel device
+reçoit réellement les prochaines modifications. **Template** reste
+indépendant de la cible (édition de fichier, sans I/O device — voir plus
+haut).
 
 **Important** : la cible doit déjà être un contact **connu** du
 companion (il doit l'avoir entendue émettre un advert au moins une fois)
@@ -491,9 +621,9 @@ meshcore-cfg --port /dev/ttyUSB0 batch recette.txt
 # ou directement depuis l'entrée standard :
 cat recette.txt | meshcore-cfg --port /dev/ttyUSB0 batch
 
-# Gestion de l'ACL (qui peut administrer/lire ce répéteur — série directe uniquement)
-meshcore-cfg --port /dev/ttyUSB0 acl list
-meshcore-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> admin
+# Gestion de l'ACL (qui peut administrer/lire ce répéteur)
+meshcore-cfg --port /dev/ttyUSB0 acl list                                  # lecture : série directe uniquement
+meshcore-cfg --port /dev/ttyUSB0 acl set-perm <clé-publique-hex-64> admin  # écriture : fonctionne aussi via relais companion
 
 # Voisins radio directs (ce que le device a réellement entendu en LoRa, pas un carnet de contacts)
 meshcore-cfg --port /dev/ttyUSB0 neighbors
@@ -549,10 +679,11 @@ meshcore-cfg --port /dev/ttyUSB0 --comp clone companion-backup --dry-run
 
 Champs connus : `name`, `lat`, `lon`, `radio` ({freq,bw,sf,cr}, mêmes
 unités d'affichage que côté répéteur — MHz/kHz), `tx`, `multi.acks`,
-`custom.<clé>`. Jamais de `--target`/`--password` avec `--comp` (toujours
-local, jamais de relais). `region`/`acl`/`neighbors`/`raw` ne s'appliquent
-pas à un companion (protocole binaire, pas de CLI texte) — refusés avec un
-message explicite.
+`path.hash.mode` (nombre d'octets de hash de chemin par saut = valeur+1,
+donc `1` pour 2 octets), `custom.<clé>`. Jamais de `--target`/`--password`
+avec `--comp` (toujours local, jamais de relais). `region`/`acl`/
+`neighbors`/`raw` ne s'appliquent pas à un companion (protocole binaire,
+pas de CLI texte) — refusés avec un message explicite.
 
 ### Flasher un firmware (ESP32 uniquement pour l'instant)
 
@@ -595,7 +726,7 @@ ajouter vous-même.
 
 Dupliquez-le et adaptez les valeurs actives à votre site avant de
 l'appliquer (au minimum `lat`/`lon`) — regardez d'abord ce qui changerait
-avec `--dry-run` (CLI) ou la comparaison de l'onglet Configuration (IHM).
+avec `--dry-run` (CLI) ou la comparaison de l'onglet Device (IHM).
 Une fois appliqué (si le template touche aux régions), la recommandation
 officielle demande aussi de synchroniser l'horloge et de redémarrer —
 hors du périmètre de cet outil : `clock sync` ne fonctionne **pas** en
@@ -652,8 +783,8 @@ Un template est un fichier JSON avec, au choix ou en combinaison :
 - Une clé préfixée par `#` (dans `vars`, `acl` ou `regions`) documente une
   valeur sans l'appliquer — pratique pour garder un template complet en
   référence tout en ne touchant qu'à un sous-ensemble de champs. C'est
-  aussi ce préfixe qui colore une ligne en orange dans l'onglet
-  Configuration de l'IHM.
+  aussi ce préfixe qui colore une ligne en orange dans les onglets
+  Device/Template de l'IHM.
 - `device_type` (optionnel) déclare le type de device attendu
   (`repeater`/`room_server`/`sensor`/`companion`) — vérifié contre le
   device connecté avant toute application.

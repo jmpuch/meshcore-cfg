@@ -167,6 +167,21 @@ is translated: the technical lines of the Log (same style as the CLI's
 output), device replies, low-level error messages and region-pack names
 stay as they are.
 
+## Updates
+
+At startup, the program checks GitHub for a newer published version. If
+there is one, a blue banner at the top of the window says so, with an
+**Update** button: it downloads your platform's archive, checks its
+SHA-256 digest (the one GitHub computes for every published file), then
+replaces the executable. Once done, **Restart** relaunches the program in
+its new version, settings kept. Only the executable is replaced: your
+`templates/` and `region-packs/` folders are never touched (the release's
+new templates remain available in the archive, on the GitHub page).
+Nothing happens without your click; **See the release** and **Dismiss**
+are still offered. If the program is installed in a write-protected
+folder, the update fails cleanly with a message: download the archive by
+hand in that case.
+
 ## The tabs
 
 - **Device** — described above: every attribute, comparison against a

@@ -170,6 +170,22 @@ Journal (même style que la sortie du CLI), les réponses des devices, les
 messages d'erreur bas niveau et les noms des packs de régions restent tels
 quels.
 
+## Mises à jour
+
+Au lancement, le programme vérifie sur GitHub si une version plus récente
+est publiée. Si c'est le cas, un bandeau bleu le signale en haut de la
+fenêtre, avec un bouton **Mettre à jour** : il télécharge l'archive de ta
+plateforme, vérifie son empreinte SHA-256 (celle que GitHub calcule pour
+chaque fichier publié), puis remplace l'exécutable. Une fois terminé,
+**Relancer** redémarre le programme dans sa nouvelle version, réglages
+conservés. Seul l'exécutable est remplacé : tes dossiers `templates/` et
+`region-packs/` ne sont jamais modifiés (les nouveaux templates de la
+release restent disponibles dans l'archive, sur la page GitHub). Rien ne
+se fait sans ton clic ; **Voir la release** et **Ignorer** restent
+proposés. Si le programme est installé dans un dossier protégé en
+écriture, la mise à jour échoue proprement avec un message : télécharge
+alors l'archive à la main.
+
 ## Les onglets de l'interface
 
 - **Device** — décrit ci-dessus : tous les attributs, comparaison à un

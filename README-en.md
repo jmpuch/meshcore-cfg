@@ -111,8 +111,9 @@ is read automatically (no need to click "📄 Read" first) — each row of
 the table appears as it's read, rather than waiting for the whole
 read to finish. The action bar at the top of the tab groups **📄 Read**,
 **🔄 Compare against template**, **⬆ Write the diffs**,
-**⬇ Full dump**, **📋 Device->Template** and **🔌 Restart** — six
-same-sized, icon buttons.
+**⬇ Full dump**, **📋 Device->Template**, **🕒 Set clock** and
+**🔌 Restart**. Progress (device detection, field being read, contacts
+"x/total") shows in the connection bar at the top.
 
 ![Device tab, with a template loaded](docs/screenshots/en/02-connecte-companion.png)
 
@@ -205,8 +206,17 @@ hand in that case.
   the **Template** tab as a reusable base — e.g. for a batch deploy —
   **without** the private/public key or the position; replaces the
   current template, save it afterwards with **Save as...**) and
+  **🕒 Set clock** (sets the device's clock to the PC's, direct or over
+  LoRa — the firmware never sets a clock back) and
   **🔌 Restart** — useful after changing radio
   parameters, which only take effect after a restart.
+
+  Collapsible **Device info** section → **Read info**: firmware, board,
+  battery, storage, uptime, noise/RSSI/SNR, packets received/sent
+  (read-only; over LoRa too). A tooltip on each **Template (desired)**
+  cell shows how the value is read (text, number…) and exactly what will
+  be sent — `12.50` becomes the number `12.5`: quotes (`"12.50"`) keep it
+  as text.
 
   **Row order**: a loaded template displays in exactly the order its
   fields are written in the JSON file — comments (`#_comment...`)
@@ -543,10 +553,21 @@ it's never unclear which device the next
 change actually reaches. **Template** stays independent of the target
 (file editing, no device I/O at all — see above).
 
-**Important**: the target must already be a **known** contact of the
-companion (it must have heard it advertise at least once) — otherwise
-the connection fails with an explicit message rather than a raw error
-code.
+**Target unknown to the companion**: if the key isn't among its
+contacts, an **Add as: Repeater / Room server / Sensor** menu appears and
+the target is added to its contacts on connect (the type matters: a room
+server logs in differently from a repeater). On the command line:
+`--room`/`--sens`, repeater by default.
+
+**Quick connect**: once the target is active, only its name is read —
+other rows show "??" until **📄 Read** (everything) or **🔄 Compare
+against template** (its fields only): handy to just rename a remote
+repeater. **⛔ Disconnect from target** goes back to the local companion
+(which stays connected), with a quick read too.
+
+The **Contacts** tab can also **Remove** a contact from the companion
+(second click to confirm); it stays in the private directory if it was
+there.
 
 ## macOS — specifics
 
@@ -664,8 +685,18 @@ meshcore-cfg --port /dev/ttyUSB0 --comp contacts
 # repeater 4c371af941e6ed679ac35c4adda0540b0c5c0c9e21df50a9cc91d4cec3f0fadd FR48 RPT
 
 # Configure a remote device via a companion radio on the LoRa mesh
+# (added to the companion's contacts if it doesn't know it yet;
+# --room/--sens for a room server/sensor)
 meshcore-cfg --port /dev/ttyUSB0 --transport companion \
   --target <64-hex-char-target-pubkey> --password <password> get name
+
+# Device info (firmware, board, battery, stats) and clock setting
+meshcore-cfg --port /dev/ttyUSB0 info
+meshcore-cfg --port /dev/ttyUSB0 sync-time
+
+# Command-backed settings, usable as template fields
+meshcore-cfg --port /dev/ttyUSB0 get powersaving       # also: gps, gps.advert, sensor.<key>
+meshcore-cfg --port /dev/ttyUSB0 --comp set ble.pin 123456   # companion Bluetooth PIN (0 = automatic)
 ```
 
 `--help` on any command (or subcommand) gives the full option details.

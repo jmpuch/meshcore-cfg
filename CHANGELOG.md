@@ -8,6 +8,81 @@ One section per version, newest first. A section's text becomes the
 matching GitHub release description as is — write it **before** pushing
 the tag.
 
+## v3.20.0
+
+**Nouveautés**
+
+- **Cible LoRa inconnue du companion** : elle est ajoutée automatiquement
+  à ses contacts à la connexion — plus besoin que le companion l'ait déjà
+  entendue. Le type (répéteur, room server, capteur) se choisit dans la
+  ligne Cible, seulement quand la clé est inconnue (`--room`/`--sens` en
+  ligne de commande).
+- **Connexion rapide** à une cible LoRa et au retour sur le companion
+  local : seul le nom est lu, les autres champs affichent « ?? » jusqu'à
+  « Lire » ou « Comparer au template ».
+- Bouton **« Se déconnecter de la cible »** : on quitte le device distant,
+  le companion reste connecté.
+- **Infos du device** (onglet Device, et `info` en ligne de commande) :
+  firmware, carte, batterie, stockage, uptime, bruit/RSSI/SNR, paquets —
+  en direct, via LoRa ou sur un companion.
+- **Mettre à l'heure** (bouton, et `sync-time`) : règle l'horloge d'un
+  répéteur, room server ou capteur sur celle du PC, en direct comme via
+  LoRa.
+- **PIN Bluetooth** du companion en champ de template (`ble.pin` : 0 =
+  automatique, ou 6 chiffres ; appliqué au redémarrage).
+- Nouveaux champs de template répéteur : **`powersaving`**, **`gps`**,
+  **`gps.advert`** et les réglages de capteurs **`sensor.<clé>`**.
+- Onglet Contacts : bouton **Supprimer** (avec confirmation).
+- **Progression visible** dans la barre de connexion : détection du
+  device, lecture en cours, contacts « x/total ».
+- Liste des cibles triée : contacts privés d'abord, puis ordre
+  alphabétique.
+- Cellule « Template (voulu) » : une infobulle montre comment la valeur
+  est lue (texte, nombre…) et ce qui sera réellement envoyé.
+
+**Corrections**
+
+- Connexion série directe (répéteur, room server, capteur) : une réponse
+  arrivée en retard (écriture lente en flash sur nRF52) décalait toutes les
+  lectures suivantes d'une commande — les valeurs affichées ne
+  correspondaient plus aux champs. Les réponses sont désormais rattachées à
+  leur commande.
+
+**What's new**
+
+- **LoRa target unknown to the companion**: it's added to its contacts
+  automatically on connect — the companion no longer needs to have heard
+  it first. The type (repeater, room server, sensor) is picked in the
+  Target row, only when the key is unknown (`--room`/`--sens` on the
+  command line).
+- **Quick connect** to a LoRa target and when going back to the local
+  companion: only the name is read, other fields show "??" until "Read" or
+  "Compare against template".
+- **"Disconnect from target"** button: leaves the remote device, the
+  companion stays connected.
+- **Device info** (Device tab, and `info` on the command line): firmware,
+  board, battery, storage, uptime, noise/RSSI/SNR, packets — direct, over
+  LoRa or on a companion.
+- **Set clock** (button, and `sync-time`): sets a repeater, room server or
+  sensor clock to the PC's, direct or over LoRa.
+- Companion **Bluetooth PIN** as a template field (`ble.pin`: 0 =
+  automatic, or 6 digits; applied on restart).
+- New repeater template fields: **`powersaving`**, **`gps`**,
+  **`gps.advert`** and sensor settings **`sensor.<key>`**.
+- Contacts tab: **Remove** button (with confirmation).
+- **Visible progress** in the connection bar: device detection, current
+  read, contacts "x/total".
+- Target list sorted: private contacts first, then alphabetical.
+- "Template (desired)" cell: a tooltip shows how the value is read (text,
+  number…) and exactly what will be sent.
+
+**Fixes**
+
+- Direct serial connection (repeater, room server, sensor): a late reply
+  (slow flash write on nRF52) shifted every following read by one command
+  — the displayed values no longer matched their fields. Replies are now
+  tied to their command.
+
 ## v3.19.0
 
 **Nouveautés**

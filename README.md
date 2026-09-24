@@ -109,8 +109,10 @@ automatiquement (pas besoin de cliquer sur « 📄 Lire » en premier) —
 chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
 plutôt que d'attendre la fin de la lecture complète. La barre d'actions
 en haut de l'onglet regroupe **📄 Lire**, **🔄 Comparer au template**,
-**⬆ Écrire les écarts**, **⬇ Dump complet**, **📋 Device->Template** et
-**🔌 Redémarrer** — six boutons de même taille, avec icône.
+**⬆ Écrire les écarts**, **⬇ Dump complet**, **📋 Device->Template**,
+**🕒 Mettre à l'heure** et **🔌 Redémarrer**. La progression (détection du
+device, champ en cours de lecture, contacts « x/total ») s'affiche dans la
+barre de connexion, en haut.
 
 ![Onglet Device, avec template chargé](docs/screenshots/02-connecte-companion.png)
 
@@ -212,8 +214,17 @@ alors l'archive à la main.
   **Template** comme base réutilisable — par ex. pour un déploiement en
   lot — **sans** clé privée/publique ni position ; remplace le template
   en cours, à enregistrer ensuite via **Enregistrer sous...**) et
+  **🕒 Mettre à l'heure** (règle l'horloge du device sur celle du PC, en
+  direct comme via LoRa — le firmware ne recule jamais une horloge) et
   **🔌 Redémarrer** — utile après un changement de paramètres radio, qui
   ne sont pris en compte qu'au redémarrage.
+
+  Section repliable **Infos du device** → **Lire les infos** : firmware,
+  carte, batterie, stockage, uptime, bruit/RSSI/SNR, paquets reçus/envoyés
+  (lecture seule ; via LoRa aussi). Une infobulle sur chaque cellule
+  **Template (voulu)** montre comment la valeur est lue (texte, nombre…)
+  et ce qui sera réellement envoyé — `12.50` devient le nombre `12.5` :
+  des guillemets (`"12.50"`) gardent un texte.
 
   **Ordre des lignes** : un template chargé s'affiche exactement dans
   l'ordre où ses champs sont écrits dans le fichier JSON — commentaires
@@ -569,10 +580,21 @@ reçoit réellement les prochaines modifications. **Template** reste
 indépendant de la cible (édition de fichier, sans I/O device — voir plus
 haut).
 
-**Important** : la cible doit déjà être un contact **connu** du
-companion (il doit l'avoir entendue émettre un advert au moins une fois)
-— sinon la connexion échoue avec un message explicite plutôt qu'un code
-d'erreur brut.
+**Cible inconnue du companion** : si la clé saisie n'est pas dans ses
+contacts, un menu **Ajouter comme : Répéteur / Room server / Capteur**
+apparaît et la cible est ajoutée à ses contacts à la connexion (le type
+compte : un room server ne se connecte pas comme un répéteur). En ligne
+de commande : `--room`/`--sens`, répéteur par défaut.
+
+**Connexion rapide** : une fois la cible active, seul son nom est lu —
+les autres lignes affichent « ?? » jusqu'à **📄 Lire** (tout) ou
+**🔄 Comparer au template** (ses champs seulement) : pratique pour juste
+renommer un répéteur distant. **⛔ Se déconnecter de la cible** revient au
+companion local (qui reste connecté), lui aussi en lecture rapide.
+
+L'onglet **Contacts** permet aussi de **Supprimer** un contact du
+companion (second clic de confirmation) ; il reste dans le répertoire
+privé s'il y était.
 
 ## macOS — particularités
 
@@ -694,8 +716,18 @@ meshcore-cfg --port /dev/ttyUSB0 --comp contacts
 # repeater 4c371af941e6ed679ac35c4adda0540b0c5c0c9e21df50a9cc91d4cec3f0fadd FR48 RPT
 
 # Configurer un device distant via un companion radio sur le mesh LoRa
+# (ajouté aux contacts du companion s'il ne le connaît pas encore ;
+# --room/--sens pour un room server/capteur)
 meshcore-cfg --port /dev/ttyUSB0 --transport companion \
   --target <clé-publique-hex-64-du-device-cible> --password <mot-de-passe> get name
+
+# Infos du device (firmware, carte, batterie, stats) et mise à l'heure
+meshcore-cfg --port /dev/ttyUSB0 info
+meshcore-cfg --port /dev/ttyUSB0 sync-time
+
+# Réglages par commande, utilisables comme champs de template
+meshcore-cfg --port /dev/ttyUSB0 get powersaving       # aussi : gps, gps.advert, sensor.<clé>
+meshcore-cfg --port /dev/ttyUSB0 --comp set ble.pin 123456   # PIN Bluetooth du companion (0 = automatique)
 ```
 
 `--help` sur n'importe quelle commande (ou sous-commande) donne le détail

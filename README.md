@@ -178,9 +178,13 @@ fenêtre, avec un bouton **Mettre à jour** : il télécharge l'archive de ta
 plateforme, vérifie son empreinte SHA-256 (celle que GitHub calcule pour
 chaque fichier publié), puis remplace l'exécutable. Une fois terminé,
 **Relancer** redémarre le programme dans sa nouvelle version, réglages
-conservés. Seul l'exécutable est remplacé : tes dossiers `templates/` et
-`region-packs/` ne sont jamais modifiés (les nouveaux templates de la
-release restent disponibles dans l'archive, sur la page GitHub). Rien ne
+conservés. Les dossiers `templates/` et `region-packs/` de la release sont
+fusionnés avec les tiens **sans jamais rien écraser** : un fichier que tu
+n'as pas encore est ajouté, un fichier identique est laissé tel quel, et
+si ta version diffère de celle de la release (parce que tu l'as modifiée,
+ou parce qu'elle a été corrigée), la version de la release est déposée à
+côté sous le nom `<fichier>.new` — à toi de comparer et de garder celle
+qui te convient. Le Journal liste ce qui a été ajouté ou déposé. Rien ne
 se fait sans ton clic ; **Voir la release** et **Ignorer** restent
 proposés. Si le programme est installé dans un dossier protégé en
 écriture, la mise à jour échoue proprement avec un message : télécharge

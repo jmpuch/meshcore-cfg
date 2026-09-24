@@ -174,10 +174,13 @@ there is one, a blue banner at the top of the window says so, with an
 **Update** button: it downloads your platform's archive, checks its
 SHA-256 digest (the one GitHub computes for every published file), then
 replaces the executable. Once done, **Restart** relaunches the program in
-its new version, settings kept. Only the executable is replaced: your
-`templates/` and `region-packs/` folders are never touched (the release's
-new templates remain available in the archive, on the GitHub page).
-Nothing happens without your click; **See the release** and **Dismiss**
+its new version, settings kept. The release's `templates/` and
+`region-packs/` folders are merged with yours **without ever overwriting
+anything**: a file you don't have yet is added, an identical one is left
+as is, and if your version differs from the release's (because you edited
+it, or because it was fixed), the release's version is saved next to it
+as `<file>.new` — compare them and keep the one you want. The Log lists
+what was added or saved. Nothing happens without your click; **See the release** and **Dismiss**
 are still offered. If the program is installed in a write-protected
 folder, the update fails cleanly with a message: download the archive by
 hand in that case.

@@ -1,12 +1,16 @@
 # meshcore-cfg
 
+[![Français](https://img.shields.io/badge/langue-Fran%C3%A7ais%20%E2%9C%93-0055A4?style=for-the-badge)](README.md)
+[![English](https://img.shields.io/badge/lang-English-CF142B?style=for-the-badge)](README-en.md)
+
 Outil (Rust) pour configurer des devices [MeshCore](https://meshcore.io/) —
 répéteur, room-server, sensor **et companion** (série ou Bluetooth) — avec
 une interface graphique pour un usage simple, et un CLI complet pour
 l'usage avancé/scriptable. Application de templates de configuration
 complets, assistant région (44 pays), gestion de l'ACL (droits
 admin/guest), configuration d'un companion à distance via un autre
-companion sur le mesh LoRa, et flash de firmware ESP32 en natif.
+companion sur le mesh LoRa, et flash de firmware en natif (ESP32 et
+nRF52, y compris la mise à jour du bootloader OTAFIX).
 
 > **Sources** : pas encore publiées — ce repo distribue uniquement les
 > binaires précompilés (voir [Releases](https://github.com/jmpuch/meshcore-cfg/releases)

@@ -95,16 +95,18 @@ companion) — le programme le détecte tout seul à la connexion.
 
 ### 2. Se connecter
 
-Une fois le port choisi, cliquez **Connecter**. Le statut passe à
-*Connexion…* puis, une fois le type de device détecté, à *Connecté*
-(en vert), avec le type de device entre parenthèses (Sensor, Repeater,
-Room Server, ou Companion).
+Une fois le port choisi, cliquez **Connecter**. La pastille de statut, à
+droite de la barre, passe de gris (*Non connecté*) à orange (*Connexion…*)
+puis, une fois le type de device détecté, au **vert** avec son nom et son
+type (Sensor, Repeater, RoomServer ou Companion). Quand une cible LoRa est
+active, elle devient **orange** et affiche le nom de la cible : on sait
+toujours sur quel device on agit. Le détail s'affiche au survol.
 
 ![Écran de lancement, avant connexion](docs/screenshots/01-lancement.png)
 
-*(Cette capture montre aussi le rappel automatique du dernier template
-utilisé — voir l'étape 4 — avant même toute connexion : c'est normal, la
-comparaison se met à jour dès qu'un device est lu.)*
+*(Avant toute connexion, l'onglet Device rappelle les étapes. Si un
+template avait été utilisé la dernière fois, il est rechargé tout seul et
+son tableau s'affiche à la place — voir l'étape 4.)*
 
 ### 3. L'onglet Device se remplit tout seul
 
@@ -112,11 +114,13 @@ Dès la connexion établie, tous les attributs du device sont lus
 automatiquement (pas besoin de cliquer sur « 📄 Lire » en premier) —
 chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
 plutôt que d'attendre la fin de la lecture complète. La barre d'actions
-en haut de l'onglet regroupe **📄 Lire**, **🔄 Comparer au template**,
-**⬆ Écrire les écarts**, **⬇ Dump complet**, **📋 Device->Template**,
-**🕒 Mettre à l'heure** et **🔌 Redémarrer**. La progression (détection du
-device, champ en cours de lecture, contacts « x/total ») s'affiche dans la
-barre de connexion, en haut.
+en haut de l'onglet est groupée : **📄 Lire** et **🔄 Comparer au
+template** | **⬆ Écrire les écarts** | **🕒 Mettre à l'heure** et
+**🔌 Redémarrer**, et à droite un menu **📤 Exporter** (**Dump complet**,
+**Device->Template**). La progression (détection du device, champ en
+cours de lecture, contacts « x/total ») s'affiche dans la barre de
+connexion, en haut. Tant que rien n'est connecté, l'onglet affiche une
+carte qui rappelle les étapes.
 
 ![Onglet Device, avec template chargé](docs/screenshots/02-connecte-companion.png)
 
@@ -155,26 +159,37 @@ affiche directement le nombre de changements en attente (« Écrire les
 écrire. Le dernier template utilisé est mémorisé automatiquement et
 rechargé au prochain lancement du programme.
 
-## Taille de l'interface
+## Réglages : taille, langue, thème
 
-Le texte trop petit sur un grand écran (4K, etc.) ? Une ligne **« Taille
-de l'interface »** dans la barre de connexion (en haut, visible sur tous
-les onglets) propose **-**/**+**/**Réinitialiser** pour ajuster la taille
-de tout le texte et des contrôles d'un coup — la valeur choisie est
+Le bouton **⚙ Réglages**, à droite de la barre de connexion, ouvre un
+panneau qui regroupe la taille de l'interface, la langue et le thème. Il
+reste ouvert tant qu'on clique dedans, et se ferme d'un clic à côté.
+
+### Taille de l'interface
+
+Le texte trop petit sur un grand écran (4K, etc.) ? **« Taille de
+l'interface »** propose **-**/**+**/**Réinitialiser** pour ajuster la
+taille de tout le texte et des contrôles d'un coup — la valeur choisie est
 mémorisée d'un lancement à l'autre. Les raccourcis clavier `Ctrl +`/
 `Ctrl -`/`Ctrl 0` (`Cmd` sur macOS) font la même chose sans passer par la
 souris.
 
-## Langue de l'interface
+### Langue de l'interface
 
-L'interface existe en **français** et en **anglais** : un sélecteur
-**FR**/**EN** sur la même ligne que « Taille de l'interface » (barre du
-haut, visible sur tous les onglets). Le changement est immédiat, sans
-redémarrage, et le choix est mémorisé d'un lancement à l'autre (français
-par défaut). Seule l'interface est traduite : les lignes techniques du
+L'interface existe en **français** et en **anglais** : sélecteur
+**FR**/**EN**. Le changement est immédiat, sans redémarrage, et le choix
+est mémorisé d'un lancement à l'autre. Au tout premier lancement, la
+langue suit celle du système (français pour un système en français,
+anglais sinon). Seule l'interface est traduite : les lignes techniques du
 Journal (même style que la sortie du CLI), les réponses des devices, les
 messages d'erreur bas niveau et les noms des packs de régions restent tels
 quels.
+
+### Thème
+
+**Auto** (suit le mode clair/sombre du système), **Clair** ou **Sombre** —
+mémorisé. Le thème clair a ses propres couleurs (accent bleu, fonds
+teintés, couleurs d'état contrastées), pas seulement l'inverse du sombre.
 
 ## Mises à jour
 
@@ -209,19 +224,20 @@ alors l'archive à la main.
   aussi sa case **Masquer (#)** pour désactiver/réactiver son
   application sans éditer le fichier à la main. Les colonnes du tableau
   se redimensionnent en faisant glisser leur bordure (largeur mémorisée
-  d'un lancement à l'autre, comme dans l'onglet Template). Une barre
-  d'outils à icônes regroupe les six actions de l'onglet :
-  **📄 Lire**, **🔄 Comparer au template**, **⬆ Écrire les écarts**,
-  **⬇ Dump complet** (enregistre dans un fichier JSON tous les
-  attributs lus jusqu'ici, sans avoir besoin d'un template),
-  **📋 Device->Template** (copie la lecture du device dans l'onglet
-  **Template** comme base réutilisable — par ex. pour un déploiement en
-  lot — **sans** clé privée/publique ni position ; remplace le template
-  en cours, à enregistrer ensuite via **Enregistrer sous...**) et
+  d'un lancement à l'autre, comme dans l'onglet Template). La barre
+  d'outils regroupe les actions de l'onglet : **📄 Lire**,
+  **🔄 Comparer au template**, **⬆ Écrire les écarts**,
   **🕒 Mettre à l'heure** (règle l'horloge du device sur celle du PC, en
   direct comme via LoRa — le firmware ne recule jamais une horloge) et
-  **🔌 Redémarrer** — utile après un changement de paramètres radio, qui
-  ne sont pris en compte qu'au redémarrage.
+  **🔌 Redémarrer** (utile après un changement de paramètres radio, qui
+  ne sont pris en compte qu'au redémarrage). Le menu **📤 Exporter**
+  propose **Dump complet** (enregistre dans un fichier JSON tous les
+  attributs lus, sans avoir besoin d'un template) et
+  **Device->Template** (copie la lecture du device dans l'onglet
+  **Template** comme base réutilisable — par ex. pour un déploiement en
+  lot — **sans** clé privée/publique ni position ; remplace le template
+  en cours, à enregistrer ensuite via **Enregistrer sous...**) — tous
+  deux après une lecture complète.
 
   Section repliable **Infos du device** → **Lire les infos** : firmware,
   carte, batterie, stockage, uptime, bruit/RSSI/SNR, paquets reçus/envoyés
@@ -780,7 +796,7 @@ avec `--comp` (toujours local, jamais de relais). `region`/`acl`/
 `neighbors`/`raw` ne s'appliquent pas à un companion (protocole binaire,
 pas de CLI texte) — refusés avec un message explicite.
 
-### Flasher un firmware (ESP32 uniquement pour l'instant)
+### Flasher un firmware (ESP32 et nRF52)
 
 ```bash
 # Nécessite un binaire déjà mergé (bootloader + table de partitions + app),

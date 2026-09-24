@@ -95,27 +95,30 @@ or companion) — the program detects it automatically on connect.
 
 ### 2. Connect
 
-Once the port is selected, click **Connect**. The status switches to
-*Connecting…* then, once the device type is detected, to *Connected*
-(in green), with the device type shown in parentheses (Sensor,
-Repeater, Room Server, or Companion).
+Once the port is selected, click **Connect**. The status pill, on the
+right of the bar, goes from gray (*Not connected*) to orange
+(*Connecting…*) then, once the device type is detected, to **green** with
+its name and type (Sensor, Repeater, RoomServer or Companion). When a LoRa
+target is active it turns **orange** and shows the target's name: you
+always know which device you're acting on. Hover it for details.
 
 ![Startup screen, before connecting](docs/screenshots/en/01-lancement.png)
 
-*(This screenshot also shows the automatic recall of the last template
-used — see step 4 — even before any connection: that's expected, the
-comparison updates as soon as a device is read.)*
+*(Before any connection, the Device tab recalls the steps. If a template
+was used last time, it's reloaded on its own and its table shows instead —
+see step 4.)*
 
 ### 3. The Device tab fills in by itself
 
 As soon as the connection is established, every attribute of the device
 is read automatically (no need to click "📄 Read" first) — each row of
 the table appears as it's read, rather than waiting for the whole
-read to finish. The action bar at the top of the tab groups **📄 Read**,
-**🔄 Compare against template**, **⬆ Write the diffs**,
-**⬇ Full dump**, **📋 Device->Template**, **🕒 Set clock** and
-**🔌 Restart**. Progress (device detection, field being read, contacts
-"x/total") shows in the connection bar at the top.
+read to finish. The action bar at the top of the tab is grouped:
+**📄 Read** and **🔄 Compare against template** | **⬆ Write the diffs** |
+**🕒 Set clock** and **🔌 Restart**, and on the right an **📤 Export**
+menu (**Full dump**, **Device->Template**). Progress (device detection,
+field being read, contacts "x/total") shows in the connection bar at the
+top. While nothing is connected, the tab shows a card with the steps.
 
 ![Device tab, with a template loaded](docs/screenshots/en/02-connecte-companion.png)
 
@@ -151,24 +154,36 @@ pending count directly ("Write the diffs (3)") and lights up blue as
 soon as there's something to write. The last template used is
 remembered automatically and reloaded the next time the program starts.
 
-## Interface size
+## Settings: size, language, theme
 
-Text too small on a large screen (4K, etc.)? A **"Interface size"** row
-in the connection bar (at the top, visible on every tab) offers **-**/
-**+**/**Reset** to scale all the text and controls at once — the chosen
-value is remembered across launches. The `Ctrl +`/`Ctrl -`/`Ctrl 0`
+The **⚙ Settings** button, on the right of the connection bar, opens a
+panel with the interface size, the language and the theme. It stays open
+while you click inside it, and closes with a click outside.
+
+### Interface size
+
+Text too small on a large screen (4K, etc.)? **"Interface size"** offers
+**-**/**+**/**Reset** to scale all the text and controls at once — the
+chosen value is remembered across launches. The `Ctrl +`/`Ctrl -`/`Ctrl 0`
 keyboard shortcuts (`Cmd` on macOS) do the same thing without touching
 the mouse.
 
-## Interface language
+### Interface language
 
-The interface is available in **French** and **English**: an **FR**/**EN**
-selector on the same row as "Interface size" (top bar, visible on every
-tab). Switching is immediate, no restart needed, and the choice is
-remembered across launches (French by default). Only the interface itself
+The interface is available in **French** and **English**: **FR**/**EN**
+selector. Switching is immediate, no restart needed, and the choice is
+remembered across launches. On the very first launch, the language
+follows the system's (French for a French system, English otherwise).
+Only the interface itself
 is translated: the technical lines of the Log (same style as the CLI's
 output), device replies, low-level error messages and region-pack names
 stay as they are.
+
+### Theme
+
+**Auto** (follows the system's light/dark mode), **Light** or **Dark** —
+remembered. The light theme has its own colors (blue accent, tinted
+backgrounds, contrasted status colors), not just an inverted dark one.
 
 ## Updates
 
@@ -201,17 +216,17 @@ hand in that case.
   has its own **Mask (#)** checkbox to enable/disable it without hand-
   editing the file. Table columns can be resized by dragging their
   border (width remembered across launches, same as the Template tab).
-  An icon toolbar at the top groups the tab's six actions:
-  **📄 Read**, **🔄 Compare against template**, **⬆ Write the diffs**,
-  **⬇ Full dump** (saves every attribute read so far to a JSON file, no
-  template needed), **📋 Device->Template** (copies the device read into
+  The toolbar groups the tab's actions: **📄 Read**, **🔄 Compare
+  against template**, **⬆ Write the diffs**, **🕒 Set clock** (sets the
+  device's clock to the PC's, direct or over LoRa — the firmware never
+  sets a clock back) and **🔌 Restart** (useful after changing radio
+  parameters, which only take effect after a restart). The **📤 Export**
+  menu offers **Full dump** (saves every attribute read to a JSON file, no
+  template needed) and **Device->Template** (copies the device read into
   the **Template** tab as a reusable base — e.g. for a batch deploy —
   **without** the private/public key or the position; replaces the
-  current template, save it afterwards with **Save as...**) and
-  **🕒 Set clock** (sets the device's clock to the PC's, direct or over
-  LoRa — the firmware never sets a clock back) and
-  **🔌 Restart** — useful after changing radio
-  parameters, which only take effect after a restart.
+  current template, save it afterwards with **Save as...**) — both after
+  a full read.
 
   Collapsible **Device info** section → **Read info**: firmware, board,
   battery, storage, uptime, noise/RSSI/SNR, packets received/sent
@@ -744,7 +759,7 @@ local, never relayed). `region`/`acl`/`neighbors`/`raw` don't apply to
 a companion (binary protocol, no text CLI) — refused with an explicit
 message.
 
-### Flashing firmware (ESP32 only for now)
+### Flashing firmware (ESP32 and nRF52)
 
 ```bash
 # Needs an already-merged binary (bootloader + partition table + app),

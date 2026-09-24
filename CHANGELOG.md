@@ -8,6 +8,39 @@ One section per version, newest first. A section's text becomes the
 matching GitHub release description as is — write it **before** pushing
 the tag.
 
+## v3.21.0
+
+**Nouveautés**
+
+- **Thème clair retravaillé** : fonds légèrement bleutés, accent bleu,
+  boutons blancs bien détachés, couleurs d'état (vert, orange, rouge) et
+  pastilles lisibles sur fond clair. Choix du thème **Auto / Clair /
+  Sombre**, mémorisé.
+- **⚙ Réglages** : taille de l'interface, langue et thème regroupés dans
+  un panneau, à droite de la barre de connexion — la barre tient sur une
+  ligne.
+- **Statut en pastille colorée** : grise, orange, verte — et orange avec
+  le nom de la cible quand une cible LoRa est active.
+- Onglet Device : **bandeau d'actions groupé** (lire / écrire / device)
+  avec un menu **📤 Exporter** (Dump complet, Device->Template), et un
+  écran d'accueil qui rappelle les étapes tant que rien n'est connecté.
+- Au premier lancement, la **langue suit celle du système**.
+
+**What's new**
+
+- **Reworked light theme**: slightly blue-tinted backgrounds, blue accent,
+  white buttons that stand out, status colors (green, orange, red) and
+  pills readable on a light background. **Auto / Light / Dark** theme
+  choice, remembered.
+- **⚙ Settings**: interface size, language and theme grouped in a panel,
+  on the right of the connection bar — the bar fits on one line.
+- **Colored status pill**: gray, orange, green — and orange with the
+  target's name when a LoRa target is active.
+- Device tab: **grouped action bar** (read / write / device) with an
+  **📤 Export** menu (Full dump, Device->Template), and a start screen
+  recalling the steps while nothing is connected.
+- On first launch, the **language follows the system's**.
+
 ## v3.20.0
 
 **Nouveautés**

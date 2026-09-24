@@ -98,7 +98,7 @@ Once the port is selected, click **Connect**. The status switches to
 (in green), with the device type shown in parentheses (Sensor,
 Repeater, Room Server, or Companion).
 
-![Startup screen, before connecting](docs/screenshots/01-lancement.png)
+![Startup screen, before connecting](docs/screenshots/en/01-lancement.png)
 
 *(This screenshot also shows the automatic recall of the last template
 used — see step 4 — even before any connection: that's expected, the
@@ -111,9 +111,10 @@ is read automatically (no need to click "📄 Read" first) — each row of
 the table appears as it's read, rather than waiting for the whole
 read to finish. The action bar at the top of the tab groups **📄 Read**,
 **🔄 Compare against template**, **⬆ Write the diffs**,
-**⬇ Full dump** and **🔌 Restart** — five same-sized, icon buttons.
+**⬇ Full dump**, **📋 Device->Template** and **🔌 Restart** — six
+same-sized, icon buttons.
 
-![Device tab, with a template loaded](docs/screenshots/02-connecte-companion.png)
+![Device tab, with a template loaded](docs/screenshots/en/02-connecte-companion.png)
 
 *(Captured without an active connection — the table/ACL/Regions look the
 same once connected, with the "Device (read)" column filled in too.)*
@@ -156,6 +157,16 @@ value is remembered across launches. The `Ctrl +`/`Ctrl -`/`Ctrl 0`
 keyboard shortcuts (`Cmd` on macOS) do the same thing without touching
 the mouse.
 
+## Interface language
+
+The interface is available in **French** and **English**: an **FR**/**EN**
+selector on the same row as "Interface size" (top bar, visible on every
+tab). Switching is immediate, no restart needed, and the choice is
+remembered across launches (French by default). Only the interface itself
+is translated: the technical lines of the Log (same style as the CLI's
+output), device replies, low-level error messages and region-pack names
+stay as they are.
+
 ## The tabs
 
 - **Device** — described above: every attribute, comparison against a
@@ -169,10 +180,14 @@ the mouse.
   has its own **Mask (#)** checkbox to enable/disable it without hand-
   editing the file. Table columns can be resized by dragging their
   border (width remembered across launches, same as the Template tab).
-  An icon toolbar at the top groups the tab's five actions:
+  An icon toolbar at the top groups the tab's six actions:
   **📄 Read**, **🔄 Compare against template**, **⬆ Write the diffs**,
   **⬇ Full dump** (saves every attribute read so far to a JSON file, no
-  template needed) and **🔌 Restart** — useful after changing radio
+  template needed), **📋 Device->Template** (copies the device read into
+  the **Template** tab as a reusable base — e.g. for a batch deploy —
+  **without** the private/public key or the position; replaces the
+  current template, save it afterwards with **Save as...**) and
+  **🔌 Restart** — useful after changing radio
   parameters, which only take effect after a restart.
 
   **Row order**: a loaded template displays in exactly the order its
@@ -190,6 +205,17 @@ the mouse.
   key that isn't there yet. An enabled ACL entry is also applied by
   **Write the diffs**, just like any other field.
 
+  In **Remote (via LoRa)** mode, the full list (full public key) stays
+  unavailable — the firmware requires a direct serial connection for
+  that (`get acl`). A second grid appears instead: the access list
+  fetched via a dedicated binary request (the same one the official
+  Android app uses), one 12-character key *prefix* per row (never the
+  full key) with a per-row **Revoke** button — enough to remove an
+  entry, not to grant or change one (that needs the full key, via **New
+  ACL entry** above). The connected companion's own key is detected and
+  protected there ("⚠ this companion (local)", button disabled) —
+  revoking it would strip its own admin rights on the target.
+
   **Regions**: two indented trees side by side, **Device (read)** and
   **Template (desired)** — same layout as a CLI `region list`, with
   home/default marked (`^home`/`•default`) and one color per region
@@ -206,7 +232,7 @@ the mouse.
   panel — see the dedicated section below for the format and how to add
   a country.
 
-  The radio field is shown as two linked rows: **Preset radio** (an
+  The radio field is shown as two linked rows: **Radio preset** (an
   official regional preset name — Brazil, EU/UK (Narrow), USA/Canada...,
   23 in total) directly above **Radio** (the technical detail:
   frequency/bandwidth/SF/CR). Picking a preset fills in the Radio row;
@@ -246,7 +272,7 @@ the mouse.
   rather than a blank page where you'd have to guess field names),
   **📁 Load**, **💾 Save** and **Save as...**.
 
-  ![Template tab](docs/screenshots/05-template.png)
+  ![Template tab](docs/screenshots/en/05-template.png)
 
   The four most commonly edited fields — **Name**, **Admin password**
   (masked), **Contact / owner.info** and **Position** (one single
@@ -260,7 +286,7 @@ the mouse.
   public key) and **Regions** (parent/child tree, home/default). Each
   field can be toggled (`#`), edited, or deleted row by row; the order
   follows the loaded file, reorderable with **^ / v**. Like the Device
-  tab, the radio field is shown as two linked rows, **Preset radio** (23
+  tab, the radio field is shown as two linked rows, **Radio preset** (23
   official regional presets) and **Radio** (technical detail), synced
   both ways.
 
@@ -284,9 +310,9 @@ the mouse.
   direct connection — see the dedicated **🔌 Restart** button on the
   Device tab above for a restart that's correctly reported as
   successful) doesn't stop the rest — each line's result and the final
-  tally show up in the Journal.
+  tally show up in the Log.
 
-  ![Commands tab](docs/screenshots/06-commandes.png)
+  ![Commands tab](docs/screenshots/en/06-commandes.png)
 
   The **📋 Copy from Device diffs** button takes the fields that differ
   (computed in the Device tab via "Compare against template") and
@@ -308,7 +334,7 @@ the mouse.
   another on the same port, each getting the active template (Template
   tab) with just its own name/position.
 
-  ![Batch deploy tab](docs/screenshots/07-batch-deploy.png)
+  ![Batch deploy tab](docs/screenshots/en/07-batch-deploy.png)
 
   A queue builds either by generating a name-pattern series
   (**Generate series**, `RPT-{n}` + a count) or by importing a CSV in
@@ -343,7 +369,7 @@ the mouse.
   tool: never read from or written to a device, unlike the Contacts
   tab.
 
-  ![Private tab](docs/screenshots/08-prive.png)
+  ![Private tab](docs/screenshots/en/08-prive.png)
 
   **📁 Import**/**💾 Export** to a dedicated JSON file (import
   merges, never duplicating or overwriting an existing entry). Each
@@ -399,7 +425,7 @@ file...**, **Reload** after a manual edit). Forty-four packs ship in
 | `danemark.json` | 5 regions |
 | `finlande.json` | 19 regions |
 | `islande.json` | 8 regions |
-| `emirats-arabes-unis.json` | 7 emirates — its own `ae` root, not under `eu` (not in Europe) |
+| `united-arab-emirates.json` | 7 emirates (labels reviewed by a Dubai resident) — its own `ae` root, not under `eu` (not in Europe) |
 | `pologne.json` | 16 voivodeships |
 | `tchequie.json` | 13 regions + Prague |
 | `slovaquie.json` | 8 regions |
@@ -463,7 +489,13 @@ the three panels activates it everywhere.
 
 A companion (the device plugged in locally) can be configured
 directly — name, coordinates, radio, TX power, custom variables —
-that's **Local (this companion)** mode, active by default.
+that's **Local (this companion)** mode, active by default. On every
+connect (USB or Bluetooth), its internal clock is also compared to this
+computer's and pushed forward if it's behind (never backward) — visible
+in the Log ("companion clock resynced, was behind by...") — a
+companion whose clock was never set otherwise silently breaks every
+relayed command (the firmware rejects a timestamp that looks like it's
+from the past, without ever replying).
 
 If this companion is physically in range of **another** MeshCore
 device on the LoRa mesh (a repeater, room-server, or sensor), it can
@@ -473,8 +505,9 @@ mode:
 ![Target selector, Remote mode expanded](docs/screenshots/04-cible-distante.png)
 
 1. Pick a contact from the dropdown (already known to the companion —
-   auto-refreshed on connect, or via the ↻ button), or type a public
-   key manually.
+   auto-refreshed on connect, or via the ↻ button — contacts already in
+   the private directory float to the top of the list), or type a
+   public key manually.
 2. Enter the target device's admin password.
 3. **Connect to target** — this step is **slow** (a real LoRa radio
    round-trip, potentially tens of seconds): explicit text says so

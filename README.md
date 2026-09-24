@@ -73,7 +73,7 @@ tout le monde.
 Le device se branche en USB (ou, pour un companion, peut aussi se
 retrouver en Bluetooth). Lancez `meshcore-cfg` sans argument : l'écran
 qui s'ouvre propose un choix **USB**/**Bluetooth**, un sélecteur de port
-(ou de nom Bluetooth), et un bouton **Connect**.
+(ou de nom Bluetooth), et un bouton **Connecter**.
 
 Pas besoin d'indiquer le type de device (répéteur, room-server, sensor ou
 companion) — le programme le détecte tout seul à la connexion.
@@ -91,8 +91,8 @@ companion) — le programme le détecte tout seul à la connexion.
 
 ### 2. Se connecter
 
-Une fois le port choisi, cliquez **Connect**. Le statut passe à
-*Connecting…* puis, une fois le type de device détecté, à *Connected*
+Une fois le port choisi, cliquez **Connecter**. Le statut passe à
+*Connexion…* puis, une fois le type de device détecté, à *Connecté*
 (en vert), avec le type de device entre parenthèses (Sensor, Repeater,
 Room Server, ou Companion).
 
@@ -109,8 +109,8 @@ automatiquement (pas besoin de cliquer sur « 📄 Lire » en premier) —
 chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
 plutôt que d'attendre la fin de la lecture complète. La barre d'actions
 en haut de l'onglet regroupe **📄 Lire**, **🔄 Comparer au template**,
-**⬆ Écrire les écarts**, **⬇ Dump complet** et **🔌 Redémarrer** — cinq
-boutons de même taille, avec icône.
+**⬆ Écrire les écarts**, **⬇ Dump complet**, **📋 Device->Template** et
+**🔌 Redémarrer** — six boutons de même taille, avec icône.
 
 ![Onglet Device, avec template chargé](docs/screenshots/02-connecte-companion.png)
 
@@ -159,6 +159,17 @@ mémorisée d'un lancement à l'autre. Les raccourcis clavier `Ctrl +`/
 `Ctrl -`/`Ctrl 0` (`Cmd` sur macOS) font la même chose sans passer par la
 souris.
 
+## Langue de l'interface
+
+L'interface existe en **français** et en **anglais** : un sélecteur
+**FR**/**EN** sur la même ligne que « Taille de l'interface » (barre du
+haut, visible sur tous les onglets). Le changement est immédiat, sans
+redémarrage, et le choix est mémorisé d'un lancement à l'autre (français
+par défaut). Seule l'interface est traduite : les lignes techniques du
+Journal (même style que la sortie du CLI), les réponses des devices, les
+messages d'erreur bas niveau et les noms des packs de régions restent tels
+quels.
+
 ## Les onglets de l'interface
 
 - **Device** — décrit ci-dessus : tous les attributs, comparaison à un
@@ -173,10 +184,14 @@ souris.
   application sans éditer le fichier à la main. Les colonnes du tableau
   se redimensionnent en faisant glisser leur bordure (largeur mémorisée
   d'un lancement à l'autre, comme dans l'onglet Template). Une barre
-  d'outils à icônes regroupe les cinq actions de l'onglet :
+  d'outils à icônes regroupe les six actions de l'onglet :
   **📄 Lire**, **🔄 Comparer au template**, **⬆ Écrire les écarts**,
   **⬇ Dump complet** (enregistre dans un fichier JSON tous les
-  attributs lus jusqu'ici, sans avoir besoin d'un template) et
+  attributs lus jusqu'ici, sans avoir besoin d'un template),
+  **📋 Device->Template** (copie la lecture du device dans l'onglet
+  **Template** comme base réutilisable — par ex. pour un déploiement en
+  lot — **sans** clé privée/publique ni position ; remplace le template
+  en cours, à enregistrer ensuite via **Enregistrer sous...**) et
   **🔌 Redémarrer** — utile après un changement de paramètres radio, qui
   ne sont pris en compte qu'au redémarrage.
 
@@ -195,6 +210,18 @@ souris.
   pour ajouter une clé publique pas encore connue. Une entrée ACL non
   désactivée est aussi appliquée par **Écrire les écarts**,
   comme n'importe quel autre champ.
+
+  En mode **Distante (via LoRa)**, la liste complète (clé publique
+  intégrale) reste indisponible — le firmware l'exige en connexion série
+  directe (`get acl`). Une seconde grille apparaît à la place : la liste
+  des clients autorisés récupérée via une requête binaire dédiée (celle
+  qu'utilise l'app Android officielle), avec un préfixe de clé (12
+  caractères, pas la clé complète) par ligne et un bouton **Révoquer**
+  par ligne — suffisant pour retirer une entrée, pas pour en accorder ou
+  modifier une (ça exige la clé complète, via **Nouvelle entrée ACL**
+  ci-dessus). Le companion connecté lui-même y est repéré et protégé
+  (« ⚠ ce companion (local) », bouton désactivé) — le révoquer couperait
+  ses propres droits admin sur la cible.
 
   **Régions** : deux arbres indentés côte à côte, **Device (lu)** et
   **Template (voulu)** — même présentation qu'un `region list` en
@@ -419,7 +446,7 @@ après une modification manuelle). Quarante-quatre packs sont fournis dans
 | `danemark.json` | 5 régions |
 | `finlande.json` | 19 régions |
 | `islande.json` | 8 régions |
-| `emirats-arabes-unis.json` | 7 émirats — racine `ae` indépendante, pas rattachée à `eu` (hors Europe) |
+| `united-arab-emirates.json` | 7 émirats (libellés en anglais, relus par un résident de Dubaï) — racine `ae` indépendante, pas rattachée à `eu` (hors Europe) |
 | `pologne.json` | 16 voïvodies |
 | `tchequie.json` | 13 régions + Prague |
 | `slovaquie.json` | 8 régions |
@@ -484,7 +511,13 @@ partout.
 
 Un companion (le device branché en local) peut être configuré
 directement — nom, coordonnées, radio, TX power, variables custom — c'est
-le mode **Local (ce companion)**, actif par défaut.
+le mode **Local (ce companion)**, actif par défaut. À chaque connexion
+(USB ou Bluetooth), son horloge interne est aussi comparée à celle de
+cet ordinateur et remise à l'heure si elle est en retard (jamais en
+arrière) — visible dans le Journal (« horloge companion resynchronisée,
+était en retard de... ») : une horloge jamais réglée fait sinon échouer
+silencieusement toute commande relayée vers une cible (le firmware
+rejette un timestamp qui semble « dans le passé » sans répondre du tout).
 
 Si ce companion est physiquement à portée d'un **autre** device MeshCore
 sur le mesh LoRa (un répéteur, room-server ou sensor), il peut aussi
@@ -494,8 +527,9 @@ LoRa)** :
 ![Sélecteur de cible, mode Distante déplié](docs/screenshots/04-cible-distante.png)
 
 1. Choisir un contact dans la liste déroulante (déjà connus du companion
-   — rafraîchie automatiquement à la connexion, ou via le bouton ↻), ou
-   taper une clé publique manuellement.
+   — rafraîchie automatiquement à la connexion, ou via le bouton ↻ ;
+   les contacts déjà présents dans le répertoire privé remontent en
+   tête de liste), ou taper une clé publique manuellement.
 2. Entrer le mot de passe admin du device cible.
 3. **Se connecter à la cible** — cette étape est **lente** (un vrai
    aller-retour radio LoRa, potentiellement plusieurs dizaines de

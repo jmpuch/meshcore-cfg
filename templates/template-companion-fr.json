@@ -10,6 +10,9 @@
     "tx": 20,
     "multi.acks": 1,
 
+    "#_comment1b": "routage sur 2 octets (path_hash_size = mode+1, donc 1 = 2 octets)",
+    "path.hash.mode": 1,
+
     "#_comment2": "autres paramètres companion gérés (opcodes dédiés, pas des vars CLI-texte)",
     "#manual.add.contacts": 0,
     "#advert.loc.policy": 0,

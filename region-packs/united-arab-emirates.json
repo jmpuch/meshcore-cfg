@@ -1,9 +1,9 @@
 {
-  "display_name": "Émirats Arabes Unis (émirats)",
+  "display_name": "United Arab Emirates (UAE)",
   "entries": [
     {
       "code": "ae",
-      "label": "Émirats Arabes Unis",
+      "label": "United Arab Emirates",
       "parent": null
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "code": "ae-du",
-      "label": "Dubaï",
+      "label": "Dubai",
       "parent": "ae"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "code": "ae-rk",
-      "label": "Ras al-Khaïmah",
+      "label": "Ras-al-Khaimah",
       "parent": "ae"
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "code": "ae-uq",
-      "label": "Umm al-Qaïwaïn",
+      "label": "Umm-al-Quwain",
       "parent": "ae"
     }
   ]

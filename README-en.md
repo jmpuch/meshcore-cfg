@@ -344,9 +344,14 @@ hand in that case.
   ...` line the same way — handy in particular for preparing a command
   to send over a LoRa relay, where the confirmation read (`acl list`) is
   never possible (see above).
-- **ESP-Flash** — writes an already-merged `.bin` firmware. **ESP32/
-  ESP32-S3 only** — Heltec V2/V3/V4 and similar; nRF52 boards (Heltec
-  T114, RAK4631, ...) are not supported by this tab.
+- **Flash** — writes a firmware to the connected board. The file picks
+  the protocol: already-merged `.bin` for ESP32 boards (Heltec
+  V2/V3/V4…), the DFU `.zip` MeshCore publishes for nRF52 boards
+  (RAK4631, Heltec T114…), switched to bootloader mode on their own. If
+  the switch fails, the **Board already in bootloader mode** checkbox
+  lets you flash after pressing reset twice. An OTAFIX bootloader `.zip`
+  is accepted too, behind a confirmation checkbox (see "Bootloader
+  update" below).
 - **Batch deploy** (set apart from the other tabs by a divider line in
   the sidebar) — provisions a series of devices swapped one after
   another on the same port, each getting the active template (Template
@@ -725,10 +730,53 @@ meshcore-cfg --port /dev/ttyUSB0 flash --erase firmware-merged.bin
 ```
 
 Works on ESP32/ESP32-S3 boards (Heltec V2/V3/V4 and similar) —
-automatic chip detection, nothing to specify. Not yet supported: nRF52
-boards (Heltec T114, RAK4631/WisBlock, etc.), which use a completely
-different flashing mechanism (Nordic serial DFU) — coming in a future
-version.
+automatic chip detection, nothing to specify.
+
+**nRF52 boards** (RAK4631/WisBlock, Heltec T114, etc.): same command,
+with the DFU `.zip` MeshCore publishes for your board (MeshCore releases
+page, file `<board>_<role>-vX.Y.Z-….zip`) — recognized by its extension.
+The board is switched to bootloader mode on its own (1200-baud "touch")
+and its port, which often changes at that moment (new `COMx` on
+Windows), is found again automatically. Only the application area is
+rewritten (no `--erase` on nRF52).
+
+```bash
+meshcore-cfg --port COM12 flash RAK_4631_repeater-v1.17.1-d929643.zip
+# If the automatic switch fails: press reset twice, then the bootloader's
+# port and --bootloader
+meshcore-cfg --port COM13 flash --bootloader RAK_4631_repeater-v1.17.1-d929643.zip
+```
+
+**Bootloader update (OTAFIX)** — the official flasher
+(flasher.meshcore.io) recommends moving nRF52 boards to the "OTAFIX"
+bootloaders: one **SoftDevice + bootloader** `.zip` per board
+(`xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip`,
+`wiscore_rak4631_board_bootloader-…`, etc., downloadable from the
+flasher). Same command, but **refused without `--update-bootloader`** (in
+the GUI: the "I confirm updating this board's bootloader" checkbox,
+unticked by default):
+
+- pick the file made for **your exact board** — the tool compares the
+  USB identity of the bootloader inside the package with the board's and
+  refuses a package from another vendor (XIAO ↔ RAK4631 for instance);
+  XIAO and XIAO Sense only differ by that identity, either file works;
+- **don't unplug the board** while it runs;
+- the MeshCore firmware gets **erased**: flash it again right after, with
+  the board in bootloader mode (`--bootloader`). If it doesn't show up on
+  a port (red LED blinking fast), **pressing reset twice** brings it back
+  (slow blink = ready).
+
+**SenseCAP T1000-E**: the automatic switch doesn't work on this model (it
+reboots into its firmware). Manual entry: **keep the button pressed**
+while quickly unplugging/replugging the cable twice — a new port shows up
+(USB id `2886:0057`), to pick with "Board already in bootloader mode" /
+`--bootloader`.
+
+```bash
+meshcore-cfg --port COM13 flash --update-bootloader xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip
+# then, board in bootloader mode (possibly another port):
+meshcore-cfg --port COM14 flash --bootloader Xiao_nrf52_repeater-v1.17.1-d929643.zip
+```
 
 ## Template `templates/template-fr.json`
 

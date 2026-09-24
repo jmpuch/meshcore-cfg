@@ -8,6 +8,41 @@ One section per version, newest first. A section's text becomes the
 matching GitHub release description as is — write it **before** pushing
 the tag.
 
+## v3.19.0
+
+**Nouveautés**
+
+- **Flash des cartes nRF52** (RAK4631/WisBlock, Heltec T114, …) : l'onglet
+  « ESP-Flash » devient **Flash** et accepte aussi le `.zip` DFU que
+  MeshCore publie pour ces cartes. La carte passe toute seule en mode
+  bootloader et son nouveau port est retrouvé automatiquement ; en cas
+  d'échec, la case « Carte déjà en mode bootloader » permet de flasher
+  après un double appui sur reset. Même chose en ligne de commande :
+  `flash <fichier>.zip` (option `--bootloader`).
+- Le paquet est vérifié avant envoi (CRC16 du manifeste).
+- **Mise à jour du bootloader OTAFIX** (conseillée par le flasher
+  officiel) : le `.zip` SoftDevice + bootloader de ta carte est accepté,
+  derrière une confirmation explicite (case dans l'onglet Flash,
+  `--update-bootloader` en ligne de commande). Un paquet fait pour une
+  carte d'un autre fabricant est refusé avant tout envoi. Le firmware
+  MeshCore est effacé : reflashe-le juste après.
+
+**What's new**
+
+- **Flashing nRF52 boards** (RAK4631/WisBlock, Heltec T114, …): the
+  "ESP-Flash" tab becomes **Flash** and also takes the DFU `.zip` MeshCore
+  publishes for these boards. The board switches to its bootloader on its
+  own and its new port is found automatically; if that fails, the "Board
+  already in bootloader mode" checkbox lets you flash after pressing reset
+  twice. Same on the command line: `flash <file>.zip` (`--bootloader`).
+- The package is checked before sending (manifest CRC16).
+- **OTAFIX bootloader update** (recommended by the official flasher):
+  your board's SoftDevice + bootloader `.zip` is accepted, behind an
+  explicit confirmation (checkbox in the Flash tab, `--update-bootloader`
+  on the command line). A package made for another vendor's board is
+  refused before anything is sent. The MeshCore firmware gets erased:
+  flash it again right after.
+
 ## v3.18.1
 
 **Nouveautés**

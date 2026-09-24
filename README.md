@@ -362,9 +362,14 @@ alors l'archive à la main.
   prête à relire — pratique en particulier pour préparer une commande
   à envoyer via un relais LoRa, où la lecture de confirmation (`acl
   list`) n'est jamais possible (voir plus haut).
-- **ESP-Flash** — écrit un firmware `.bin` déjà mergé. **ESP32/ESP32-S3
-  uniquement** — Heltec V2/V3/V4 et similaires ; les boards nRF52 (Heltec
-  T114, RAK4631...) ne sont pas supportées par cet onglet.
+- **Flash** — écrit un firmware sur la carte branchée. Le fichier choisit
+  le protocole : `.bin` déjà mergé pour les cartes ESP32 (Heltec
+  V2/V3/V4…), `.zip` DFU publié par MeshCore pour les cartes nRF52
+  (RAK4631, Heltec T114…), basculées toutes seules en mode bootloader.
+  Si la bascule échoue, la case **Carte déjà en mode bootloader** permet
+  de flasher après un double appui sur reset. Un `.zip` de bootloader
+  OTAFIX est aussi accepté, derrière une case de confirmation (voir
+  « Mise à jour du bootloader » plus bas).
 - **Déploiement en lot** (séparé des autres onglets par une ligne dans
   la barre latérale) — provisionne une série de devices échangés
   physiquement l'un après l'autre sur le même port, chacun recevant le
@@ -758,10 +763,54 @@ meshcore-cfg --port /dev/ttyUSB0 flash --erase firmware-merged.bin
 ```
 
 Fonctionne sur les boards ESP32/ESP32-S3 (Heltec V2/V3/V4 et similaires)
-— détection de puce automatique, aucune option à préciser. Pas encore
-supporté : les boards nRF52 (Heltec T114, RAK4631/WisBlock, etc.), qui
-utilisent un mécanisme de flash complètement différent (DFU série
-Nordic) — à venir dans une prochaine version.
+— détection de puce automatique, aucune option à préciser.
+
+**Cartes nRF52** (RAK4631/WisBlock, Heltec T114, etc.) : même commande,
+avec le `.zip` DFU que MeshCore publie pour ta carte (page des releases
+MeshCore, fichier `<carte>_<rôle>-vX.Y.Z-….zip`) — le programme le
+reconnaît à son extension. La carte est basculée toute seule en mode
+bootloader (« touch » à 1200 bauds) et son port, qui change souvent à ce
+moment-là (nouveau `COMx` sous Windows), est retrouvé automatiquement.
+Seule la zone application est réécrite (pas de `--erase` sur nRF52).
+
+```bash
+meshcore-cfg --port COM12 flash RAK_4631_repeater-v1.17.1-d929643.zip
+# Si la bascule automatique échoue : double appui sur reset, puis le port
+# du bootloader et --bootloader
+meshcore-cfg --port COM13 flash --bootloader RAK_4631_repeater-v1.17.1-d929643.zip
+```
+
+**Mise à jour du bootloader (OTAFIX)** — le flasher officiel
+(flasher.meshcore.io) conseille de passer les cartes nRF52 sur les
+bootloaders « OTAFIX » : un `.zip` **SoftDevice + bootloader** par
+carte (`xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip`,
+`wiscore_rak4631_board_bootloader-…`, etc., téléchargeables depuis le
+flasher). Même commande, mais **refusée sans `--update-bootloader`** (dans
+l'IHM : case « Je confirme la mise à jour du bootloader », décochée par
+défaut) :
+
+- prends le fichier fait pour **ta carte exacte** — le programme compare
+  l'identité USB du bootloader contenu dans le paquet à celle de la
+  carte et refuse un paquet d'un autre fabricant (XIAO ↔ RAK4631 par
+  exemple) ; XIAO et XIAO Sense ne diffèrent que par cette identité, les
+  deux fichiers conviennent ;
+- **ne débranche pas la carte** pendant l'opération ;
+- le firmware MeshCore est **effacé** : reflashe-le juste après, carte en
+  mode bootloader (`--bootloader`). Si elle ne réapparaît pas sur un
+  port (LED rouge qui clignote vite), un **double appui sur reset** la
+  fait revenir (clignotement lent = prête).
+
+**SenseCAP T1000-E** : la bascule automatique ne fonctionne pas sur ce
+modèle (il redémarre sur son firmware). Entrée manuelle : **garder le
+bouton enfoncé** pendant qu'on débranche/rebranche rapidement le câble
+deux fois — un nouveau port apparaît (identifiant USB `2886:0057`), à
+choisir avec « Carte déjà en mode bootloader » / `--bootloader`.
+
+```bash
+meshcore-cfg --port COM13 flash --update-bootloader xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip
+# puis, carte en bootloader (port éventuellement différent) :
+meshcore-cfg --port COM14 flash --bootloader Xiao_nrf52_repeater-v1.17.1-d929643.zip
+```
 
 ## Template `templates/template-fr.json`
 

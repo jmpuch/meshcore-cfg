@@ -116,8 +116,8 @@ chaque ligne du tableau apparaît au fur et à mesure de sa lecture,
 plutôt que d'attendre la fin de la lecture complète. La barre d'actions
 en haut de l'onglet est groupée : **📄 Lire** et **🔄 Comparer au
 template** | **⬆ Écrire les écarts** | **🕒 Mettre à l'heure** et
-**🔌 Redémarrer**, et à droite un menu **📤 Exporter** (**Dump complet**,
-**Device->Template**). La progression (détection du device, champ en
+**🔌 Redémarrer**, et à droite un menu **💾 Sauvegarde** (**Sauvegarder
+le device…**, **Restaurer / cloner depuis une sauvegarde…**). La progression (détection du device, champ en
 cours de lecture, contacts « x/total ») s'affiche dans la barre de
 connexion, en haut. Tant que rien n'est connecté, l'onglet affiche une
 carte qui rappelle les étapes.
@@ -230,14 +230,18 @@ alors l'archive à la main.
   **🕒 Mettre à l'heure** (règle l'horloge du device sur celle du PC, en
   direct comme via LoRa — le firmware ne recule jamais une horloge) et
   **🔌 Redémarrer** (utile après un changement de paramètres radio, qui
-  ne sont pris en compte qu'au redémarrage). Le menu **📤 Exporter**
-  propose **Dump complet** (enregistre dans un fichier JSON tous les
-  attributs lus, sans avoir besoin d'un template) et
-  **Device->Template** (copie la lecture du device dans l'onglet
-  **Template** comme base réutilisable — par ex. pour un déploiement en
-  lot — **sans** clé privée/publique ni position ; remplace le template
-  en cours, à enregistrer ensuite via **Enregistrer sous...**) — tous
-  deux après une lecture complète.
+  ne sont pris en compte qu'au redémarrage). Le menu **💾 Sauvegarde**
+  propose :
+  - **Sauvegarder le device…** : enregistre dans un fichier JSON tous les
+    attributs lus (après une lecture complète) ;
+  - **Restaurer / cloner depuis une sauvegarde…** : charge le fichier, le
+    compare aussitôt au device connecté et encadre la restauration —
+    **⬆ Écrire les écarts** applique. L'**identité** (clé privée) n'est
+    restaurée que si la case **« Restaurer aussi l'identité »** est
+    cochée (décochée par défaut, impossible via LoRa) : c'est ce qui
+    distingue un simple report de réglages d'un vrai clone, pour
+    remplacer un device par un autre. Ne jamais laisser allumés deux
+    devices avec la même identité.
 
   Section repliable **Infos du device** → **Lire les infos** : firmware,
   carte, batterie, stockage, uptime, bruit/RSSI/SNR, paquets reçus/envoyés
@@ -332,7 +336,10 @@ alors l'archive à la main.
   d'outils à icônes en haut regroupe **➕ Nouveau** (présente d'emblée
   tous les champs connus, désactivés `#` avec une valeur neutre, pour un
   formulaire à remplir plutôt qu'une page blanche où il faudrait deviner
-  les noms de champs), **📁 Charger**, **💾 Enregistrer** et
+  les noms de champs), **📋 Nouveau depuis le device** (copie la lecture
+  du device connecté comme base réutilisable — par ex. pour un
+  déploiement en lot — **sans** clé privée/publique ni position ; après
+  une lecture complète), **📁 Charger**, **💾 Enregistrer** et
   **Enregistrer sous...**.
 
   ![Onglet Template](docs/screenshots/05-template.png)

@@ -115,8 +115,8 @@ is read automatically (no need to click "📄 Read" first) — each row of
 the table appears as it's read, rather than waiting for the whole
 read to finish. The action bar at the top of the tab is grouped:
 **📄 Read** and **🔄 Compare against template** | **⬆ Write the diffs** |
-**🕒 Set clock** and **🔌 Restart**, and on the right an **📤 Export**
-menu (**Full dump**, **Device->Template**). Progress (device detection,
+**🕒 Set clock** and **🔌 Restart**, and on the right a **💾 Backup**
+menu (**Save the device…**, **Restore / clone from a backup…**). Progress (device detection,
 field being read, contacts "x/total") shows in the connection bar at the
 top. While nothing is connected, the tab shows a card with the steps.
 
@@ -220,13 +220,17 @@ hand in that case.
   against template**, **⬆ Write the diffs**, **🕒 Set clock** (sets the
   device's clock to the PC's, direct or over LoRa — the firmware never
   sets a clock back) and **🔌 Restart** (useful after changing radio
-  parameters, which only take effect after a restart). The **📤 Export**
-  menu offers **Full dump** (saves every attribute read to a JSON file, no
-  template needed) and **Device->Template** (copies the device read into
-  the **Template** tab as a reusable base — e.g. for a batch deploy —
-  **without** the private/public key or the position; replaces the
-  current template, save it afterwards with **Save as...**) — both after
-  a full read.
+  parameters, which only take effect after a restart). The **💾 Backup**
+  menu offers:
+  - **Save the device…**: saves every attribute read to a JSON file
+    (after a full read);
+  - **Restore / clone from a backup…**: loads the file, compares it with
+    the connected device right away and guides the restore — **⬆ Write
+    the diffs** applies. The **identity** (private key) is only restored
+    if **"Also restore the identity"** is ticked (off by default, not
+    possible over LoRa): that's the difference between carrying settings
+    over and a true clone, to replace one device with another. Never keep
+    two devices with the same identity powered on.
 
   Collapsible **Device info** section → **Read info**: firmware, board,
   battery, storage, uptime, noise/RSSI/SNR, packets received/sent
@@ -315,7 +319,10 @@ hand in that case.
   top groups **➕ New** (starts with every known field already present,
   disabled `#` with a neutral placeholder value — a form to fill in
   rather than a blank page where you'd have to guess field names),
-  **📁 Load**, **💾 Save** and **Save as...**.
+  **📋 New from device** (copies the connected device's read as a
+  reusable base — e.g. for a batch deploy — **without** the
+  private/public key or the position; after a full read), **📁 Load**,
+  **💾 Save** and **Save as...**.
 
   ![Template tab](docs/screenshots/en/05-template.png)
 

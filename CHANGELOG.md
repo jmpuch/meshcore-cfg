@@ -8,6 +8,41 @@ One section per version, newest first. A section's text becomes the
 matching GitHub release description as is — write it **before** pushing
 the tag.
 
+## v3.21.1
+
+**Nouveautés**
+
+- Onglet Device : menu **💾 Sauvegarde** — **Sauvegarder le device…** et
+  **Restaurer / cloner depuis une sauvegarde…** : la sauvegarde est
+  comparée au device connecté, « Écrire les écarts » applique. L'identité
+  (clé privée) n'est restaurée que si on coche **« Restaurer aussi
+  l'identité »** (décochée par défaut, impossible via LoRa).
+- Onglet Template : **📋 Nouveau depuis le device** (l'ancien
+  « Device->Template »).
+- `path.hash.mode` s'affiche et se choisit en **octets** (1, 2 ou
+  3 octets) au lieu de la valeur brute 0/1/2, qui prêtait à confusion.
+
+**Corrections**
+
+- Bandeaux « nouvelle version » et « device non configuré » : boutons
+  lisibles (texte blanc sur bouton clair auparavant).
+
+**What's new**
+
+- Device tab: **💾 Backup** menu — **Save the device…** and **Restore /
+  clone from a backup…**: the backup is compared with the connected
+  device, "Write the diffs" applies. The identity (private key) is only
+  restored if **"Also restore the identity"** is ticked (off by default,
+  not possible over LoRa).
+- Template tab: **📋 New from device** (formerly "Device->Template").
+- `path.hash.mode` is shown and picked in **bytes** (1, 2 or 3 bytes)
+  instead of the raw 0/1/2 value, which was misleading.
+
+**Fixes**
+
+- "New version" and "device not configured" banners: readable buttons
+  (white text on a light button before).
+
 ## v3.21.0
 
 **Nouveautés**

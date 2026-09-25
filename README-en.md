@@ -281,6 +281,28 @@ hand in that case.
   panel — see the dedicated section below for the format and how to add
   a country.
 
+  Right below, the **🗺 Pick regions on the map…** button (also
+  **🗺 Regions…** next to the repeater's Position) opens a dedicated
+  window (France mainland and overseas departments, United Arab
+  Emirates): the map on the
+  left, three steps on the right — **1. Where is the repeater?** (the
+  template's position, else the device's, a pasted map link, or a click
+  on the map — **Place** / right click), **2. What range?** (slider +
+  10/20/30/50/100 km, remembered), **3. Which departments to relay?**
+  (checkboxes, distances, a `eu › fr › région › department` preview with
+  the new regions in green). A position on a border ticks every
+  department that meets there; enclaves (Enclave des Papes…) are
+  handled. An **N / 32 regions** gauge (the firmware limit) stays in
+  view with the **Set … as the home region** box and the **Add to the
+  template** button; adding closes the window, highlights the new rows
+  and reminds the next step (Device, Compare then Write the diffs).
+  Legend under the map; outlines IGN Admin Express COG 2018 / INSEE,
+  via france-geojson — Licence Ouverte (Etalab); Emirates: Natural
+  Earth (public domain). If the country's region pack isn't active, the
+  window says so and offers to enable it in one click.
+
+  ![“Regions around the repeater” window](docs/screenshots/en/09-carte-regions.png)
+
   The radio field is shown as two linked rows: **Radio preset** (an
   official regional preset name — Brazil, EU/UK (Narrow), USA/Canada...,
   23 in total) directly above **Radio** (the technical detail:

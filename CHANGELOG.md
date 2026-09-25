@@ -8,6 +8,50 @@ One section per version, newest first. A section's text becomes the
 matching GitHub release description as is — write it **before** pushing
 the tag.
 
+## v3.22.0
+
+**Nouveautés**
+
+- **Régions autour du répéteur, sur une carte** (France métropole et DOM,
+  Émirats arabes unis) : bouton **🗺 Choisir les régions sur la carte…**
+  (section Régions, onglets Template et Device) ou **🗺 Régions…** à côté
+  de la Position. Une fenêtre en 3 étapes : **où est le répéteur** (position
+  du template ou du device, lien de carte collé, ou clic sur la carte),
+  **quelle portée** (curseur, 10 à 100 km, mémorisée), **quelles zones
+  relayer** (départements / émirats touchés par le cercle, avec leur
+  distance). Une position sur une frontière coche toutes les zones qui s'y
+  rejoignent ; les enclaves sont gérées.
+- Aperçu de ce qui sera ajouté (`eu › fr › région › département`, ou
+  `ae › émirat`), jauge **N / 32 régions** (la limite d'un répéteur), case
+  **Définir … comme région home**, puis **Ajouter au template** : jamais
+  d'écrasement, les nouvelles lignes sont mises en évidence et l'étape
+  suivante est rappelée.
+- Si le pack de régions du pays n'est pas actif, la fenêtre le signale et
+  propose de l'activer d'un clic.
+- Contours : IGN Admin Express COG 2018 / INSEE via france-geojson (Licence
+  Ouverte, Etalab) ; Émirats : Natural Earth (domaine public).
+
+**What's new**
+
+- **Regions around the repeater, on a map** (France mainland and overseas
+  departments, United Arab Emirates): **🗺 Pick regions on the map…**
+  button (Regions section, Template and Device tabs) or **🗺 Regions…** next
+  to the Position. A 3-step window: **where is the repeater** (the
+  template's or device's position, a pasted map link, or a click on the
+  map), **what range** (slider, 10 to 100 km, remembered), **which areas to
+  relay** (departments / emirates the circle touches, with their
+  distance). A position on a border ticks every area that meets there;
+  enclaves are handled.
+- Preview of what will be added (`eu › fr › région › department`, or
+  `ae › emirate`), an **N / 32 regions** gauge (a repeater's limit), a
+  **Set … as the home region** box, then **Add to the template**: nothing
+  is ever overwritten, the new rows are highlighted and the next step is
+  shown.
+- If the country's region pack isn't active, the window says so and
+  offers to enable it in one click.
+- Outlines: IGN Admin Express COG 2018 / INSEE via france-geojson (Licence
+  Ouverte, Etalab); Emirates: Natural Earth (public domain).
+
 ## v3.21.1
 
 **Nouveautés**

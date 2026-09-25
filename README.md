@@ -295,6 +295,28 @@ alors l'archive à la main.
   voir la section dédiée plus bas pour le format et comment ajouter un
   pays.
 
+  Juste en dessous, le bouton **🗺 Choisir les régions sur la carte…**
+  (aussi **🗺 Régions…** à côté de la Position du répéteur) ouvre une
+  fenêtre dédiée (France métropole et DOM, Émirats arabes unis) : la carte à gauche, trois
+  étapes à droite — **1. Où est le répéteur ?** (position du template,
+  sinon lue sur le device, lien de carte collé, ou clic sur la carte —
+  **Placer** / clic droit), **2. Quelle portée ?** (curseur + 10/20/30/
+  50/100 km, mémorisé), **3. Quels départements relayer ?** (cases,
+  distances, aperçu `eu › fr › région › département` avec les nouvelles
+  régions en vert). Une position sur une frontière coche tous les
+  départements qui s'y rejoignent ; les enclaves (Enclave des Papes…)
+  sont gérées. Une jauge **N / 32 régions** (la limite du firmware)
+  reste visible avec la case **Définir … comme région home** et le
+  bouton **Ajouter au template** ; l'ajout referme la fenêtre, met en
+  évidence les nouvelles lignes et rappelle l'étape suivante (Device,
+  Comparer puis Écrire les écarts). Légende sous la carte ; contours
+  IGN Admin Express COG 2018 / INSEE, via france-geojson — Licence
+  Ouverte (Etalab) ; Émirats : Natural Earth (domaine public). Si le
+  pack de régions du pays n'est pas actif, la fenêtre le signale et
+  propose de l'activer d'un clic.
+
+  ![Fenêtre « Régions autour du répéteur »](docs/screenshots/09-carte-regions.png)
+
   Le champ radio est présenté sur deux lignes liées : **Preset radio**
   (nom d'un préréglage régional officiel — Brazil, EU/UK (Narrow),
   USA/Canada..., 23 au total) juste au-dessus de **Radio** (le détail

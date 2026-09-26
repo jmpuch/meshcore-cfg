@@ -17,6 +17,18 @@ nRF52, y compris la mise à jour du bootloader OTAFIX).
 > pour le détail de chaque version). Si l'outil intéresse plus largement,
 > les sources suivront.
 
+## Version web (sans installation)
+
+**<https://jmpuch.github.io/meshcore-cfg/>** — la même application,
+directement dans le navigateur : rien à installer, toujours la dernière
+version. Connexion par **USB** (Web Serial) et **Bluetooth** pour les
+companions (Web Bluetooth). Nécessite **Chrome, Edge ou Opera** sur
+ordinateur (Firefox et Safari n'ont pas ces API) ; le port ou l'appareil
+se choisit dans la fenêtre du navigateur au clic sur « Connecter ».
+Installable comme une application (icône « Installer » dans la barre
+d'adresse). Pas encore de flash de firmware dans cette version : utiliser
+l'application de bureau ci-dessous.
+
 ## Installation
 
 Télécharger l'archive correspondant à votre système depuis la page

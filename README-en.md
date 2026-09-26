@@ -17,6 +17,17 @@ including the OTAFIX bootloader update).
 > for details on each version). If there's enough interest, the source
 > will follow.
 
+## Web version (nothing to install)
+
+**<https://jmpuch.github.io/meshcore-cfg/>** — the same application,
+right in the browser: nothing to install, always the latest version.
+Connects over **USB** (Web Serial) and **Bluetooth** for companions (Web
+Bluetooth). Needs **Chrome, Edge or Opera** on a computer (Firefox and
+Safari lack these APIs); the port or device is chosen in the browser's
+window when you click “Connect”. Installable as an app (“Install” icon in
+the address bar). No firmware flashing in this version yet: use the
+desktop application below.
+
 ## Installation
 
 Download the archive for your system from the

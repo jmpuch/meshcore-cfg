@@ -23,8 +23,13 @@ async function remember(request, response) {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
+  // GitHub Pages serves everything with max-age=600: without this, the
+  // browser's own HTTP cache could hand back the previous index.html (and
+  // so the previous version) for up to 10 minutes after a publish. The
+  // hashed wasm/js never change under a given name: plain fetch for them.
+  const hashed = HASHED.test(new URL(event.request.url).pathname);
   event.respondWith(
-    fetch(event.request)
+    (hashed ? fetch(event.request) : fetch(event.request.url, { cache: 'no-cache' }))
       .then((response) => {
         if (response.ok) event.waitUntil(remember(event.request, response.clone()));
         return response;

@@ -20,13 +20,45 @@ including the OTAFIX bootloader update).
 ## Web version (nothing to install)
 
 **<https://jmpuch.github.io/meshcore-cfg/>** — the same application,
-right in the browser: nothing to install, always the latest version.
-Connects over **USB** (Web Serial) and **Bluetooth** for companions (Web
-Bluetooth). Needs **Chrome, Edge or Opera** on a computer (Firefox and
-Safari lack these APIs); the port or device is chosen in the browser's
-window when you click “Connect”. Installable as an app (“Install” icon in
-the address bar). No firmware flashing in this version yet: use the
-desktop application below.
+right in the browser: nothing to install, always the latest published
+version. Same interface and features as the desktop application (Device,
+Template, Contacts, Commands, Flash, Batch deploy, Private tabs, region
+map, FR/EN, themes).
+
+- **Connection**: **USB** for every device (Web Serial) and **Bluetooth**
+  for companions (Web Bluetooth). No port list in the application: on
+  **Connect**, the browser's own window offers the port or device
+  (filtered on MeshCore companions over Bluetooth; pairing, if needed,
+  goes through the usual system window).
+- **Flashing**: **nRF52** boards (`.zip`: RAK4631, Heltec T114, XIAO,
+  T1000-E…) over **USB cable or Bluetooth**, **ESP32** boards (merged
+  `.bin`: Heltec V2/V3/V4…) over **USB cable** (through Espressif's
+  esptool-js, shipped with the page). A running nRF52 is switched to its
+  update mode automatically; it then comes back under another USB
+  identity (or as a new Bluetooth device) that the browser asks you to
+  pick (over USB **only once**: it remembers it afterwards). OTAFIX bootloader update
+  over the cable, with the same mandatory confirmation as the desktop
+  application.
+- **Files**: the templates and region packs shipped with the application
+  are built into the page (**Bundled templates**, **+ Bundled pack**);
+  **Load** also opens a file from your computer; any save (template,
+  device backup, contacts, CSV series) becomes a **download**.
+- **Differences from the desktop application**: no flashing of a remote
+  target over LoRa (relayed `start ota`), no debug log, no list of plugged
+  boards (the browser can't enumerate them). Bluetooth flashing, disabled
+  in the Windows application, is on the other hand available in the web
+  version (Chrome handles the Bluetooth).
+- **Browsers**: **Chrome, Edge or Opera** on a computer (Windows, macOS,
+  Linux; on Linux web Bluetooth may need a Chrome option). On **Android**,
+  Chrome gives Bluetooth but not USB. Firefox and Safari lack these APIs.
+- **Installable** as an app (**Install** icon in the address bar); it then
+  also works offline.
+- **Privacy**: the page is a plain static file; everything happens in
+  your browser, between it and the device. Nothing is sent to a server;
+  settings (language, size, private directory…) stay in the browser.
+
+The running version is shown at the bottom of the **⚙ Settings** menu and
+in the tab title.
 
 ## Installation
 
@@ -169,7 +201,8 @@ remembered automatically and reloaded the next time the program starts.
 
 The **⚙ Settings** button, on the right of the connection bar, opens a
 panel with the interface size, the language and the theme. It stays open
-while you click inside it, and closes with a click outside.
+while you click inside it, and closes with a click outside. The running
+program version is shown at the bottom of the panel.
 
 ### Interface size
 
@@ -198,7 +231,10 @@ backgrounds, contrasted status colors), not just an inverted dark one.
 
 ## Updates
 
-At startup, the program checks GitHub for a newer published version. If
+**Web version**: nothing to do, the page is always the latest published
+version (a reload is enough after a release).
+
+**Desktop application**: at startup, the program checks GitHub for a newer published version. If
 there is one, a blue banner at the top of the window says so, with an
 **Update** button: it downloads your platform's archive, checks its
 SHA-256 digest (the one GitHub computes for every published file), then

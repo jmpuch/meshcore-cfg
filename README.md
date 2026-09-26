@@ -21,13 +21,49 @@ nRF52, y compris la mise à jour du bootloader OTAFIX).
 
 **<https://jmpuch.github.io/meshcore-cfg/>** — la même application,
 directement dans le navigateur : rien à installer, toujours la dernière
-version. Connexion par **USB** (Web Serial) et **Bluetooth** pour les
-companions (Web Bluetooth). Nécessite **Chrome, Edge ou Opera** sur
-ordinateur (Firefox et Safari n'ont pas ces API) ; le port ou l'appareil
-se choisit dans la fenêtre du navigateur au clic sur « Connecter ».
-Installable comme une application (icône « Installer » dans la barre
-d'adresse). Pas encore de flash de firmware dans cette version : utiliser
-l'application de bureau ci-dessous.
+version publiée. Même interface et mêmes fonctions que l'application de
+bureau (onglets Device, Template, Contacts, Commandes, Flash, Déploiement
+en lot, Privé, carte des régions, FR/EN, thèmes).
+
+- **Connexion** : **USB** pour tous les devices (Web Serial) et
+  **Bluetooth** pour les companions (Web Bluetooth). Pas de liste de ports
+  dans l'application : au clic sur **Connecter**, c'est la fenêtre du
+  navigateur qui propose le port ou l'appareil (filtrée sur les
+  companions MeshCore en Bluetooth ; l'appairage éventuel passe par la
+  fenêtre habituelle du système).
+- **Flash** : cartes **nRF52** (`.zip` : RAK4631, Heltec T114, XIAO,
+  T1000-E…) par **câble USB ou Bluetooth**, cartes **ESP32** (`.bin`
+  fusionné : Heltec V2/V3/V4…) par **câble USB** (via esptool-js
+  d'Espressif, livré avec la page). Pour un nRF52 en marche, la carte est
+  basculée toute seule en mode mise à jour ; elle réapparaît alors sous
+  une autre identité USB (ou comme un nouvel appareil Bluetooth) que le
+  navigateur demande de choisir (en USB, **une seule fois** : il s'en
+  souvient ensuite).
+  Mise à jour du bootloader OTAFIX par câble, avec la même confirmation
+  obligatoire que l'application de bureau.
+- **Fichiers** : les templates et packs de régions livrés avec
+  l'application sont intégrés à la page (**Modèles fournis**,
+  **+ Pack fourni**) ; **Charger** ouvre aussi un fichier de ton
+  ordinateur ; tout enregistrement (template, sauvegarde du device,
+  contacts, série CSV) devient un **téléchargement**.
+- **Différences avec l'application de bureau** : pas de flash d'une cible
+  distante via LoRa (`start ota` relayé), pas de journal de debug, pas de
+  liste des cartes branchées (le navigateur ne peut pas les énumérer). Le
+  flash Bluetooth, désactivé dans l'application Windows, est en revanche
+  disponible dans la version web (c'est Chrome qui gère le Bluetooth).
+- **Navigateurs** : **Chrome, Edge ou Opera** sur ordinateur (Windows,
+  macOS, Linux ; sous Linux le Bluetooth web peut demander une option de
+  Chrome). Sur **Android**, Chrome donne le Bluetooth mais pas l'USB.
+  Firefox et Safari n'ont pas ces API.
+- **Installable** comme une application (icône **Installer** dans la barre
+  d'adresse) ; fonctionne ensuite aussi hors connexion.
+- **Confidentialité** : la page est un simple fichier statique ; tout se
+  passe dans ton navigateur, entre lui et le device. Rien n'est envoyé à
+  un serveur ; les réglages (langue, taille, répertoire privé…) restent
+  dans le navigateur.
+
+La version en cours est affichée en bas du menu **⚙ Réglages** et dans le
+titre de l'onglet.
 
 ## Installation
 
@@ -175,7 +211,8 @@ rechargé au prochain lancement du programme.
 
 Le bouton **⚙ Réglages**, à droite de la barre de connexion, ouvre un
 panneau qui regroupe la taille de l'interface, la langue et le thème. Il
-reste ouvert tant qu'on clique dedans, et se ferme d'un clic à côté.
+reste ouvert tant qu'on clique dedans, et se ferme d'un clic à côté. La
+version du programme en cours est indiquée en bas du panneau.
 
 ### Taille de l'interface
 
@@ -205,7 +242,10 @@ teintés, couleurs d'état contrastées), pas seulement l'inverse du sombre.
 
 ## Mises à jour
 
-Au lancement, le programme vérifie sur GitHub si une version plus récente
+**Version web** : rien à faire, la page est toujours la dernière version
+publiée (un rechargement suffit après une publication).
+
+**Application de bureau** : au lancement, le programme vérifie sur GitHub si une version plus récente
 est publiée. Si c'est le cas, un bandeau bleu le signale en haut de la
 fenêtre, avec un bouton **Mettre à jour** : il télécharge l'archive de ta
 plateforme, vérifie son empreinte SHA-256 (celle que GitHub calcule pour

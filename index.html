@@ -11,8 +11,8 @@
   <link rel="apple-touch-icon" href="icon-192.png">
   
 <script type="module">
-import init, * as bindings from '/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6.js';
-const wasm = await init({ module_or_path: '/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6_bg.wasm' });
+import init, * as bindings from '/meshcore-cfg/meshcore-cfg-web-990eb1ca4d3bef88.js';
+const wasm = await init({ module_or_path: '/meshcore-cfg/meshcore-cfg-web-990eb1ca4d3bef88_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -26,13 +26,16 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
   
   
   
+  <!-- esptool-js 0.7.0 (Apache-2.0, Espressif), loaded on demand to flash ESP32 boards -->
+  
+  
   <style>
     html, body { margin: 0; height: 100%; overflow: hidden; background: #f4f7fb; font-family: sans-serif; }
     @media (prefers-color-scheme: dark) { html, body { background: #1b1b1b; color: #ddd; } }
     canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
     #loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #6b7a90; }
   </style>
-<link rel="modulepreload" href="/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6.js" crossorigin="anonymous" integrity="sha384-3zQ5/KwoC7ptLFxB/v9hhvOfd2VIizeX9BTebA4nEOk9t+C13sPl052JDKfqqkW7"></head>
+<link rel="modulepreload" href="/meshcore-cfg/meshcore-cfg-web-990eb1ca4d3bef88.js" crossorigin="anonymous" integrity="sha384-A2RgWWURY/ONsFFTAELn3YmM1+tEuW+rhhW4kq1zh+597oYQH2Q5dxMi02TE4CKC"><link rel="modulepreload" href="/meshcore-cfg/snippets/meshcore-cfg-3435f930cfb4d6c7/inline0.js" crossorigin="anonymous" integrity="sha384-mktXV5sEFfybd0EDPJNR9xMSXR2JXmC5cPJKsF5mIEhljwlwjg5eHTAgyc13MyaR"></head>
 <body>
   <div id="loading">Chargement de meshcore-cfg… / Loading meshcore-cfg…</div>
   <canvas id="app"></canvas>

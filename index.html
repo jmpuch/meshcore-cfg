@@ -41,6 +41,13 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
   <canvas id="app"></canvas>
   <script>
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+    // Compteur de visites anonyme (GoatCounter) : seulement sur le site publié,
+    // seulement « la page a été ouverte » — /app si installée comme application.
+    // Aucune donnée des devices ; voir le README (Version web → Confidentialité).
+    if (location.hostname === 'jmpuch.github.io') {
+      const path = matchMedia('(display-mode: standalone)').matches ? '/app' : '/web';
+      new Image().src = 'https://meshcore-cfg.goatcounter.com/count?p=' + path + '&t=meshcore-cfg&rnd=' + Math.random().toString(36).slice(2);
+    }
   </script>
 </body>
 </html>

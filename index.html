@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>meshcore-cfg</title>
+  <meta name="description" content="Configuration des devices MeshCore par USB ou Bluetooth, dans le navigateur.">
+  <meta name="theme-color" content="#216ec4">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+<script type="module">
+import init, * as bindings from '/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6.js';
+const wasm = await init({ module_or_path: '/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  
+  
+  
+  
+  
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #f4f7fb; font-family: sans-serif; }
+    @media (prefers-color-scheme: dark) { html, body { background: #1b1b1b; color: #ddd; } }
+    canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #6b7a90; }
+  </style>
+<link rel="modulepreload" href="/meshcore-cfg/meshcore-cfg-web-8b8344677a86a7a6.js" crossorigin="anonymous" integrity="sha384-3zQ5/KwoC7ptLFxB/v9hhvOfd2VIizeX9BTebA4nEOk9t+C13sPl052JDKfqqkW7"></head>
+<body>
+  <div id="loading">Chargement de meshcore-cfg… / Loading meshcore-cfg…</div>
+  <canvas id="app"></canvas>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+  </script>
+</body>
+</html>

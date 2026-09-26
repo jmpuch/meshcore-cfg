@@ -58,9 +58,14 @@ en lot, Privé, carte des régions, FR/EN, thèmes).
 - **Installable** comme une application (icône **Installer** dans la barre
   d'adresse) ; fonctionne ensuite aussi hors connexion.
 - **Confidentialité** : la page est un simple fichier statique ; tout se
-  passe dans ton navigateur, entre lui et le device. Rien n'est envoyé à
-  un serveur ; les réglages (langue, taille, répertoire privé…) restent
-  dans le navigateur.
+  passe dans ton navigateur, entre lui et le device, et les réglages
+  (langue, taille, répertoire privé…) restent dans le navigateur. Seule
+  exception : à chaque ouverture, un **compteur de visites anonyme**
+  ([GoatCounter](https://www.goatcounter.com/), sans cookie) reçoit
+  « la page a été ouverte » (dans un onglet ou comme application
+  installée) — jamais aucune donnée des devices, des templates ou des
+  contacts. C'est ce qui remplace, pour la version web, les compteurs de
+  téléchargement des releases.
 
 La version en cours est affichée en bas du menu **⚙ Réglages** et dans le
 titre de l'onglet.

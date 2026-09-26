@@ -54,8 +54,13 @@ map, FR/EN, themes).
 - **Installable** as an app (**Install** icon in the address bar); it then
   also works offline.
 - **Privacy**: the page is a plain static file; everything happens in
-  your browser, between it and the device. Nothing is sent to a server;
-  settings (language, size, private directory…) stay in the browser.
+  your browser, between it and the device, and settings (language, size,
+  private directory…) stay in the browser. Only exception: each time the
+  page opens, an **anonymous visit counter**
+  ([GoatCounter](https://www.goatcounter.com/), no cookies) receives
+  "the page was opened" (in a tab or as an installed app) — never any
+  device, template or contact data. It stands in, for the web version,
+  for the releases' download counts.
 
 The running version is shown at the bottom of the **⚙ Settings** menu and
 in the tab title.
